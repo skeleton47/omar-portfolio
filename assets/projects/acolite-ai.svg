@@ -1,63 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGradAco" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#021a29"/>
-      <stop offset="50%" stop-color="#02080f"/>
-      <stop offset="100%" stop-color="#010408"/>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#031d2c"/>
+      <stop offset="60%" stop-color="#020912"/>
+      <stop offset="100%" stop-color="#010307"/>
     </linearGradient>
-    <radialGradient id="aiOrb" cx="50%" cy="50%" r="50%">
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="70%" stop-color="#0369a1"/>
-      <stop offset="100%" stop-color="#022030"/>
+      <stop offset="60%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#032b42"/>
     </radialGradient>
   </defs>
-  <rect width="600" height="320" fill="url(#bgGradAco)"/>
+  <rect width="600" height="340" fill="url(#bg2)"/>
+
+  <!-- Top Bar -->
+  <rect x="0" y="0" width="600" height="36" fill="rgba(0, 0, 0, 0.7)" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1"/>
+  <circle cx="20" cy="18" r="4.5" fill="#ef4444"/>
+  <circle cx="35" cy="18" r="4.5" fill="#fbbf24"/>
+  <circle cx="50" cy="18" r="4.5" fill="#38bdf8"/>
+  <text x="75" y="22" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">ACOLITE.XYZ // AI TALENT RECRUITER PLATFORM</text>
+  <rect x="490" y="8" width="95" height="20" rx="4" fill="rgba(56, 189, 248, 0.15)" stroke="rgba(56, 189, 248, 0.4)"/>
+  <text x="537" y="22" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">ONLINE</text>
+
+  <!-- Left Candidate Match Card -->
+  <rect x="25" y="55" width="260" height="260" rx="10" fill="rgba(3, 18, 30, 0.85)" stroke="rgba(56, 189, 248, 0.3)"/>
+  <circle cx="65" cy="100" r="24" fill="#0284c7"/>
+  <text x="65" y="106" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">OE</text>
+  <text x="105" y="94" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">Omar Elshayal</text>
+  <text x="105" y="112" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10.5">Senior .NET / SecOps Lead</text>
+
+  <rect x="40" y="140" width="230" height="34" rx="6" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.25)"/>
+  <text x="55" y="161" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">GEMINI MATCH: 98.6%</text>
+
+  <text x="40" y="200" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">AI VERIFIED CAPABILITIES:</text>
   
-  <!-- Window Bar -->
-  <rect x="0" y="0" width="600" height="28" fill="rgba(0,0,0,0.6)" stroke="rgba(56,189,248,0.2)" stroke-width="1"/>
-  <circle cx="15" cy="14" r="4" fill="#ef4444"/>
-  <circle cx="28" cy="14" r="4" fill="#fbbf24"/>
-  <circle cx="41" cy="14" r="4" fill="#38bdf8"/>
-  <text x="60" y="18" fill="#94a3b8" font-family="monospace" font-size="11" font-weight="bold">ACOLITE.XYZ // GEMINI AI RECRUITER &amp; TALENT MATCH ENGINE</text>
+  <rect x="40" y="215" width="105" height="24" rx="4" fill="rgba(168, 85, 247, 0.2)" stroke="rgba(168, 85, 247, 0.4)"/>
+  <text x="50" y="231" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">C# .NET 8 API</text>
 
-  <!-- Left: Candidate Profile -->
-  <rect x="20" y="45" width="220" height="250" rx="8" fill="rgba(3,15,25,0.85)" stroke="rgba(56,189,248,0.3)" stroke-width="1"/>
-  <circle cx="55" cy="85" r="22" fill="#0369a1"/>
-  <text x="55" y="90" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">OE</text>
-  <text x="90" y="78" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">Omar Elshayal</text>
-  <text x="90" y="94" fill="#38bdf8" font-family="monospace" font-size="9">Senior .NET / SecOps</text>
-  
-  <rect x="35" y="125" width="190" height="32" rx="4" fill="rgba(56,189,248,0.1)"/>
-  <text x="45" y="145" fill="#e2e8f0" font-family="monospace" font-size="9.5">Score: 98.6% (Top 1%)</text>
-  
-  <text x="35" y="185" fill="#94a3b8" font-family="monospace" font-size="9">SKILLS VERIFIED BY AI:</text>
-  <rect x="35" y="195" width="85" height="20" rx="3" fill="rgba(168,85,247,0.2)"/>
-  <text x="42" y="209" fill="#c084fc" font-family="monospace" font-size="8.5">C# .NET 8</text>
-  <rect x="125" y="195" width="85" height="20" rx="3" fill="rgba(56,189,248,0.2)"/>
-  <text x="132" y="209" fill="#38bdf8" font-family="monospace" font-size="8.5">React + TS</text>
+  <rect x="155" y="215" width="105" height="24" rx="4" fill="rgba(56, 189, 248, 0.2)" stroke="rgba(56, 189, 248, 0.4)"/>
+  <text x="165" y="231" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">React 18 + TS</text>
 
-  <rect x="35" y="222" width="100" height="20" rx="3" fill="rgba(0,255,102,0.2)"/>
-  <text x="42" y="236" fill="#00ff66" font-family="monospace" font-size="8.5">Cybersecurity</text>
+  <rect x="40" y="250" width="125" height="24" rx="4" fill="rgba(0, 255, 102, 0.2)" stroke="rgba(0, 255, 102, 0.4)"/>
+  <text x="50" y="266" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">SOC / Fortinet</text>
 
-  <!-- Center AI Node Orb -->
-  <circle cx="300" cy="170" r="38" fill="url(#aiOrb)" stroke="#38bdf8" stroke-width="2"/>
-  <text x="300" y="165" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">GEMINI</text>
-  <text x="300" y="180" fill="#38bdf8" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">1.5 PRO</text>
-  <line x1="240" y1="170" x2="262" y2="170" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4"/>
-  <line x1="338" y1="170" x2="360" y2="170" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4"/>
+  <!-- Right: Real-time SignalR Communication & AI Orchestration -->
+  <rect x="305" y="55" width="270" height="260" rx="10" fill="rgba(3, 18, 30, 0.85)" stroke="rgba(56, 189, 248, 0.3)"/>
+  <text x="325" y="85" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">SIGNALR REAL-TIME CHAT</text>
 
-  <!-- Right: Real-time SignalR Chat & Match Result -->
-  <rect x="360" y="45" width="220" height="250" rx="8" fill="rgba(3,15,25,0.85)" stroke="rgba(56,189,248,0.3)" stroke-width="1"/>
-  <text x="375" y="70" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold">SIGNALR REAL-TIME CHAT</text>
-  
-  <rect x="375" y="85" width="190" height="40" rx="4" fill="rgba(0,0,0,0.5)"/>
-  <text x="385" y="102" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Founder @ Startup:</text>
-  <text x="385" y="117" fill="#ffffff" font-family="sans-serif" font-size="9">"Looking for .NET 8 API lead!"</text>
+  <rect x="325" y="105" width="230" height="48" rx="6" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="335" y="125" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Startup CTO @ Web3:</text>
+  <text x="335" y="142" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="bold">"Need scalable .NET 8 Backend!"</text>
 
-  <rect x="375" y="135" width="190" height="40" rx="4" fill="rgba(56,189,248,0.15)"/>
-  <text x="385" y="152" fill="#38bdf8" font-family="sans-serif" font-size="8.5">AI Recruiter Assistant:</text>
-  <text x="385" y="167" fill="#ffffff" font-family="sans-serif" font-size="9">"Matched Omar (98.6% Fit Score)"</text>
+  <rect x="325" y="165" width="230" height="48" rx="6" fill="rgba(56, 189, 248, 0.15)" stroke="rgba(56, 189, 248, 0.3)"/>
+  <text x="335" y="185" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="10">Gemini AI Assistant:</text>
+  <text x="335" y="202" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="bold">"Omar is available &amp; top fit."</text>
 
-  <rect x="375" y="240" width="190" height="35" rx="6" fill="#0284c7"/>
-  <text x="470" y="262" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">HIRE TALENT DIRECTLY</text>
+  <rect x="325" y="240" width="230" height="42" rx="6" fill="#0284c7"/>
+  <text x="440" y="266" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">ESTABLISH CONTRACT</text>
 </svg>

@@ -11,8 +11,9 @@
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=17.0">
+    <link rel="stylesheet" href="style.css?v=18.0">
 </head>
+
 
 
 
@@ -528,34 +529,14 @@
             <div class="projects-grid">
                 <!-- Project 1: FortiSIEM & FortiAnalyzer Suite -->
                 <div class="project-card">
-                    <div class="project-preview project-preview-soc">
+                    <div class="project-preview">
                         <!-- Project Image / Screenshot with Fallback -->
                         <img src="assets/projects/fortisiem-soc.svg" class="project-card-img" alt="FortiSIEM &amp; FortiAnalyzer SOC Suite">
-                        <div class="project-hud-overlay">
-                            <div class="preview-hud-header">
-                                <span class="hud-status-chip live-chip"><span class="chip-dot"></span> LIVE SIEM LOGS</span>
-                                <span class="hud-mono-meta">PORT: 443 // 10.0.0.1</span>
-                            </div>
-                            <div class="soc-log-feed">
-                                <div class="soc-log-item">
-                                    <span class="log-badge alert-badge"><i class="fa-solid fa-triangle-exclamation"></i> ALERT</span>
-                                    <span class="log-text">Brute Force Detected [47 req/s]</span>
-                                </div>
-                                <div class="soc-log-item">
-                                    <span class="log-badge ban-badge"><i class="fa-solid fa-ban"></i> AUTO-BAN</span>
-                                    <span class="log-text">FortiGate Blocked IP: 198.51.100.24</span>
-                                </div>
-                                <div class="soc-log-item">
-                                    <span class="log-badge success-badge"><i class="fa-solid fa-shield-halved"></i> HARDENED</span>
-                                    <span class="log-text">15+ Scenarios Mitigated (NTI 2026)</span>
-                                </div>
-                            </div>
-                            <div class="preview-hud-footer">
-                                <span><i class="fa-solid fa-shield-halved text-green"></i> FABRIC: 100% INTACT</span>
-                                <span>LATENCY: 0.8ms</span>
-                            </div>
-                            <div class="cyber-scan-line"></div>
+                        <div class="project-hud-bar">
+                            <span class="hud-status-chip live-chip"><span class="chip-dot"></span> LIVE SIEM LOGS</span>
+                            <span class="hud-mono-meta">PORT: 443 // 10.0.0.1</span>
                         </div>
+                        <div class="cyber-scan-line"></div>
                     </div>
                     <div class="project-info">
                         <div class="project-badge-top"><i class="fa-solid fa-shield-halved"></i> SIEM &amp; SOC OPERATIONS // NTI 2026</div>
@@ -582,32 +563,14 @@
 
                 <!-- Project 2: Acolite AI Freelance Platform -->
                 <div class="project-card">
-                    <div class="project-preview project-preview-neural">
+                    <div class="project-preview">
                         <!-- Project Image / Screenshot with Fallback -->
                         <img src="assets/projects/acolite-ai.svg" class="project-card-img" alt="Acolite AI Freelance Platform">
-                        <div class="project-hud-overlay">
-                            <div class="preview-hud-header">
-                                <span class="hud-status-chip ai-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> GEMINI AI RECRUITER</span>
-                                <span class="hud-mono-meta">SEMANTIC MATCH: 98.6%</span>
-                            </div>
-                            <div class="neural-match-preview">
-                                <div class="neural-node-chip left-chip">
-                                    <i class="fa-solid fa-code text-purple"></i> .NET 8 API
-                                </div>
-                                <div class="neural-core-orb">
-                                    <i class="fa-solid fa-brain"></i>
-                                    <div class="neural-pulse-ring"></div>
-                                </div>
-                                <div class="neural-node-chip right-chip">
-                                    <i class="fa-brands fa-react text-cyan"></i> React + TS
-                                </div>
-                            </div>
-                            <div class="preview-hud-footer">
-                                <span><i class="fa-solid fa-check text-cyan"></i> VETTED TALENT MATCHED</span>
-                                <span><i class="fa-solid fa-bolt text-green"></i> SIGNALR REAL-TIME</span>
-                            </div>
-                            <div class="cyber-scan-line"></div>
+                        <div class="project-hud-bar">
+                            <span class="hud-status-chip ai-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> GEMINI AI RECRUITER</span>
+                            <span class="hud-mono-meta">SEMANTIC MATCH: 98.6%</span>
                         </div>
+                        <div class="cyber-scan-line"></div>
                     </div>
                     <div class="project-info">
                         <div class="project-badge-top"><i class="fa-solid fa-brain"></i> FULL-STACK &amp; AI RECRUITMENT PLATFORM</div>
@@ -638,25 +601,14 @@
 
                 <!-- Project 3: MvcTask -->
                 <div class="project-card">
-                    <div class="project-preview project-preview-arch">
+                    <div class="project-preview">
                         <!-- Project Image / Screenshot with Fallback -->
                         <img src="assets/projects/mvctask-arch.svg" class="project-card-img" alt="MvcTask Multi-Tier System">
-                        <div class="project-hud-overlay">
-                            <div class="preview-hud-header">
-                                <span class="hud-status-chip arch-chip"><i class="fa-solid fa-layer-group"></i> CLEAN ARCHITECTURE</span>
-                                <span class="hud-mono-meta">.NET 9 // RESILIENT</span>
-                            </div>
-                            <div class="arch-tiers-preview">
-                                <div class="arch-tier-pill"><i class="fa-solid fa-window-maximize"></i> UI &amp; MVC Controllers</div>
-                                <div class="arch-arrow-flow"><i class="fa-solid fa-arrow-down-long"></i> Service Layer &amp; DTOs <i class="fa-solid fa-arrow-down-long"></i></div>
-                                <div class="arch-tier-pill highlight"><i class="fa-solid fa-database"></i> EF Core Repo &amp; SQL Server</div>
-                            </div>
-                            <div class="preview-hud-footer">
-                                <span><i class="fa-solid fa-check text-green"></i> DI RESOLUTION: 100%</span>
-                                <span>SQL RETRY: ACTIVE</span>
-                            </div>
-                            <div class="cyber-scan-line"></div>
+                        <div class="project-hud-bar">
+                            <span class="hud-status-chip arch-chip"><i class="fa-solid fa-layer-group"></i> CLEAN ARCHITECTURE</span>
+                            <span class="hud-mono-meta">.NET 9 // RESILIENT</span>
                         </div>
+                        <div class="cyber-scan-line"></div>
                     </div>
                     <div class="project-info">
                         <div class="project-badge-top"><i class="fa-solid fa-layer-group"></i> CLEAN ARCHITECTURE // ASP.NET CORE 9</div>
@@ -681,6 +633,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- Compact & Sleek Cyber CTA Button to Full Archive -->
             <div class="projects-cta-container">
