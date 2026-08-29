@@ -196,31 +196,40 @@ function initInteractiveTerminal() {
     const commands = {
         'help': () => ({
             type: 'success',
-            text: `Available commands:\n  • about       - Display bio & information\n  • skills      - List core cybersecurity tools & technologies\n  • projects    - View featured security projects\n  • certs       - View certifications & achievements\n  • contact     - Show contact links and channels\n  • clear       - Clear terminal history\n  • whoami      - Print current user identity\n  • matrix      - Trigger cyber matrix rain effect`
+            text: `Available commands:\n  • about       - Display bio & information\n  • skills      - List core .NET, React & Security skills\n  • projects    - View featured engineering projects (Acolite, MvcTask)\n  • exp         - View career history & ICPC coaching\n  • certs       - View certifications & education\n  • contact     - Show direct email, phone & LinkedIn\n  • clear       - Clear terminal history\n  • whoami      - Print current user identity\n  • matrix      - Trigger cyber matrix mode`
         }),
         'about': () => ({
             type: 'default',
-            text: `Omar - Cyber Security Student\nFocus: Web Application Security, Penetration Testing & Network Defense.\nPassionate about finding zero-days and building robust systems.`
+            text: `Omar Hisham Mohamed Elshayal\nFull-Stack .NET Developer | Intelligent Cybersecurity Undergrad @ Horus University (GPA 3.02)\nICPC Instructor mentoring 50+ students in C++ & algorithms.`
         }),
         'cat about_me.txt': () => ({
             type: 'default',
-            text: `Name     : Omar\nRole     : Cyber Security Student\nFocus    : Web Security, Network Security, Penetration Testing\nLocation : Egypt\nMission  : Secure today, protect tomorrow.`
+            text: `Name       : Omar Hisham Mohamed Elshayal\nRole       : Full-Stack .NET Developer | ICPC Instructor\nEducation  : B.Sc. Intelligent Cybersecurity @ Horus University (GPA 3.02)\nFocus      : C#, .NET 8/9, ASP.NET Core, React, AI Integration, Network Security\nLocation   : New Damietta, Damietta, Egypt\nLeadership : Trained 50+ students for national ICPC qualifiers\nMission    : Secure today, architect for scale tomorrow.`
         }),
         'skills': () => ({
             type: 'success',
-            text: `[+] Operating Systems: Linux (Kali, Ubuntu, Arch), Windows Server\n[+] Security Tools   : Burp Suite, Wireshark, Metasploit, Nmap, Ghidra\n[+] Languages        : Python, Bash, C#, SQL, JavaScript\n[+] Core Focus       : OWASP Top 10, Network Analysis, Reverse Engineering`
+            text: `[+] Backend & .NET : C#, .NET 8/9, ASP.NET Core (Web API & MVC), EF Core, LINQ, SignalR, JWT, DI\n[+] Frontend       : React.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Bootstrap\n[+] Languages      : C#, C++, Python, JavaScript, TypeScript, SQL, Java, C\n[+] Databases/Cloud: SQL Server, EF Migrations, Docker, Railway, Vercel, Postman, Git\n[+] Security       : Network Security, Wireshark, Metasploit, Cisco Packet Tracer, Linux Hardening`
         }),
         'projects': () => ({
             type: 'success',
-            text: `1. Vulnerability Scanner  - Python-based automated scanner for web apps\n2. Brute Force Detector   - Real-time intrusion logger built with Flask & SQLite\n3. Packet Analyzer        - Network traffic inspector with Scapy & PyQt`
+            text: `1. Acolite  - Full-Stack AI Freelance Platform (C#, .NET 8, React, TypeScript, Gemini AI, SignalR)\n              Live: https://acolite.xyz | Repo: github.com/skeleton47/acolite.xyz_iti_.net\n2. MvcTask  - Multi-tier ASP.NET Core MVC Management System (C#, .NET 9, EF Core, SQL Server)\n              Repo: github.com/skeleton47/MvcTask\n3. CyberLab - Network Hardening & Packet Inspection Suite (Wireshark, Metasploit, NTI Cyber Heroes)`
+        }),
+        'experience': () => ({
+            type: 'default',
+            text: `• ICPC Instructor — Horus University (Sep 2025 – Present): Trained 50+ students in C++ algorithms.\n• Cybersecurity Trainee — NTI / MCIT (Aug 2025): Egypt Cyber Heroes network & penetration testing.\n• Full-Stack .NET Track — ITI (2026): Clean Architecture & enterprise web apps.\n• AI Workshop — Arab Media Creativity Summit (Aug 2025): Machine learning workflows.`
+        }),
+        'exp': () => commands['experience'](),
+        'certs': () => ({
+            type: 'success',
+            text: `[✓] Egypt Cyber Heroes Program — NTI / MCIT (2025)\n[✓] Full-Stack .NET Track Certificate — Information Technology Institute (ITI) (2026)\n[✓] Entrepreneurship & Innovation Certificate — Horus University (2025)\n[✓] CS50: Introduction to Computer Science — Harvard University`
         }),
         'contact': () => ({
             type: 'default',
-            text: `Email   : omar.sec@example.com\nGitHub  : github.com/omar-sec\nLinkedIn: linkedin.com/in/omar-sec`
+            text: `Email   : weo11288@gmail.com\nPhone   : +20 127 975 2075\nLocation: New Damietta, Damietta, Egypt\nGitHub  : github.com/skeleton47\nLinkedIn: linkedin.com/in/omar-hisham-mohamed-elshayal-957696355/`
         }),
         'whoami': () => ({
             type: 'success',
-            text: `omar@portfolio:~$ (Cyber Security Researcher & Ethical Hacker)`
+            text: `omar@portfolio:~$ (Omar Hisham Elshayal - Full-Stack .NET Developer & Cybersecurity Engineer)`
         }),
         'sudo': () => ({
             type: 'warn',
@@ -242,6 +251,7 @@ function initInteractiveTerminal() {
             return null;
         }
     };
+
 
     // Process Command Enter
     termInput.addEventListener('keydown', (e) => {
