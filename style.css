@@ -2270,16 +2270,16 @@ body {
 }
 
 /* ==========================================================================
-   CUSTOM SLEEK CYBER ARROW CURSOR ("سهم ماوس طبيعي بشكل ورش وسايبر")
+   COMPACT & REFINED STEALTH CYBER ARROW CURSOR ("سهم ماوس مصغر وأنيق جداً")
    ========================================================================== */
 html, body {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpolygon points='1,1 1,21 6,16 10,24 13,22.5 9,14.5 16,14.5' fill='%23040b0d' stroke='%2300ff66' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpolygon points='3,3.5 3,17 6.5,13.5 9.5,20 11,19 8,12.5 13.5,12.5' fill='%23081a1c'/%3E%3Ccircle cx='4' cy='5' r='1' fill='%2300ff66'/%3E%3C/svg%3E") 1 1, auto;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpolygon points='0,0 0,15 3.5,12 7,18 8.8,17.2 5.5,11 11,11' fill='%2304080a' stroke='%2300ff66' stroke-width='1.2' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpolyline points='1.5,3 1.5,11.5 3.8,9.5' fill='none' stroke='rgba(0,255,102,0.6)' stroke-width='0.8'/%3E%3Ccircle cx='3' cy='4' r='0.9' fill='%23ffffff'/%3E%3C/svg%3E") 0 0, auto;
 }
 
 a, button, input[type="submit"], input[type="button"], select, [role="button"],
 .skill-card, .project-card, .timeline-card, .cert-card, .social-icon,
 .section-header-badge, .skill-tab-btn, .skill-tabs-nav-btn, .tag, .hero-btn {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpolygon points='1,1 1,21 6,16 10,24 13,22.5 9,14.5 16,14.5' fill='%2300ff66' stroke='%23ffffff' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpolygon points='3,3.5 3,17 6.5,13.5 9.5,20 11,19 8,12.5 13.5,12.5' fill='%2302080a'/%3E%3Ccircle cx='4' cy='5' r='1' fill='%2300ff66'/%3E%3C/svg%3E") 1 1, pointer !important;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpolygon points='0,0 0,15 3.5,12 7,18 8.8,17.2 5.5,11 11,11' fill='%2300ff66' stroke='%23ffffff' stroke-width='1.2' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpolygon points='2,2.5 2,11 4,9 6.5,13.5 7.2,13 5,8.8 8.5,8.8' fill='%23030708'/%3E%3Ccircle cx='3' cy='4' r='0.9' fill='%2300ff66'/%3E%3C/svg%3E") 0 0, pointer !important;
 }
 
 input[type="text"], textarea, .term-input {
@@ -2291,10 +2291,10 @@ input[type="text"], textarea, .term-input {
     position: fixed;
     top: 0;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 102, 0.45) 0%, rgba(0, 255, 102, 0.1) 55%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.45) 0%, rgba(0, 255, 102, 0.08) 55%, transparent 75%);
     pointer-events: none;
     z-index: 999998;
     transform: translate(-50%, -50%);
@@ -2308,9 +2308,9 @@ input[type="text"], textarea, .term-input {
 }
 
 .cyber-mouse-aura.hover {
-    width: 34px;
-    height: 34px;
-    background: radial-gradient(circle, rgba(0, 255, 102, 0.6) 0%, rgba(0, 255, 102, 0.15) 60%, transparent 75%);
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.55) 0%, rgba(0, 255, 102, 0.12) 60%, transparent 80%);
 }
 
 /* Micro-Vibration & Energy Pulse for the Cyber Aura */
@@ -2319,15 +2319,16 @@ input[type="text"], textarea, .term-input {
         transform: translate(-50%, -50%) scale(1);
     }
     25% {
-        transform: translate(-52%, -48%) scale(1.12);
+        transform: translate(-52%, -48%) scale(1.1);
     }
     50% {
-        transform: translate(-48%, -52%) scale(0.92);
+        transform: translate(-48%, -52%) scale(0.94);
     }
     75% {
-        transform: translate(-51%, -51%) scale(1.08);
+        transform: translate(-51%, -51%) scale(1.06);
     }
 }
+
 
 @media (hover: none) and (pointer: coarse) {
     .cyber-mouse-aura {
