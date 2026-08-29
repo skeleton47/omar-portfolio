@@ -2270,163 +2270,71 @@ body {
 }
 
 /* ==========================================================================
-   CUSTOM CYBER TACTICAL CURSOR WITH GLITCH & VIBRATIONS ("ماوس سايبر احترافي")
+   CUSTOM SLEEK CYBER ARROW CURSOR ("سهم ماوس طبيعي بشكل ورش وسايبر")
    ========================================================================== */
-@media (pointer: fine) {
-    body, a, button, input, textarea, select, [role="button"], .skill-card, .project-card, .cert-card {
-        cursor: none !important;
-    }
+html, body {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpolygon points='1,1 1,21 6,16 10,24 13,22.5 9,14.5 16,14.5' fill='%23040b0d' stroke='%2300ff66' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpolygon points='3,3.5 3,17 6.5,13.5 9.5,20 11,19 8,12.5 13.5,12.5' fill='%23081a1c'/%3E%3Ccircle cx='4' cy='5' r='1' fill='%2300ff66'/%3E%3C/svg%3E") 1 1, auto;
 }
 
-.cyber-cursor-dot {
+a, button, input[type="submit"], input[type="button"], select, [role="button"],
+.skill-card, .project-card, .timeline-card, .cert-card, .social-icon,
+.section-header-badge, .skill-tab-btn, .skill-tabs-nav-btn, .tag, .hero-btn {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpolygon points='1,1 1,21 6,16 10,24 13,22.5 9,14.5 16,14.5' fill='%2300ff66' stroke='%23ffffff' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpolygon points='3,3.5 3,17 6.5,13.5 9.5,20 11,19 8,12.5 13.5,12.5' fill='%2302080a'/%3E%3Ccircle cx='4' cy='5' r='1' fill='%2300ff66'/%3E%3C/svg%3E") 1 1, pointer !important;
+}
+
+input[type="text"], textarea, .term-input {
+    cursor: text !important;
+}
+
+/* Subtle Glowing Cyber Aura Following the Mouse Arrow */
+.cyber-mouse-aura {
     position: fixed;
     top: 0;
     left: 0;
-    width: 6px;
-    height: 6px;
-    background: #ffffff;
-    border: 1px solid var(--neon-green);
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    pointer-events: none;
-    z-index: 999999;
-    box-shadow: 0 0 8px var(--neon-green), 0 0 15px var(--neon-green);
-    opacity: 0;
-    transition: opacity 0.2s ease, transform 0.05s ease-out;
-}
-
-.cyber-cursor-dot.active {
-    opacity: 1;
-}
-
-.cyber-cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid rgba(0, 255, 102, 0.75);
-    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.45) 0%, rgba(0, 255, 102, 0.1) 55%, transparent 70%);
     pointer-events: none;
     z-index: 999998;
-    box-shadow: 0 0 14px rgba(0, 255, 102, 0.35), inset 0 0 8px rgba(0, 255, 102, 0.2);
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.2s,
-                background 0.2s,
-                box-shadow 0.2s,
-                opacity 0.2s;
-    animation: cursorJitter 3.5s infinite ease-in-out;
+    transition: opacity 0.25s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    animation: auraJitter 3s infinite ease-in-out;
 }
 
-.cyber-cursor-ring.active {
+.cyber-mouse-aura.active {
     opacity: 1;
 }
 
-/* Tactical Crosshair Notches on Ring */
-.cursor-crosshair {
-    position: absolute;
-    background: var(--neon-green);
-    box-shadow: 0 0 4px var(--neon-green);
-    pointer-events: none;
+.cyber-mouse-aura.hover {
+    width: 34px;
+    height: 34px;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.6) 0%, rgba(0, 255, 102, 0.15) 60%, transparent 75%);
 }
 
-.ch-top {
-    top: -5px;
-    left: 50%;
-    width: 1.5px;
-    height: 5px;
-    transform: translateX(-50%);
-}
-
-.ch-bottom {
-    bottom: -5px;
-    left: 50%;
-    width: 1.5px;
-    height: 5px;
-    transform: translateX(-50%);
-}
-
-.ch-left {
-    left: -5px;
-    top: 50%;
-    width: 5px;
-    height: 1.5px;
-    transform: translateY(-50%);
-}
-
-.ch-right {
-    right: -5px;
-    top: 50%;
-    width: 5px;
-    height: 1.5px;
-    transform: translateY(-50%);
-}
-
-/* Cyber Jitter / Micro-Vibration Animation ("اهتزازات تكتيكية حية") */
-@keyframes cursorJitter {
+/* Micro-Vibration & Energy Pulse for the Cyber Aura */
+@keyframes auraJitter {
     0%, 100% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) scale(1);
     }
-    15% {
-        transform: translate(-51.5%, -48.5%) rotate(1.2deg);
-    }
-    30% {
-        transform: translate(-48.5%, -51.5%) rotate(-1deg);
-    }
-    45% {
-        transform: translate(-50.5%, -50.5%) rotate(0.8deg);
-    }
-    60% {
-        transform: translate(-49%, -49%) rotate(-0.8deg);
-    }
-    75% {
-        transform: translate(-51%, -50.5%) rotate(0.4deg);
-    }
-    90% {
-        transform: translate(-49.5%, -50%) rotate(-0.4deg);
-    }
-}
-
-/* Hover State on Clickable Elements */
-.cyber-cursor-ring.cursor-hover {
-    width: 48px;
-    height: 48px;
-    border-color: #00ff66;
-    background: rgba(0, 255, 102, 0.08);
-    box-shadow: 0 0 22px rgba(0, 255, 102, 0.5), inset 0 0 10px rgba(0, 255, 102, 0.25);
-    animation: cursorHoverPulse 1.2s infinite ease-in-out;
-}
-
-.cyber-cursor-dot.cursor-hover {
-    transform: translate(-50%, -50%) scale(1.6);
-    background: #ffffff;
-    box-shadow: 0 0 14px var(--neon-green);
-}
-
-@keyframes cursorHoverPulse {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    25% {
+        transform: translate(-52%, -48%) scale(1.12);
     }
     50% {
-        transform: translate(-50%, -50%) scale(1.08) rotate(45deg);
+        transform: translate(-48%, -52%) scale(0.92);
     }
-}
-
-/* Click State / Shockwave */
-.cyber-cursor-ring.cursor-click {
-    transform: translate(-50%, -50%) scale(0.75);
-    border-color: #ffffff;
-    box-shadow: 0 0 25px #00ff66;
+    75% {
+        transform: translate(-51%, -51%) scale(1.08);
+    }
 }
 
 @media (hover: none) and (pointer: coarse) {
-    .cyber-cursor-dot,
-    .cyber-cursor-ring {
+    .cyber-mouse-aura {
         display: none !important;
     }
 }
+
 
 
 

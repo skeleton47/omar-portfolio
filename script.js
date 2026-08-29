@@ -938,12 +938,11 @@ function initSocRadar() {
 }
 
 /* ==========================================================================
-   8. CUSTOM CYBER TACTICAL CURSOR WITH INTERPOLATION & HOVER LOCK
+   8. CYBER MOUSE TRAILING AURA (Smooth Energy Glow behind Cyber Arrow)
    ========================================================================== */
 function initCyberCursor() {
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    if (!dot || !ring) return;
+    const aura = document.getElementById('cyberMouseAura');
+    if (!aura) return;
 
     if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
         return;
@@ -951,8 +950,8 @@ function initCyberCursor() {
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
+    let auraX = mouseX;
+    let auraY = mouseY;
     let isVisible = false;
 
     window.addEventListener('mousemove', (e) => {
@@ -960,65 +959,49 @@ function initCyberCursor() {
         mouseY = e.clientY;
 
         if (!isVisible) {
-            dot.classList.add('active');
-            ring.classList.add('active');
+            aura.classList.add('active');
             isVisible = true;
         }
-
-        dot.style.left = `${mouseX}px`;
-        dot.style.top = `${mouseY}px`;
     });
 
     document.addEventListener('mouseleave', () => {
-        dot.classList.remove('active');
-        ring.classList.remove('active');
+        aura.classList.remove('active');
         isVisible = false;
     });
 
     document.addEventListener('mouseenter', () => {
-        dot.classList.add('active');
-        ring.classList.add('active');
+        aura.classList.add('active');
         isVisible = true;
     });
 
-    // Smooth snappy interpolation for tactical ring
-    function renderCursor() {
-        ringX += (mouseX - ringX) * 0.22;
-        ringY += (mouseY - ringY) * 0.22;
+    // Smooth soft trailing aura behind the cyber arrow
+    function renderAura() {
+        auraX += (mouseX - auraX) * 0.18;
+        auraY += (mouseY - auraY) * 0.18;
 
-        ring.style.left = `${ringX}px`;
-        ring.style.top = `${ringY}px`;
+        aura.style.left = `${auraX}px`;
+        aura.style.top = `${auraY}px`;
 
-        requestAnimationFrame(renderCursor);
+        requestAnimationFrame(renderAura);
     }
-    renderCursor();
+    renderAura();
 
-    // Hover locking on all interactive links, cards, and buttons
-    const interactiveSelectors = 'a, button, input, textarea, select, .skill-card, .project-card, .timeline-card, .cert-card, .social-icon, .terminal-window, .section-header-badge, .skill-tab-btn, [role="button"]';
+    // Hover glow expansion on interactive links & cards
+    const interactiveSelectors = 'a, button, input, textarea, select, .skill-card, .project-card, .timeline-card, .cert-card, .social-icon, .terminal-window, .section-header-badge, .skill-tab-btn, .skill-tabs-nav-btn, [role="button"]';
 
     document.addEventListener('mouseover', (e) => {
         if (e.target.closest(interactiveSelectors)) {
-            ring.classList.add('cursor-hover');
-            dot.classList.add('cursor-hover');
+            aura.classList.add('hover');
         }
     });
 
     document.addEventListener('mouseout', (e) => {
         if (e.target.closest(interactiveSelectors)) {
-            ring.classList.remove('cursor-hover');
-            dot.classList.remove('cursor-hover');
+            aura.classList.remove('hover');
         }
     });
-
-    // Shockwave click feedback
-    window.addEventListener('mousedown', () => {
-        ring.classList.add('cursor-click');
-    });
-
-    window.addEventListener('mouseup', () => {
-        ring.classList.remove('cursor-click');
-    });
 }
+
 
 
 
