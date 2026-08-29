@@ -39,18 +39,25 @@
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active">HOME</a></li>
                     <li><a href="#about" class="nav-link">ABOUT</a></li>
-                    <li><a href="#icpc-section" class="nav-link">ICPC COACHING</a></li>
                     <li><a href="#skills" class="nav-link">SKILLS</a></li>
                     <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+                    <li><a href="#icpc-section" class="nav-link">ICPC COACHING</a></li>
                     <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
                     <li><a href="#certifications" class="nav-link">CERTIFICATIONS</a></li>
                     <li><a href="#contact" class="nav-link">CONTACT</a></li>
                 </ul>
             </nav>
 
-            <!-- Terminal Mode Action Button -->
-            <div class="navbar-action">
-                <button id="terminalToggleBtn" class="terminal-btn" title="Open Interactive Terminal Mode">
+            <!-- Navbar Quick Actions (Resume Modal + Terminal Mode + Audio Toggle) -->
+            <div class="navbar-actions-group">
+                <button id="quickResumeNavBtn" class="nav-quick-resume-btn" title="Quick View Resume Modal">
+                    <i class="fa-regular fa-file-lines"></i>
+                    <span>RESUME</span>
+                </button>
+                <button id="matrixModeToggleBtn" class="matrix-btn" title="Toggle Matrix Mode">
+                    <i class="fa-solid fa-bolt"></i>
+                </button>
+                <button id="terminalToggleBtn" class="terminal-btn" title="Focus Interactive Terminal">
                     <span class="terminal-btn-icon">&gt;_</span>
                 </button>
             </div>
@@ -94,13 +101,23 @@
                     Cybersecurity undergraduate at Horus University specializing in SIEM analytics (FortiSIEM / FortiAnalyzer), network defense, penetration testing, and scalable .NET enterprise engineering. ICPC Instructor training 50+ students in advanced algorithmic problem solving.
                 </p>
                 
+                <!-- Recruiter Quick CTA Group (Hireability 10/10) -->
                 <div class="hero-cta-wrapper">
-                    <a href="#projects" class="cta-button">
-                        <span>EXPLORE SECURITY &amp; DEV WORK</span>
+                    <a href="#projects" class="cta-button primary-cta">
+                        <span>EXPLORE PROJECTS</span>
                         <svg class="cta-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
+                    </a>
+                    
+                    <button class="cta-button secondary-cta" id="heroResumeModalBtn">
+                        <i class="fa-regular fa-eye"></i>
+                        <span>QUICK VIEW RESUME</span>
+                    </button>
+                    
+                    <a href="https://github.com/skeleton47" target="_blank" class="cta-icon-btn" title="Download CV (PDF)" id="heroDownloadPdfBtn">
+                        <i class="fa-solid fa-download"></i>
                     </a>
                 </div>
             </div>
@@ -183,7 +200,7 @@
 
                     <!-- Terminal Footer -->
                     <div class="terminal-footer">
-                        <span class="footer-tip"><i class="fa-solid fa-terminal"></i> Try: <code class="code-badge">icpc</code>, <code class="code-badge">fortinet</code>, <code class="code-badge">skills</code>, <code class="code-badge">projects</code>, <code class="code-badge">certs</code>, <code class="code-badge">help</code></span>
+                        <span class="footer-tip"><i class="fa-solid fa-terminal"></i> Try: <code class="code-badge">skills</code>, <code class="code-badge">icpc</code>, <code class="code-badge">fortinet</code>, <code class="code-badge">resume</code>, <code class="code-badge">projects</code>, <code class="code-badge">help</code></span>
                     </div>
                 </div>
             </div>
@@ -258,11 +275,15 @@
                         </div>
                     </div>
 
-                    <!-- Download CV Action -->
-                    <div class="cv-download-wrapper">
-                        <a href="https://github.com/skeleton47" target="_blank" class="download-cv-btn" id="downloadCvBtn">
-                            <span>DOWNLOAD FULL CV</span>
+                    <!-- Action Buttons -->
+                    <div class="about-actions-row">
+                        <button class="download-cv-btn" id="aboutResumeModalBtn">
+                            <i class="fa-regular fa-file-lines"></i>
+                            <span>VIEW COMPLETE RESUME</span>
+                        </button>
+                        <a href="https://github.com/skeleton47" target="_blank" class="download-cv-btn secondary-link" id="downloadCvBtn">
                             <i class="fa-solid fa-download"></i>
+                            <span>DOWNLOAD PDF</span>
                         </a>
                     </div>
                 </div>
@@ -306,173 +327,236 @@
         </div>
     </section>
 
-    <!-- SECTION: ICPC IN-DEPTH EXPLAINER -->
-    <section id="icpc-section" class="content-section icpc-special-section">
-        <div class="section-container">
-            <div class="section-header-badge">
-                <span class="sec-number">⚡</span>
-                <span class="sec-tag">// COMPETITIVE PROGRAMMING &amp; ICPC INSTRUCTION</span>
-            </div>
-
-            <div class="icpc-hero-box">
-                <div class="icpc-info-main">
-                    <h2 class="section-main-title">
-                        What is <span class="highlight-green">ICPC</span> and what do I teach?
-                    </h2>
-                    <div class="icpc-explainer-text">
-                        <p>
-                            <strong>The International Collegiate Programming Contest (ICPC)</strong> is the oldest, largest, and most prestigious algorithmic competitive programming competition in the world. University teams of three compete under extreme time limits to solve complex computational and mathematical problems using optimized algorithms and data structures.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ICPC Syllabus & Topics Omar Teaches -->
-                <div class="icpc-topics-grid">
-                    <div class="icpc-topic-card">
-                        <div class="topic-header">
-                            <i class="fa-solid fa-tree topic-icon"></i>
-                            <h3 class="topic-title">Advanced Data Structures</h3>
-                        </div>
-                        <ul class="topic-list">
-                            <li><i class="fa-solid fa-check text-green"></i> Segment Trees &amp; Lazy Propagation</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Fenwick Trees (Binary Indexed Tree)</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Disjoint Set Union (DSU / Union-Find)</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Trie &amp; Suffix Arrays</li>
-                        </ul>
-                    </div>
-
-                    <div class="icpc-topic-card">
-                        <div class="topic-header">
-                            <i class="fa-solid fa-diagram-project topic-icon"></i>
-                            <h3 class="topic-title">Graph Theory &amp; Traversal</h3>
-                        </div>
-                        <ul class="topic-list">
-                            <li><i class="fa-solid fa-check text-green"></i> Dijkstra, Bellman-Ford, Floyd-Warshall</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Minimum Spanning Tree (Kruskal, Prim)</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Breadth-First &amp; Depth-First Search (BFS/DFS)</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Topological Sort &amp; Bridges/Cut Vertices</li>
-                        </ul>
-                    </div>
-
-                    <div class="icpc-topic-card">
-                        <div class="topic-header">
-                            <i class="fa-solid fa-gears topic-icon"></i>
-                            <h3 class="topic-title">Dynamic Programming &amp; Math</h3>
-                        </div>
-                        <ul class="topic-list">
-                            <li><i class="fa-solid fa-check text-green"></i> 1D &amp; 2D Dynamic Programming</li>
-                            <li><i class="fa-solid fa-check text-green"></i> DP with Bitmasking &amp; Optimization</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Greedy Algorithms &amp; Two Pointers</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Number Theory, Modular Arithmetic, Sieve</li>
-                        </ul>
-                    </div>
-
-                    <div class="icpc-topic-card">
-                        <div class="topic-header">
-                            <i class="fa-solid fa-gauge-high topic-icon"></i>
-                            <h3 class="topic-title">Complexity &amp; Mentorship</h3>
-                        </div>
-                        <ul class="topic-list">
-                            <li><i class="fa-solid fa-check text-green"></i> Time ($O(N \log N)$, $O(1)$) &amp; Space Optimization</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Mentored 50+ students for national qualifiers (ECPC)</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Authored mock contests &amp; custom problem sets</li>
-                            <li><i class="fa-solid fa-check text-green"></i> Live code debugging &amp; problem-solving reviews</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 02: SKILLS -->
+    <!-- SECTION 02: TECHNICAL SKILLS (Interactive Deep-Dive & Click-to-Inspect) -->
     <section id="skills" class="content-section">
         <div class="section-container">
             <div class="section-top-bar">
                 <div class="section-header-badge">
                     <span class="sec-number">02</span>
-                    <span class="sec-tag">// TECHNICAL SKILLS</span>
+                    <span class="sec-tag">// TECHNICAL SKILLS &amp; PROFICIENCIES</span>
                 </div>
-                <a href="#projects" class="section-view-all">VIEW PROJECTS <i class="fa-solid fa-chevron-right"></i></a>
+                <span class="skills-instruction-hint"><i class="fa-solid fa-hand-pointer"></i> Click any skill card to inspect deep details &amp; projects</span>
             </div>
 
             <h2 class="section-main-title">
-                Cybersecurity, Systems &amp; Engineering<br>
-                Tech Stack
+                Core Competencies &amp;<br>
+                <span class="highlight-green">Interactive Tech Stack</span>
             </h2>
 
-            <div class="skills-grid">
-                <!-- FortiSIEM & FortiAnalyzer (Highlighted) -->
-                <div class="skill-card skill-card-featured">
-                    <div class="skill-icon-box">
-                        <i class="fa-solid fa-shield-halved"></i>
+            <!-- Skill Filter Categories -->
+            <div class="skills-filter-bar">
+                <button class="skill-filter-btn active" data-filter="all">ALL (9)</button>
+                <button class="skill-filter-btn" data-filter="cybersecurity"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SIEM</button>
+                <button class="skill-filter-btn" data-filter="backend"><i class="fa-solid fa-code"></i> .NET &amp; BACKEND</button>
+                <button class="skill-filter-btn" data-filter="frontend"><i class="fa-brands fa-react"></i> FRONTEND</button>
+                <button class="skill-filter-btn" data-filter="algorithms"><i class="fa-solid fa-laptop-code"></i> ICPC ALGORITHMS</button>
+                <button class="skill-filter-btn" data-filter="tools"><i class="fa-solid fa-wrench"></i> CLOUD &amp; TOOLS</button>
+            </div>
+
+            <!-- Skills Interactive Cards Grid -->
+            <div class="skills-grid" id="skillsGrid">
+                
+                <!-- 1. FortiSIEM & FortiAnalyzer -->
+                <div class="skill-card skill-card-featured active" data-skill-id="fortinet" data-category="cybersecurity">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="skill-badge-tag">NTI 2026 CERTIFIED</span>
                     </div>
                     <span class="skill-name">FortiSIEM &amp; FortiAnalyzer</span>
-                    <span class="skill-sub">Fortinet &amp; NTI Certified (2026)</span>
+                    <span class="skill-sub">Event Correlation &amp; Log Analytics</span>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Advanced / Certified</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
+                    </div>
                 </div>
 
-                <!-- Network Security & Penetration Testing -->
-                <div class="skill-card">
-                    <div class="skill-icon-box">
-                        <i class="fa-solid fa-network-wired"></i>
+                <!-- 2. Network Security & Penetration Testing -->
+                <div class="skill-card" data-skill-id="network-sec" data-category="cybersecurity">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <span class="skill-badge-tag">THREAT DEFENSE</span>
                     </div>
-                    <span class="skill-name">Network Security</span>
+                    <span class="skill-name">Network Security &amp; Pen Testing</span>
                     <span class="skill-sub">Wireshark, Metasploit, Packet Tracer</span>
-                </div>
-
-                <!-- C# & .NET Core -->
-                <div class="skill-card">
-                    <div class="skill-icon-box">
-                        <i class="fa-solid fa-code"></i>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Advanced</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
                     </div>
-                    <span class="skill-name">C# &amp; .NET 8/9</span>
-                    <span class="skill-sub">ASP.NET Core Web API &amp; MVC</span>
                 </div>
 
-                <!-- C++ & Algorithms (ICPC) -->
-                <div class="skill-card">
-                    <div class="skill-icon-box">
-                        <i class="fa-solid fa-laptop-code"></i>
+                <!-- 3. C# & .NET 8/9 -->
+                <div class="skill-card" data-skill-id="dotnet" data-category="backend">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <span class="skill-badge-tag">CORE EXPERTISE</span>
+                    </div>
+                    <span class="skill-name">C# &amp; .NET 8 / 9</span>
+                    <span class="skill-sub">ASP.NET Core Web API &amp; MVC</span>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Expert</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
+                    </div>
+                </div>
+
+                <!-- 4. C++ & ICPC Algorithms -->
+                <div class="skill-card" data-skill-id="icpc" data-category="algorithms">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <span class="skill-badge-tag">ICPC COACH</span>
                     </div>
                     <span class="skill-name">C++ &amp; ICPC Algorithms</span>
-                    <span class="skill-sub">Graphs, Dynamic Programming, DSU</span>
-                </div>
-
-                <!-- React & TypeScript -->
-                <div class="skill-card">
-                    <div class="skill-icon-box">
-                        <i class="fa-brands fa-react"></i>
+                    <span class="skill-sub">Segment Trees, Graphs, DP</span>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Master</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
                     </div>
-                    <span class="skill-name">React &amp; TypeScript</span>
-                    <span class="skill-sub">Tailwind CSS &amp; State Management</span>
                 </div>
 
-                <!-- SQL Server & EF Core -->
-                <div class="skill-card">
-                    <div class="skill-icon-box">
-                        <i class="fa-solid fa-database"></i>
+                <!-- 5. React 18 & TypeScript -->
+                <div class="skill-card" data-skill-id="react" data-category="frontend">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-brands fa-react"></i>
+                        </div>
+                        <span class="skill-badge-tag">FRONTEND</span>
+                    </div>
+                    <span class="skill-name">React 18 &amp; TypeScript</span>
+                    <span class="skill-sub">Tailwind CSS &amp; State Management</span>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Advanced</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
+                    </div>
+                </div>
+
+                <!-- 6. SQL Server & EF Core -->
+                <div class="skill-card" data-skill-id="sql" data-category="backend">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <span class="skill-badge-tag">DATABASE</span>
                     </div>
                     <span class="skill-name">SQL Server &amp; EF Core</span>
                     <span class="skill-sub">Migrations, LINQ, Resilience</span>
-                </div>
-
-                <!-- AI & LLM Integration -->
-                <div class="skill-card">
-                    <div class="skill-icon-box">
-                        <i class="fa-solid fa-brain"></i>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Advanced</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
                     </div>
-                    <span class="skill-name">Google Gemini AI</span>
-                    <span class="skill-sub">Semantic Analysis &amp; Automation</span>
                 </div>
 
-                <!-- SignalR & WebSockets -->
-                <div class="skill-card">
-                    <div class="skill-icon-box">
-                        <i class="fa-solid fa-tower-broadcast"></i>
+                <!-- 7. SignalR & WebSockets -->
+                <div class="skill-card" data-skill-id="signalr" data-category="backend">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+                        <span class="skill-badge-tag">REAL-TIME</span>
                     </div>
                     <span class="skill-name">SignalR &amp; Real-Time</span>
                     <span class="skill-sub">Hubs, Notifications &amp; WebSockets</span>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Advanced</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
+                    </div>
+                </div>
+
+                <!-- 8. Google Gemini AI Integration -->
+                <div class="skill-card" data-skill-id="gemini-ai" data-category="tools">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <span class="skill-badge-tag">AI INTEGRATION</span>
+                    </div>
+                    <span class="skill-name">Google Gemini AI</span>
+                    <span class="skill-sub">Semantic Analysis &amp; Automation</span>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Proficient</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
+                    </div>
+                </div>
+
+                <!-- 9. Docker & Cloud DevOps -->
+                <div class="skill-card" data-skill-id="docker-cloud" data-category="tools">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box">
+                            <i class="fa-brands fa-docker"></i>
+                        </div>
+                        <span class="skill-badge-tag">DEVOPS</span>
+                    </div>
+                    <span class="skill-name">Docker &amp; Cloud DevOps</span>
+                    <span class="skill-sub">Railway, Vercel &amp; GitHub Actions</span>
+                    <div class="skill-card-footer">
+                        <span class="skill-level-text">Proficient</span>
+                        <span class="click-hint"><i class="fa-solid fa-arrow-right"></i> Inspect</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interactive Skill Detail Inspector Panel -->
+            <div class="skill-inspector-panel" id="skillInspectorPanel">
+                <div class="inspector-header">
+                    <div class="inspector-title-group">
+                        <div class="inspector-icon" id="inspIcon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <div class="inspector-category-badge" id="inspCategory">Cybersecurity &amp; SIEM</div>
+                            <h3 class="inspector-name" id="inspName">FortiSIEM &amp; FortiAnalyzer</h3>
+                        </div>
+                    </div>
+                    <div class="inspector-level-badge" id="inspLevel">Certified / Advanced (NTI 2026)</div>
+                </div>
+
+                <div class="inspector-body">
+                    <div class="inspector-left">
+                        <h4 class="inspector-subtitle">Overview &amp; Practical Experience</h4>
+                        <p class="inspector-desc" id="inspDesc">
+                            Specialized in enterprise security operations, real-time threat telemetry correlation, and centralized log intelligence across complex multi-tenant infrastructures.
+                        </p>
+                        
+                        <h4 class="inspector-subtitle">Core Capabilities &amp; Key Competencies</h4>
+                        <ul class="inspector-checklist" id="inspChecklist">
+                            <li><i class="fa-solid fa-check text-green"></i> Configured real-time SIEM event correlation rules and custom parsing engines.</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Centralized syslog management, compliance reporting, and audit log pipelines.</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Investigated and mitigated 15+ real-world enterprise cyber threat vectors in virtualized environments.</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Mastered incident response workflows, alert prioritization, and SOC telemetry diagnostics.</li>
+                        </ul>
+                    </div>
+
+                    <div class="inspector-right">
+                        <h4 class="inspector-subtitle">Applied in Real Projects</h4>
+                        <div class="inspector-projects-list" id="inspProjectsList">
+                            <a href="#projects" class="insp-project-link">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>FortiSIEM &amp; FortiAnalyzer Security Suite</span>
+                            </a>
+                            <a href="#projects" class="insp-project-link">
+                                <i class="fa-solid fa-network-wired"></i>
+                                <span>Cyber Threat Lab &amp; Packet Inspector</span>
+                            </a>
+                        </div>
+
+                        <h4 class="inspector-subtitle">Key Technologies &amp; Tools</h4>
+                        <div class="inspector-tags" id="inspTags">
+                            <span class="tag">FortiSIEM</span>
+                            <span class="tag">FortiAnalyzer</span>
+                            <span class="tag">Event Correlation</span>
+                            <span class="tag">Syslog</span>
+                            <span class="tag">SOC Ops</span>
+                            <span class="tag">Threat Hunting</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -598,11 +682,89 @@
         </div>
     </section>
 
-    <!-- SECTION 04: EXPERIENCE & LEADERSHIP -->
-    <section id="experience" class="content-section">
+    <!-- SECTION 04: ICPC IN-DEPTH EXPLAINER -->
+    <section id="icpc-section" class="content-section icpc-special-section">
         <div class="section-container">
             <div class="section-header-badge">
                 <span class="sec-number">04</span>
+                <span class="sec-tag">// COMPETITIVE PROGRAMMING &amp; ICPC INSTRUCTION</span>
+            </div>
+
+            <div class="icpc-hero-box">
+                <div class="icpc-info-main">
+                    <h2 class="section-main-title">
+                        What is <span class="highlight-green">ICPC</span> and what do I teach?
+                    </h2>
+                    <div class="icpc-explainer-text">
+                        <p>
+                            <strong>The International Collegiate Programming Contest (ICPC)</strong> is the oldest, largest, and most prestigious algorithmic competitive programming competition in the world. University teams of three compete under extreme time limits to solve complex computational and mathematical problems using optimized algorithms and data structures.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ICPC Syllabus & Topics Omar Teaches -->
+                <div class="icpc-topics-grid">
+                    <div class="icpc-topic-card">
+                        <div class="topic-header">
+                            <i class="fa-solid fa-tree topic-icon"></i>
+                            <h3 class="topic-title">Advanced Data Structures</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><i class="fa-solid fa-check text-green"></i> Segment Trees &amp; Lazy Propagation</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Fenwick Trees (Binary Indexed Tree)</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Disjoint Set Union (DSU / Union-Find)</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Trie &amp; Suffix Arrays</li>
+                        </ul>
+                    </div>
+
+                    <div class="icpc-topic-card">
+                        <div class="topic-header">
+                            <i class="fa-solid fa-diagram-project topic-icon"></i>
+                            <h3 class="topic-title">Graph Theory &amp; Traversal</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><i class="fa-solid fa-check text-green"></i> Dijkstra, Bellman-Ford, Floyd-Warshall</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Minimum Spanning Tree (Kruskal, Prim)</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Breadth-First &amp; Depth-First Search (BFS/DFS)</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Topological Sort &amp; Bridges/Cut Vertices</li>
+                        </ul>
+                    </div>
+
+                    <div class="icpc-topic-card">
+                        <div class="topic-header">
+                            <i class="fa-solid fa-gears topic-icon"></i>
+                            <h3 class="topic-title">Dynamic Programming &amp; Math</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><i class="fa-solid fa-check text-green"></i> 1D &amp; 2D Dynamic Programming</li>
+                            <li><i class="fa-solid fa-check text-green"></i> DP with Bitmasking &amp; Optimization</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Greedy Algorithms &amp; Two Pointers</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Number Theory, Modular Arithmetic, Sieve</li>
+                        </ul>
+                    </div>
+
+                    <div class="icpc-topic-card">
+                        <div class="topic-header">
+                            <i class="fa-solid fa-gauge-high topic-icon"></i>
+                            <h3 class="topic-title">Complexity &amp; Mentorship</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><i class="fa-solid fa-check text-green"></i> Time ($O(N \log N)$, $O(1)$) &amp; Space Optimization</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Mentored 50+ students for national qualifiers (ECPC)</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Authored mock contests &amp; custom problem sets</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Live code debugging &amp; problem-solving reviews</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 05: EXPERIENCE & LEADERSHIP -->
+    <section id="experience" class="content-section">
+        <div class="section-container">
+            <div class="section-header-badge">
+                <span class="sec-number">05</span>
                 <span class="sec-tag">// EXPERIENCE &amp; LEADERSHIP</span>
             </div>
 
@@ -670,11 +832,11 @@
         </div>
     </section>
 
-    <!-- SECTION 05: CERTIFICATIONS -->
+    <!-- SECTION 06: CERTIFICATIONS -->
     <section id="certifications" class="content-section">
         <div class="section-container">
             <div class="section-header-badge">
-                <span class="sec-number">05</span>
+                <span class="sec-number">06</span>
                 <span class="sec-tag">// CERTIFICATIONS &amp; EDUCATION</span>
             </div>
 
@@ -747,11 +909,11 @@
         </div>
     </section>
 
-    <!-- SECTION 06: LET'S CONNECT -->
+    <!-- SECTION 07: LET'S CONNECT -->
     <section id="contact" class="content-section">
         <div class="section-container">
             <div class="section-header-badge">
-                <span class="sec-number">06</span>
+                <span class="sec-number">07</span>
                 <span class="sec-tag">// LET'S CONNECT</span>
             </div>
 
@@ -764,14 +926,16 @@
                     </h2>
 
                     <div class="contact-list">
-                        <a href="mailto:weo11288@gmail.com" class="contact-item">
+                        <div class="contact-item contact-item-copy" data-copy="weo11288@gmail.com" title="Click to copy email">
                             <i class="fa-regular fa-envelope contact-icon"></i>
                             <span>weo11288@gmail.com</span>
-                        </a>
-                        <a href="tel:+201279752075" class="contact-item">
+                            <span class="copy-badge"><i class="fa-regular fa-copy"></i> Copy</span>
+                        </div>
+                        <div class="contact-item contact-item-copy" data-copy="+201279752075" title="Click to copy phone">
                             <i class="fa-solid fa-phone contact-icon"></i>
                             <span>+20 127 975 2075</span>
-                        </a>
+                            <span class="copy-badge"><i class="fa-regular fa-copy"></i> Copy</span>
+                        </div>
                         <div class="contact-item">
                             <i class="fa-solid fa-location-dot contact-icon"></i>
                             <span>New Damietta, Damietta, Egypt</span>
@@ -809,6 +973,100 @@
             </div>
         </div>
     </section>
+
+    <!-- QUICK RESUME PREVIEW MODAL (Recruiter Hireability 10/10) -->
+    <div class="modal-backdrop" id="resumeModalBackdrop">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <i class="fa-solid fa-file-invoice text-green"></i>
+                    <div>
+                        <h3 class="modal-title">Omar Hisham Mohamed Elshayal — Curriculum Vitae</h3>
+                        <span class="modal-subtitle">Full-Stack .NET Developer | Intelligent Cybersecurity | ICPC Coach</span>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="resumeModalCloseBtn">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Resume Summary Header -->
+                <div class="resume-quick-header">
+                    <div class="resume-meta-box">
+                        <div><strong>Location:</strong> New Damietta, Damietta, Egypt</div>
+                        <div><strong>Email:</strong> weo11288@gmail.com</div>
+                        <div><strong>Phone:</strong> +20 127 975 2075</div>
+                    </div>
+                    <div class="resume-meta-badges">
+                        <span class="badge-tag green">Fortinet FortiSIEM &amp; Analyzer (2026)</span>
+                        <span class="badge-tag blue">Horus University (GPA 3.02)</span>
+                        <span class="badge-tag purple">ITI Full-Stack .NET (2026)</span>
+                    </div>
+                </div>
+
+                <!-- Resume Sections -->
+                <div class="resume-section-block">
+                    <h4 class="resume-sec-heading"><i class="fa-solid fa-user-astronaut"></i> Professional Summary</h4>
+                    <p class="resume-text">
+                        Intelligent Cybersecurity undergraduate at Horus University (Faculty of AI) and skilled Full-Stack .NET Developer. Certified in enterprise SIEM solutions (Fortinet FortiSIEM &amp; FortiAnalyzer) via NTI in 2026. Proven competitive programming coach mentoring 50+ students in C++ and advanced algorithms for national ICPC qualifiers. Proficient in architecting scalable .NET 8/9 Web APIs, React 18, and real-time SignalR hubs.
+                    </p>
+                </div>
+
+                <div class="resume-section-block">
+                    <h4 class="resume-sec-heading"><i class="fa-solid fa-briefcase"></i> Experience &amp; Leadership</h4>
+                    <div class="resume-item">
+                        <div class="resume-item-top">
+                            <span class="item-title">Cybersecurity Trainee — FortiSIEM &amp; FortiAnalyzer Specialist</span>
+                            <span class="item-date">2026</span>
+                        </div>
+                        <div class="item-org">National Telecommunication Institute (NTI) &amp; Fortinet</div>
+                        <p class="item-desc">Enterprise SIEM rule correlation, centralized syslog management, multi-tenant SOC architectures, and hardening 15+ threat attack scenarios.</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-top">
+                            <span class="item-title">ICPC Competitive Programming Instructor</span>
+                            <span class="item-date">Sep 2025 – Present</span>
+                        </div>
+                        <div class="item-org">Horus University in Egypt — Faculty of Artificial Intelligence</div>
+                        <p class="item-desc">Mentored 50+ students in C++ competitive programming, Segment Trees, Graph Theory, Dynamic Programming, and national qualifiers preparation.</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-top">
+                            <span class="item-title">Cybersecurity Trainee — Egypt Cyber Heroes Program</span>
+                            <span class="item-date">Aug 2025</span>
+                        </div>
+                        <div class="item-org">National Telecommunication Institute (NTI) / MCIT</div>
+                        <p class="item-desc">Hands-on penetration testing, Wireshark packet inspection, Metasploit exploitation, and Cisco Packet Tracer network security.</p>
+                    </div>
+                </div>
+
+                <div class="resume-section-block">
+                    <h4 class="resume-sec-heading"><i class="fa-solid fa-graduation-cap"></i> Education &amp; Certifications</h4>
+                    <ul class="resume-bullets">
+                        <li><strong>B.Sc. in Intelligent Cybersecurity</strong> — Horus University in Egypt (2024 – 2028 Expected, GPA: 3.02 / 4.0)</li>
+                        <li><strong>FortiSIEM &amp; FortiAnalyzer Specialist Certificate</strong> — Fortinet &amp; NTI (2026)</li>
+                        <li><strong>Full-Stack Web Development (.NET Track)</strong> — Information Technology Institute (ITI, 2026)</li>
+                        <li><strong>CS50: Introduction to Computer Science</strong> — Harvard University</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="https://github.com/skeleton47" target="_blank" class="cta-button primary-cta">
+                    <i class="fa-solid fa-download"></i>
+                    <span>DOWNLOAD FULL PDF RESUME</span>
+                </a>
+                <button class="cta-button secondary-cta" id="resumeModalCloseFooterBtn">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification (for copy / actions) -->
+    <div class="cyber-toast" id="cyberToast">
+        <i class="fa-solid fa-check text-green"></i>
+        <span id="toastMsg">Copied to clipboard!</span>
+    </div>
 
     <!-- FOOTER -->
     <footer class="site-footer">
