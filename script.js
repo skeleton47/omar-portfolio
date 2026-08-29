@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavEvents();
     initConnectTerminal();
     initDownloadCV();
+    initSkillModal();
 });
+
 
 /* ==========================================================================
    1. CYBER MATRIX / WAVE CANVAS ANIMATION
@@ -410,4 +412,236 @@ function initDownloadCV() {
         alert("CV Download: You can download the latest CV from Omar's GitHub repository or contact directly at omar.sec@example.com");
     });
 }
+
+/* ==========================================================================
+   6. FLOATING SKILL DETAIL MODAL ("صفحة عايمة عند الضغط على المهارات")
+   ========================================================================== */
+const skillsDatabase = {
+    'fortinet': {
+        icon: '<i class="fa-solid fa-shield-halved"></i>',
+        category: 'Cybersecurity & SIEM',
+        title: 'FortiSIEM & FortiAnalyzer',
+        badge: 'NTI 2026 CERTIFIED // FORTINET',
+        desc: 'Comprehensive training and real-world laboratory experience in enterprise SIEM deployment, multi-tenant log ingestion, security event correlation, and automated SOC incident mitigation.',
+        capabilities: [
+            'Configuring FortiSIEM rule-based & machine-learning threat correlation engines',
+            'Centralized syslog management, log aggregation, and compliance reporting in FortiAnalyzer',
+            'Cross-device event parsing, anomaly identification, and mitigation playbooks',
+            '15+ Enterprise attack scenarios hardened across multi-vendor network fabrics'
+        ],
+        projects: [
+            { name: 'FortiSIEM & FortiAnalyzer Security Suite', link: '#projects', sub: 'Enterprise SIEM & SOC defense lab (NTI 2026)' }
+        ],
+        tags: ['FortiSIEM', 'FortiAnalyzer', 'SIEM Correlation', 'SOC Operations', 'Syslog Parsing', 'Incident Response']
+    },
+    'network-sec': {
+        icon: '<i class="fa-solid fa-network-wired"></i>',
+        category: 'Cybersecurity & Network Defense',
+        title: 'Network Security & Penetration Testing',
+        badge: 'NTI CYBER HEROES 2025',
+        desc: 'Hands-on network analysis, packet inspection, intrusion detection, and active vulnerability assessment across internal subnets and edge firewalls.',
+        capabilities: [
+            'Deep-packet inspection and protocol anomaly hunting with Wireshark',
+            'Vulnerability scanning, exploitation frameworks, and payload analysis with Metasploit',
+            'Enterprise network topology design, subnetting, and ACLs in Cisco Packet Tracer',
+            'Virtual OS hardening, firewall rule filtering, and secure VPN routing'
+        ],
+        projects: [
+            { name: 'Egypt Cyber Heroes Security Operations', link: '#experience', sub: 'Hands-on penetration testing & hardening' }
+        ],
+        tags: ['Wireshark', 'Metasploit', 'Packet Tracer', 'Network Hardening', 'Firewalls', 'VPNs', 'Nmap']
+    },
+    'dotnet': {
+        icon: '<i class="fa-solid fa-code"></i>',
+        category: 'Backend & Enterprise Architecture',
+        title: 'C# & .NET 8/9 Enterprise Engineering',
+        badge: 'ITI .NET TRACK 2026',
+        desc: 'Architecting modular, secure, high-throughput RESTful Web APIs and scalable multi-tier web applications using Clean Architecture, CQRS, and Domain-Driven Design principles.',
+        capabilities: [
+            'Building RESTful APIs with ASP.NET Core 8/9, Dependency Injection & Middleware pipelines',
+            'Implementing Clean Architecture, Repository & Unit of Work patterns',
+            'Enterprise authentication & authorization with ASP.NET Core Identity & JWT',
+            'Resilient database operations, SQL connection pooling, and retry policies'
+        ],
+        projects: [
+            { name: 'Acolite — AI-Powered Freelance Hub', link: 'https://github.com/skeleton47/acolite.xyz_iti_.net', sub: 'ASP.NET Core 8 Web API, JWT, SignalR' },
+            { name: 'MvcTask — Multi-Tier Management System', link: 'https://github.com/skeleton47/MvcTask', sub: 'C#, .NET 9, Service Layer pattern' }
+        ],
+        tags: ['C#', '.NET 8/9', 'ASP.NET Core Web API', 'ASP.NET Core MVC', 'Clean Architecture', 'JWT Auth', 'DI']
+    },
+    'icpc': {
+        icon: '<i class="fa-solid fa-laptop-code"></i>',
+        category: 'Competitive Programming & Algorithms',
+        title: 'C++ & ICPC Algorithmic Coaching',
+        badge: 'MASTER INSTRUCTOR // 50+ STUDENTS',
+        desc: 'Advanced competitive programming instructor at Horus University, training collegiate teams in complex algorithms, optimal data structures, and mathematical problem-solving under extreme time constraints.',
+        capabilities: [
+            'Advanced Data Structures: Segment Trees with Lazy Propagation, Fenwick Trees, DSU, Trie',
+            'Graph Theory: Dijkstra, Bellman-Ford, Floyd-Warshall, Kruskal, Prim, BFS/DFS, TopoSort',
+            'Dynamic Programming: 1D/2D DP, DP with Bitmasking, Space & Time Complexity Optimization',
+            'Mentored 50+ students for national qualifiers (ECPC) and authored mock competition sets'
+        ],
+        projects: [
+            { name: 'Horus University ICPC Training Program', link: '#icpc-section', sub: 'Curriculum & Problem Sets authored by Omar' }
+        ],
+        tags: ['C++', 'Segment Trees', 'Graph Theory', 'Dynamic Programming', 'DSU', 'Time Complexity O(N log N)', 'ICPC']
+    },
+    'react': {
+        icon: '<i class="fa-brands fa-react"></i>',
+        category: 'Frontend & UI Engineering',
+        title: 'React 18 & TypeScript Development',
+        badge: 'MODERN SPA & RESPONSIVE UI',
+        desc: 'Crafting responsive, type-safe, component-driven Single Page Applications with React 18, TypeScript, Tailwind CSS, and clean state management.',
+        capabilities: [
+            'Component architecture, custom hooks, and React 18 concurrent rendering',
+            'Strict type-safety with TypeScript, avoiding runtime type issues',
+            'Responsive cyberpunk and dark-mode styling with Tailwind CSS & CSS Grid',
+            'Optimized client-side caching, Axios interceptors, and JWT token refresh flows'
+        ],
+        projects: [
+            { name: 'Acolite Frontend Platform', link: 'https://acolite.xyz', sub: 'React 18, TypeScript, Tailwind CSS' }
+        ],
+        tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'State Management', 'Axios', 'Responsive Design']
+    },
+    'sql': {
+        icon: '<i class="fa-solid fa-database"></i>',
+        category: 'Database & ORM Systems',
+        title: 'SQL Server & Entity Framework Core',
+        badge: 'RELATIONAL DATA & ORM OPTIMIZATION',
+        desc: 'Designing normalized relational databases, executing complex LINQ queries, schema migrations, and configuring EF Core resilience for high-load workloads.',
+        capabilities: [
+            'Database schema normalization, indexing strategies, and foreign key integrity',
+            'Entity Framework Core Code-First migrations, fluent API configurations & shadow properties',
+            'High-performance querying with LINQ, eager/lazy loading optimizations, and AsNoTracking',
+            'Connection resiliency, execution strategies, and SQL Server transaction management'
+        ],
+        projects: [
+            { name: 'Acolite Relational Database Schema', link: 'https://github.com/skeleton47/acolite.xyz_iti_.net', sub: 'SQL Server + EF Core Migrations' },
+            { name: 'MvcTask Academic DB', link: 'https://github.com/skeleton47/MvcTask', sub: 'Multi-table relational schema' }
+        ],
+        tags: ['SQL Server', 'EF Core', 'LINQ', 'Migrations', 'Database Normalization', 'Transactions']
+    },
+    'gemini-ai': {
+        icon: '<i class="fa-solid fa-brain"></i>',
+        category: 'Artificial Intelligence & LLM Integration',
+        title: 'Google Gemini AI & LLM Workflows',
+        badge: 'SEMANTIC AUTOMATION & PROMPT ENG',
+        desc: 'Integrating state-of-the-art Large Language Models into enterprise web backends for automated text analysis, resume evaluation, semantic matchmaking, and conversational agents.',
+        capabilities: [
+            'API integration with Google Gemini Pro / Flash models in .NET backends',
+            'Few-shot prompt engineering and structured JSON response enforcement',
+            'Automated applicant matching: scoring candidate skills against client project requirements',
+            'Secure API key management and token rate-limiting mechanisms'
+        ],
+        projects: [
+            { name: 'Acolite AI Recruiter & Semantic Matcher', link: 'https://acolite.xyz', sub: 'Google Gemini AI candidate scoring engine' }
+        ],
+        tags: ['Google Gemini AI', 'Prompt Engineering', 'LLM Integration', 'Semantic Matchmaking', 'JSON Schema']
+    },
+    'signalr': {
+        icon: '<i class="fa-solid fa-tower-broadcast"></i>',
+        category: 'Real-Time Systems & WebSockets',
+        title: 'SignalR & Real-Time Communication',
+        badge: 'WEBSOCKETS & LIVE STREAMING',
+        desc: 'Building instant bi-directional messaging, live notifications, real-time telemetry streaming, and collaborative multi-user experiences in ASP.NET Core.',
+        capabilities: [
+            'Configuring ASP.NET Core SignalR Hubs with WebSockets, SSE & Long Polling fallbacks',
+            'User-to-user and group-based message broadcasting with JWT authorization',
+            'Live chat, real-time proposal notifications, and online presence indicators',
+            'Reconnection handlers and client-side SignalR JavaScript SDK lifecycle management'
+        ],
+        projects: [
+            { name: 'Acolite Real-Time Chat & Proposal Hub', link: 'https://github.com/skeleton47/acolite.xyz_iti_.net', sub: 'SignalR instant client-freelancer messaging' }
+        ],
+        tags: ['SignalR', 'WebSockets', 'Real-Time Chat', 'Presence Detection', 'Hubs', 'Broadcasting']
+    }
+};
+
+function initSkillModal() {
+    const modalBackdrop = document.getElementById('skillModalBackdrop');
+    const closeBtn = document.getElementById('skillModalCloseBtn');
+    const closeFooterBtn = document.getElementById('skillModalCloseFooterBtn');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    if (!modalBackdrop) return;
+
+    // Elements inside modal
+    const modalIcon = document.getElementById('skillModalIcon');
+    const modalCat = document.getElementById('skillModalCat');
+    const modalTitle = document.getElementById('skillModalTitle');
+    const modalBadge = document.getElementById('skillModalBadge');
+    const modalDesc = document.getElementById('skillModalDesc');
+    const modalList = document.getElementById('skillModalList');
+    const modalProjects = document.getElementById('skillModalProjects');
+    const modalTags = document.getElementById('skillModalTags');
+
+    function openModal(skillId) {
+        const data = skillsDatabase[skillId];
+        if (!data) return;
+
+        modalIcon.innerHTML = data.icon;
+        modalCat.textContent = data.category;
+        modalTitle.textContent = data.title;
+        modalBadge.textContent = data.badge;
+        modalDesc.textContent = data.desc;
+
+        // Populate capabilities
+        modalList.innerHTML = data.capabilities
+            .map(cap => `<li><i class="fa-solid fa-check text-green"></i> <span>${escapeHtml(cap)}</span></li>`)
+            .join('');
+
+        // Populate projects
+        modalProjects.innerHTML = data.projects
+            .map(p => `
+                <a href="${p.link}" target="_blank" class="skill-modal-project-link">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-green"></i>
+                    <div>
+                        <strong>${escapeHtml(p.name)}</strong>
+                        <div style="font-size: 0.72rem; color: #94a3b8;">${escapeHtml(p.sub)}</div>
+                    </div>
+                </a>
+            `).join('');
+
+        // Populate tags
+        modalTags.innerHTML = data.tags
+            .map(tag => `<span class="tag">${escapeHtml(tag)}</span>`)
+            .join('');
+
+        modalBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modalBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Attach click to all skill cards
+    skillCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const skillId = card.getAttribute('data-skill-id');
+            if (skillId) {
+                openModal(skillId);
+            }
+        });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeModal);
+
+    // Close on backdrop click
+    modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) {
+            closeModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
 

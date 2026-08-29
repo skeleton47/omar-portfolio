@@ -402,7 +402,7 @@
 
             <div class="skills-grid">
                 <!-- FortiSIEM & FortiAnalyzer (Highlighted) -->
-                <div class="skill-card skill-card-featured">
+                <div class="skill-card skill-card-featured" data-skill-id="fortinet" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -411,7 +411,7 @@
                 </div>
 
                 <!-- Network Security & Penetration Testing -->
-                <div class="skill-card">
+                <div class="skill-card" data-skill-id="network-sec" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
@@ -420,7 +420,7 @@
                 </div>
 
                 <!-- C# & .NET Core -->
-                <div class="skill-card">
+                <div class="skill-card" data-skill-id="dotnet" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-code"></i>
                     </div>
@@ -429,7 +429,7 @@
                 </div>
 
                 <!-- C++ & Algorithms (ICPC) -->
-                <div class="skill-card">
+                <div class="skill-card" data-skill-id="icpc" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
@@ -438,7 +438,7 @@
                 </div>
 
                 <!-- React & TypeScript -->
-                <div class="skill-card">
+                <div class="skill-card" data-skill-id="react" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-brands fa-react"></i>
                     </div>
@@ -447,7 +447,7 @@
                 </div>
 
                 <!-- SQL Server & EF Core -->
-                <div class="skill-card">
+                <div class="skill-card" data-skill-id="sql" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-database"></i>
                     </div>
@@ -456,7 +456,7 @@
                 </div>
 
                 <!-- AI & LLM Integration -->
-                <div class="skill-card">
+                <div class="skill-card" data-skill-id="gemini-ai" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-brain"></i>
                     </div>
@@ -465,7 +465,7 @@
                 </div>
 
                 <!-- SignalR & WebSockets -->
-                <div class="skill-card">
+                <div class="skill-card" data-skill-id="signalr" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-tower-broadcast"></i>
                     </div>
@@ -810,6 +810,60 @@
         </div>
     </section>
 
+    <!-- FLOATING SKILL DETAIL MODAL ("صفحة عايمة عند الضغط على المهارات") -->
+    <div class="skill-modal-backdrop" id="skillModalBackdrop">
+        <div class="skill-modal-dialog">
+            <div class="skill-modal-header">
+                <div class="skill-modal-header-left">
+                    <div class="skill-modal-icon" id="skillModalIcon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <div class="skill-modal-cat" id="skillModalCat">Cybersecurity &amp; SIEM</div>
+                        <h3 class="skill-modal-title" id="skillModalTitle">FortiSIEM &amp; FortiAnalyzer</h3>
+                    </div>
+                </div>
+                <button class="skill-modal-close" id="skillModalCloseBtn" title="Close details">&times;</button>
+            </div>
+
+            <div class="skill-modal-body">
+                <div class="skill-modal-badge" id="skillModalBadge">NTI 2026 CERTIFIED</div>
+                
+                <div class="skill-modal-section">
+                    <h4 class="skill-modal-sec-title">Overview &amp; Practical Experience</h4>
+                    <p class="skill-modal-desc" id="skillModalDesc">
+                        Specialized in enterprise security operations, real-time threat telemetry correlation, centralized log intelligence, and automated incident triage.
+                    </p>
+                </div>
+
+                <div class="skill-modal-section">
+                    <h4 class="skill-modal-sec-title">Core Practical Capabilities</h4>
+                    <ul class="skill-modal-list" id="skillModalList">
+                        <!-- Dynamic list items -->
+                    </ul>
+                </div>
+
+                <div class="skill-modal-section">
+                    <h4 class="skill-modal-sec-title">Applied in Real Projects</h4>
+                    <div class="skill-modal-projects" id="skillModalProjects">
+                        <!-- Dynamic project cards -->
+                    </div>
+                </div>
+
+                <div class="skill-modal-section">
+                    <h4 class="skill-modal-sec-title">Technologies &amp; Tools</h4>
+                    <div class="skill-modal-tags" id="skillModalTags">
+                        <!-- Dynamic tags -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-modal-footer">
+                <button class="cta-button" id="skillModalCloseFooterBtn" type="button">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-container">
@@ -822,6 +876,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
