@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMAR.SEC | Cyber Security Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-cyber-dark">
+
+    <!-- Cyber Background with Canvas Wave, Radial Glows & Grid Mesh -->
+    <div class="cyber-background-container">
+        <div class="ambient-glow glow-top-left"></div>
+        <div class="ambient-glow glow-top-right"></div>
+        <div class="ambient-glow glow-center"></div>
+        <div class="cyber-grid-overlay"></div>
+        <canvas id="cyberWaveCanvas"></canvas>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar-container">
+        <div class="navbar-wrapper">
+            <!-- Logo -->
+            <a href="#home" class="logo-link">
+                <span class="prompt-symbol">&gt;_</span>
+                <span class="logo-text">OMAR.SEC</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">HOME</a></li>
+                    <li><a href="#about" class="nav-link">ABOUT</a></li>
+                    <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                    <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+                    <li><a href="#certifications" class="nav-link">CERTIFICATIONS</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <!-- Terminal Mode Action Button -->
+            <div class="navbar-action">
+                <button id="terminalToggleBtn" class="terminal-btn" title="Open Interactive Terminal Mode">
+                    <span class="terminal-btn-icon">&gt;_</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Social Sidebar (Left) -->
+    <aside class="social-sidebar">
+        <div class="social-links-wrapper">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:omar.sec@example.com" class="social-icon" aria-label="Email">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Hero Main Section -->
+    <main id="home" class="hero-section">
+        <div class="hero-container">
+            
+            <!-- Left Hero Content -->
+            <div class="hero-left-content">
+                <p class="greeting-text">Hi, I'm</p>
+                <h1 class="hero-title">
+                    OMAR<span class="cursor-blink">_</span>
+                </h1>
+                <h2 class="hero-subtitle">CYBER SECURITY STUDENT</h2>
+                <p class="hero-description">
+                    I find vulnerabilities before attackers do and secure systems that matter.
+                </p>
+                
+                <div class="hero-cta-wrapper">
+                    <a href="#projects" class="cta-button">
+                        <span>EXPLORE MY WORK</span>
+                        <svg class="cta-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Hero Content: Interactive Cyber Terminal -->
+            <div class="hero-right-content">
+                <div class="terminal-window">
+                    <!-- Window Header Bar -->
+                    <div class="terminal-header">
+                        <div class="window-controls">
+                            <span class="control-dot dot-red"></span>
+                            <span class="control-dot dot-yellow"></span>
+                            <span class="control-dot dot-green"></span>
+                        </div>
+                        <div class="terminal-title">
+                            <span class="terminal-user">omar@portfolio</span>:<span class="terminal-path">~</span>$
+                        </div>
+                        <div class="terminal-status">
+                            <span class="status-indicator"></span>
+                            <span class="status-text">SECURE</span>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Body -->
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="terminal-line prompt-line">
+                            <span class="term-arrow">&gt;</span> <span class="term-cmd typing-command" id="autoTypingCmd">cat about_me.txt</span>
+                        </div>
+                        
+                        <div class="terminal-output" id="terminalOutput">
+                            <div class="output-row">
+                                <span class="row-key">Name</span>
+                                <span class="row-separator">:</span>
+                                <span class="row-val">Omar</span>
+                            </div>
+                            <div class="output-row">
+                                <span class="row-key">Role</span>
+                                <span class="row-separator">:</span>
+                                <span class="row-val">Cyber Security Student</span>
+                            </div>
+                            <div class="output-row">
+                                <span class="row-key">Focus</span>
+                                <span class="row-separator">:</span>
+                                <span class="row-val focus-highlight">Web Security, Network Security, Penetration Testing</span>
+                            </div>
+                            <div class="output-row">
+                                <span class="row-key">Location</span>
+                                <span class="row-separator">:</span>
+                                <span class="row-val">Egypt</span>
+                            </div>
+                            <div class="output-row">
+                                <span class="row-key">Mission</span>
+                                <span class="row-separator">:</span>
+                                <span class="row-val mission-quote">Secure today, protect tomorrow.</span>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Terminal Command Logs -->
+                        <div id="dynamicLogs"></div>
+
+                        <!-- Interactive Command Prompt Line -->
+                        <div class="terminal-input-row" id="terminalInputRow">
+                            <span class="term-arrow">&gt;</span>
+                            <div class="input-wrapper">
+                                <input type="text" id="termInput" class="term-input" autocomplete="off" spellcheck="false" placeholder="" autofocus>
+                                <span class="term-cursor" id="termCursor">_</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Footer -->
+                    <div class="terminal-footer">
+                        <span class="footer-tip"><i class="fa-solid fa-terminal"></i> Try commands: <code class="code-badge">help</code>, <code class="code-badge">skills</code>, <code class="code-badge">projects</code>, <code class="code-badge">matrix</code>, <code class="code-badge">clear</code></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator-container" id="scrollTrigger">
+            <span class="scroll-label">SCROLL</span>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <div class="scroll-arrow-down">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </div>
+    </main>
+
+    <!-- SECTION 01: ABOUT ME -->
+    <section id="about" class="content-section">
+        <div class="section-container">
+            <div class="section-header-badge">
+                <span class="sec-number">01</span>
+                <span class="sec-tag">// ABOUT ME</span>
+            </div>
+
+            <div class="about-grid">
+                <!-- Left: Bio & Stats -->
+                <div class="about-left">
+                    <h2 class="section-main-title">
+                        I break things to<br>
+                        make them <span class="highlight-green">secure.</span>
+                    </h2>
+                    <p class="about-description">
+                        I'm passionate about cybersecurity and love solving real-world problems. I enjoy learning new attack techniques and building defenses to stop them.
+                    </p>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <span class="stat-label">Experience</span>
+                            <div class="stat-value-group">
+                                <span class="stat-number">1+</span>
+                                <span class="stat-unit">YEARS</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">CTF Points</span>
+                            <div class="stat-value-group">
+                                <span class="stat-number">500 +</span>
+                                <span class="stat-unit">POINTS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download CV Action -->
+                    <div class="cv-download-wrapper">
+                        <a href="#contact" class="download-cv-btn" id="downloadCvBtn">
+                            <span>DOWNLOAD CV</span>
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Cyber Workspace Visual -->
+                <div class="about-right">
+                    <div class="hacker-screen-wrapper">
+                        <div class="screen-overlay-glitch"></div>
+                        <div class="workspace-card">
+                            <div class="workspace-header">
+                                <span class="monitor-tag"><i class="fa-solid fa-shield-halved"></i> SOC MONITOR // ACTIVE</span>
+                                <span class="threat-level">THREAT: LOW</span>
+                            </div>
+                            <div class="workspace-visual">
+                                <div class="monitor-grid">
+                                    <div class="monitor-item monitor-map">
+                                        <div class="map-radar"></div>
+                                        <span class="mon-title">GLOBAL THREAT MAP</span>
+                                    </div>
+                                    <div class="monitor-item monitor-code">
+                                        <pre class="code-stream"><code>[+] Packet captured: 192.168.1.45
+[+] Decrypting payload... SUCCESS
+[+] Zero vulnerabilities found.
+[!] Firewall state: ACTIVE</code></pre>
+                                    </div>
+                                    <div class="monitor-item monitor-term">
+                                        <div class="term-prompt-preview">
+                                            <span>root@soc-ops:~# nmap -sV -p- 10.0.0.1</span>
+                                        </div>
+                                    </div>
+                                    <div class="monitor-item monitor-status">
+                                        <div class="network-pulse"></div>
+                                        <span>NETWORK: 100% SECURE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 02: SKILLS -->
+    <section id="skills" class="content-section">
+        <div class="section-container">
+            <div class="section-top-bar">
+                <div class="section-header-badge">
+                    <span class="sec-number">02</span>
+                    <span class="sec-tag">// SKILLS</span>
+                </div>
+                <a href="#projects" class="section-view-all">VIEW ALL SKILLS <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+            <h2 class="section-main-title">
+                Tools &amp; Technologies<br>
+                I work with
+            </h2>
+
+            <div class="skills-grid">
+                <!-- Linux -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-brands fa-linux"></i>
+                    </div>
+                    <span class="skill-name">Linux</span>
+                </div>
+
+                <!-- Windows -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-brands fa-windows"></i>
+                    </div>
+                    <span class="skill-name">Windows</span>
+                </div>
+
+                <!-- Networking -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <span class="skill-name">Networking</span>
+                </div>
+
+                <!-- Web Security -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <span class="skill-name">Web Security</span>
+                </div>
+
+                <!-- Python -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                    <span class="skill-name">Python</span>
+                </div>
+
+                <!-- Burp Suite -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="skill-name">Burp Suite</span>
+                </div>
+
+                <!-- Wireshark -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <span class="skill-name">Wireshark</span>
+                </div>
+
+                <!-- Git -->
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <i class="fa-brands fa-git-alt"></i>
+                    </div>
+                    <span class="skill-name">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 03: FEATURED PROJECTS -->
+    <section id="projects" class="content-section">
+        <div class="section-container">
+            <div class="section-top-bar">
+                <div class="section-header-badge">
+                    <span class="sec-number">03</span>
+                    <span class="sec-tag">// FEATURED PROJECTS</span>
+                </div>
+                <a href="https://github.com" target="_blank" class="section-view-all">VIEW ALL PROJECTS <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+            <h2 class="section-main-title">
+                Some of my work
+            </h2>
+
+            <div class="projects-grid">
+                <!-- Project 1: Vulnerability Scanner -->
+                <div class="project-card">
+                    <div class="project-preview project-preview-blue">
+                        <div class="preview-glow"></div>
+                        <div class="project-icon-badge">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <div class="cyber-scan-line"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Vulnerability Scanner</h3>
+                        <p class="project-desc">
+                            A Python-based scanner that detects common vulnerabilities in web applications.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Web Security</span>
+                                <span class="tag">Requests</span>
+                            </div>
+                            <a href="#projects" class="project-link" aria-label="View Vulnerability Scanner">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Brute Force Detector -->
+                <div class="project-card">
+                    <div class="project-preview project-preview-red">
+                        <div class="preview-glow glow-red"></div>
+                        <div class="access-denied-badge">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>ACCESS DENIED</span>
+                        </div>
+                        <div class="cyber-scan-line"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Brute Force Detector</h3>
+                        <p class="project-desc">
+                            Detects and logs brute force attempts on login pages in real-time.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">SQLite</span>
+                            </div>
+                            <a href="#projects" class="project-link" aria-label="View Brute Force Detector">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Packet Analyzer -->
+                <div class="project-card">
+                    <div class="project-preview project-preview-green">
+                        <div class="preview-glow glow-green"></div>
+                        <div class="packet-stream-preview">
+                            <code>[TCP] 10.0.0.2:443 -&gt; ACK</code>
+                            <code>[DNS] query: evil-c2.net</code>
+                            <code>[FLAG] suspicious stream</code>
+                        </div>
+                        <div class="cyber-scan-line"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Packet Analyzer</h3>
+                        <p class="project-desc">
+                            A network packet analyzer built with Python using Scapy and PyQt.
+                        </p>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Scapy</span>
+                                <span class="tag">PyQt5</span>
+                            </div>
+                            <a href="#projects" class="project-link" aria-label="View Packet Analyzer">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 04: LET'S CONNECT -->
+    <section id="contact" class="content-section">
+        <div class="section-container">
+            <div class="section-header-badge">
+                <span class="sec-number">04</span>
+                <span class="sec-tag">// LET'S CONNECT</span>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Left: Headline & Contacts -->
+                <div class="contact-left">
+                    <h2 class="section-main-title">
+                        Let's build a<br>
+                        more <span class="highlight-green">secure</span> world.
+                    </h2>
+
+                    <div class="contact-list">
+                        <a href="mailto:omar.sec@example.com" class="contact-item">
+                            <i class="fa-regular fa-envelope contact-icon"></i>
+                            <span>omar.sec@example.com</span>
+                        </a>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot contact-icon"></i>
+                            <span>Egypt</span>
+                        </div>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+                            <i class="fa-brands fa-github contact-icon"></i>
+                            <span>github.com/omar-sec</span>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+                            <i class="fa-brands fa-linkedin-in contact-icon"></i>
+                            <span>linkedin.com/in/omar-sec</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Mini Connect Terminal -->
+                <div class="contact-right">
+                    <div class="connect-terminal-box">
+                        <div class="connect-term-header">
+                            <span class="term-dot"></span>
+                            <span class="term-dot"></span>
+                            <span class="term-dot"></span>
+                            <span class="connect-title">session_connect.sh</span>
+                        </div>
+                        <div class="connect-term-body">
+                            <div class="connect-line"><span class="term-arrow">&gt;</span> <span class="term-cyan">connect --with-omar</span></div>
+                            <div class="connect-status-msg">Connection established!</div>
+                            <div class="connect-ready-msg">Ready to collaborate 🚀</div>
+                            <div class="connect-line active-prompt">
+                                <span class="term-arrow">&gt;</span> <span class="term-cursor-mini">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p class="footer-copyright">© 2024 Omar. All rights reserved.</p>
+            <p class="footer-made-with">Built with <span class="heart">❤️</span> and lots of coffee <span class="coffee">☕</span></p>
+        </div>
+    </footer>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+</html>
+
