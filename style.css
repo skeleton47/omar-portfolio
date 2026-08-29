@@ -1932,6 +1932,46 @@ body {
     transform: scale(1.15);
 }
 
+/* Fast Skill Switcher Tabs */
+.skill-modal-tabs {
+    display: flex;
+    gap: 0.45rem;
+    padding: 0.75rem 1.5rem;
+    background: #040809;
+    border-bottom: 1px solid rgba(0, 255, 102, 0.1);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+}
+
+.skill-tab-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-family: var(--font-code);
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.skill-tab-btn:hover {
+    color: #ffffff;
+    border-color: rgba(0, 255, 102, 0.35);
+    background: rgba(0, 255, 102, 0.08);
+}
+
+.skill-tab-btn.active {
+    color: #030606;
+    background: var(--neon-green);
+    border-color: var(--neon-green);
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+}
+
 .skill-modal-body {
     padding: 1.5rem;
     overflow-y: auto;
@@ -1939,6 +1979,7 @@ body {
     flex-direction: column;
     gap: 1.3rem;
 }
+
 
 .skill-modal-badge {
     align-self: flex-start;

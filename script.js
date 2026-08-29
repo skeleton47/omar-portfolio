@@ -561,15 +561,15 @@ const skillsDatabase = {
     }
 };
 
-function initSkillModal() {
+// Global Modal Controller
+function openSkillModal(skillId) {
+    if (!skillId) skillId = 'fortinet';
     const modalBackdrop = document.getElementById('skillModalBackdrop');
-    const closeBtn = document.getElementById('skillModalCloseBtn');
-    const closeFooterBtn = document.getElementById('skillModalCloseFooterBtn');
-    const skillCards = document.querySelectorAll('.skill-card');
-
     if (!modalBackdrop) return;
 
-    // Elements inside modal
+    const data = skillsDatabase[skillId];
+    if (!data) return;
+
     const modalIcon = document.getElementById('skillModalIcon');
     const modalCat = document.getElementById('skillModalCat');
     const modalTitle = document.getElementById('skillModalTitle');
@@ -579,22 +579,21 @@ function initSkillModal() {
     const modalProjects = document.getElementById('skillModalProjects');
     const modalTags = document.getElementById('skillModalTags');
 
-    function openModal(skillId) {
-        const data = skillsDatabase[skillId];
-        if (!data) return;
+    if (modalIcon) modalIcon.innerHTML = data.icon;
+    if (modalCat) modalCat.textContent = data.category;
+    if (modalTitle) modalTitle.textContent = data.title;
+    if (modalBadge) modalBadge.textContent = data.badge;
+    if (modalDesc) modalDesc.textContent = data.desc;
 
-        modalIcon.innerHTML = data.icon;
-        modalCat.textContent = data.category;
-        modalTitle.textContent = data.title;
-        modalBadge.textContent = data.badge;
-        modalDesc.textContent = data.desc;
-
-        // Populate capabilities
+    // Populate capabilities
+    if (modalList) {
         modalList.innerHTML = data.capabilities
             .map(cap => `<li><i class="fa-solid fa-check text-green"></i> <span>${escapeHtml(cap)}</span></li>`)
             .join('');
+    }
 
-        // Populate projects
+    // Populate projects
+    if (modalProjects) {
         modalProjects.innerHTML = data.projects
             .map(p => `
                 <a href="${p.link}" target="_blank" class="skill-modal-project-link">
@@ -605,47 +604,76 @@ function initSkillModal() {
                     </div>
                 </a>
             `).join('');
+    }
 
-        // Populate tags
+    // Populate tags
+    if (modalTags) {
         modalTags.innerHTML = data.tags
             .map(tag => `<span class="tag">${escapeHtml(tag)}</span>`)
             .join('');
-
-        modalBackdrop.classList.add('active');
-        document.body.style.overflow = 'hidden';
     }
 
-    function closeModal() {
+    // Update active tab buttons inside modal
+    const tabButtons = document.querySelectorAll('.skill-tab-btn');
+    tabButtons.forEach(btn => {
+        if (btn.getAttribute('data-tab') === skillId) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    modalBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSkillModal() {
+    const modalBackdrop = document.getElementById('skillModalBackdrop');
+    if (modalBackdrop) {
         modalBackdrop.classList.remove('active');
-        document.body.style.overflow = '';
     }
+    document.body.style.overflow = '';
+}
+
+// Expose on window
+window.openSkillModal = openSkillModal;
+window.closeSkillModal = closeSkillModal;
+
+function initSkillModal() {
+    const modalBackdrop = document.getElementById('skillModalBackdrop');
+    const closeBtn = document.getElementById('skillModalCloseBtn');
+    const closeFooterBtn = document.getElementById('skillModalCloseFooterBtn');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    if (!modalBackdrop) return;
 
     // Attach click to all skill cards
     skillCards.forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
             const skillId = card.getAttribute('data-skill-id');
             if (skillId) {
-                openModal(skillId);
+                openSkillModal(skillId);
             }
         });
     });
 
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeSkillModal);
+    if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeSkillModal);
 
     // Close on backdrop click
     modalBackdrop.addEventListener('click', (e) => {
         if (e.target === modalBackdrop) {
-            closeModal();
+            closeSkillModal();
         }
     });
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
-            closeModal();
+            closeSkillModal();
         }
     });
 }
+
 
 

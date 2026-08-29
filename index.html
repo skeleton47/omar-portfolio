@@ -11,8 +11,9 @@
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=2.5">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
+
 
 <body class="bg-cyber-dark">
 
@@ -389,11 +390,13 @@
     <section id="skills" class="content-section">
         <div class="section-container">
             <div class="section-top-bar">
-                <div class="section-header-badge">
+                <div class="section-header-badge" onclick="openSkillModal('fortinet')" style="cursor: pointer;" title="Click to inspect all skills">
                     <span class="sec-number">02</span>
-                    <span class="sec-tag">// TECHNICAL SKILLS</span>
+                    <span class="sec-tag">// TECHNICAL SKILLS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; margin-left: 0.3rem;"></i></span>
                 </div>
-                <a href="#projects" class="section-view-all">VIEW PROJECTS <i class="fa-solid fa-chevron-right"></i></a>
+                <button class="section-view-all" onclick="openSkillModal('fortinet')" style="background:transparent; border:none; cursor:pointer;" title="Click to view in-depth details">
+                    OPEN SKILLS INSPECTOR <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
 
             <h2 class="section-main-title">
@@ -403,7 +406,7 @@
 
             <div class="skills-grid">
                 <!-- FortiSIEM & FortiAnalyzer (Highlighted) -->
-                <div class="skill-card skill-card-featured" data-skill-id="fortinet" title="Click to view details">
+                <div class="skill-card skill-card-featured" data-skill-id="fortinet" onclick="openSkillModal('fortinet')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -412,7 +415,7 @@
                 </div>
 
                 <!-- Network Security & Penetration Testing -->
-                <div class="skill-card" data-skill-id="network-sec" title="Click to view details">
+                <div class="skill-card" data-skill-id="network-sec" onclick="openSkillModal('network-sec')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
@@ -421,7 +424,7 @@
                 </div>
 
                 <!-- C# & .NET Core -->
-                <div class="skill-card" data-skill-id="dotnet" title="Click to view details">
+                <div class="skill-card" data-skill-id="dotnet" onclick="openSkillModal('dotnet')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-code"></i>
                     </div>
@@ -430,7 +433,7 @@
                 </div>
 
                 <!-- C++ & Algorithms (ICPC) -->
-                <div class="skill-card" data-skill-id="icpc" title="Click to view details">
+                <div class="skill-card" data-skill-id="icpc" onclick="openSkillModal('icpc')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
@@ -439,7 +442,7 @@
                 </div>
 
                 <!-- React & TypeScript -->
-                <div class="skill-card" data-skill-id="react" title="Click to view details">
+                <div class="skill-card" data-skill-id="react" onclick="openSkillModal('react')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-brands fa-react"></i>
                     </div>
@@ -448,7 +451,7 @@
                 </div>
 
                 <!-- SQL Server & EF Core -->
-                <div class="skill-card" data-skill-id="sql" title="Click to view details">
+                <div class="skill-card" data-skill-id="sql" onclick="openSkillModal('sql')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-database"></i>
                     </div>
@@ -457,7 +460,7 @@
                 </div>
 
                 <!-- AI & LLM Integration -->
-                <div class="skill-card" data-skill-id="gemini-ai" title="Click to view details">
+                <div class="skill-card" data-skill-id="gemini-ai" onclick="openSkillModal('gemini-ai')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-brain"></i>
                     </div>
@@ -466,7 +469,7 @@
                 </div>
 
                 <!-- SignalR & WebSockets -->
-                <div class="skill-card" data-skill-id="signalr" title="Click to view details">
+                <div class="skill-card" data-skill-id="signalr" onclick="openSkillModal('signalr')" title="Click to view details">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-tower-broadcast"></i>
                     </div>
@@ -476,6 +479,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- SECTION 03: FEATURED PROJECTS -->
     <section id="projects" class="content-section">
@@ -824,11 +828,24 @@
                         <h3 class="skill-modal-title" id="skillModalTitle">FortiSIEM &amp; FortiAnalyzer</h3>
                     </div>
                 </div>
-                <button class="skill-modal-close" id="skillModalCloseBtn" title="Close details">&times;</button>
+                <button class="skill-modal-close" id="skillModalCloseBtn" onclick="closeSkillModal()" title="Close details">&times;</button>
+            </div>
+
+            <!-- Fast Skill Tabs Switcher inside Modal -->
+            <div class="skill-modal-tabs" id="skillModalTabs">
+                <button class="skill-tab-btn active" data-tab="fortinet" onclick="openSkillModal('fortinet')">🛡️ FortiSIEM</button>
+                <button class="skill-tab-btn" data-tab="network-sec" onclick="openSkillModal('network-sec')">🌐 Network Sec</button>
+                <button class="skill-tab-btn" data-tab="dotnet" onclick="openSkillModal('dotnet')">💻 .NET 8/9</button>
+                <button class="skill-tab-btn" data-tab="icpc" onclick="openSkillModal('icpc')">⚡ C++ &amp; ICPC</button>
+                <button class="skill-tab-btn" data-tab="react" onclick="openSkillModal('react')">⚛️ React &amp; TS</button>
+                <button class="skill-tab-btn" data-tab="sql" onclick="openSkillModal('sql')">🗄️ SQL Server</button>
+                <button class="skill-tab-btn" data-tab="gemini-ai" onclick="openSkillModal('gemini-ai')">🧠 Gemini AI</button>
+                <button class="skill-tab-btn" data-tab="signalr" onclick="openSkillModal('signalr')">📡 SignalR</button>
             </div>
 
             <div class="skill-modal-body">
                 <div class="skill-modal-badge" id="skillModalBadge">NTI 2026 CERTIFIED</div>
+
                 
                 <div class="skill-modal-section">
                     <h4 class="skill-modal-sec-title">Overview &amp; Practical Experience</h4>
@@ -874,9 +891,10 @@
     </footer>
 
     <!-- Script File -->
-    <script src="script.js?v=2.5"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
+
 
 
 
