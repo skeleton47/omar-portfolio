@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initDownloadCV();
     initSkillModal();
     initSocRadar();
+    initCyberCursor();
 });
+
 
 
 
@@ -878,6 +880,90 @@ function initSocRadar() {
 
     requestAnimationFrame(renderRadar);
 }
+
+/* ==========================================================================
+   8. CUSTOM CYBER TACTICAL CURSOR WITH INTERPOLATION & HOVER LOCK
+   ========================================================================== */
+function initCyberCursor() {
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (!dot || !ring) return;
+
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        return;
+    }
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+    let isVisible = false;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        if (!isVisible) {
+            dot.classList.add('active');
+            ring.classList.add('active');
+            isVisible = true;
+        }
+
+        dot.style.left = `${mouseX}px`;
+        dot.style.top = `${mouseY}px`;
+    });
+
+    document.addEventListener('mouseleave', () => {
+        dot.classList.remove('active');
+        ring.classList.remove('active');
+        isVisible = false;
+    });
+
+    document.addEventListener('mouseenter', () => {
+        dot.classList.add('active');
+        ring.classList.add('active');
+        isVisible = true;
+    });
+
+    // Smooth snappy interpolation for tactical ring
+    function renderCursor() {
+        ringX += (mouseX - ringX) * 0.22;
+        ringY += (mouseY - ringY) * 0.22;
+
+        ring.style.left = `${ringX}px`;
+        ring.style.top = `${ringY}px`;
+
+        requestAnimationFrame(renderCursor);
+    }
+    renderCursor();
+
+    // Hover locking on all interactive links, cards, and buttons
+    const interactiveSelectors = 'a, button, input, textarea, select, .skill-card, .project-card, .timeline-card, .cert-card, .social-icon, .terminal-window, .section-header-badge, .skill-tab-btn, [role="button"]';
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(interactiveSelectors)) {
+            ring.classList.add('cursor-hover');
+            dot.classList.add('cursor-hover');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(interactiveSelectors)) {
+            ring.classList.remove('cursor-hover');
+            dot.classList.remove('cursor-hover');
+        }
+    });
+
+    // Shockwave click feedback
+    window.addEventListener('mousedown', () => {
+        ring.classList.add('cursor-click');
+    });
+
+    window.addEventListener('mouseup', () => {
+        ring.classList.remove('cursor-click');
+    });
+}
+
 
 
 
