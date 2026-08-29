@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14061a"/><stop offset="60%" stop-color="#08020b"/><stop offset="100%" stop-color="#020003"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="320" fill="url(#bg7)"/>
+  <rect x="0" y="0" width="600" height="32" fill="rgba(0,0,0,0.7)" stroke="rgba(192,132,252,0.25)" stroke-width="1"/>
+  <circle cx="18" cy="16" r="4" fill="#ef4444"/><circle cx="32" cy="16" r="4" fill="#fbbf24"/><circle cx="46" cy="16" r="4" fill="#c084fc"/>
+  <text x="68" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">IDENTITY &amp; JWT AUTHORITY // OAUTH2 &amp; ZERO TRUST MICROSERVICE</text>
+  <rect x="20" y="48" width="560" height="252" rx="7" fill="rgba(0,0,0,0.85)" stroke="rgba(192,132,252,0.25)"/>
+  <text x="32" y="74" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">JWT TOKEN SIGNATURE (RS256 ASYMMETRIC ENCRYPTED):</text>
+  <rect x="32" y="86" width="536" height="50" rx="4" fill="rgba(192,132,252,0.08)" stroke="rgba(192,132,252,0.25)"/>
+  <text x="42" y="105" fill="#f472b6" font-family="'JetBrains Mono', monospace" font-size="9.5">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWFyQGV4YW1wbGUuY29tIiwicm9sZXMiOlsic2VjX2FkbWluIl19...</text>
+  <text x="42" y="123" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9.5">Signature: 7f8a91b... [VALIDATED VIA PUBLIC KEY IN CACHE]</text>
+  <text x="32" y="160" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="10">> [AUTH FLOW] User Login -> Access Token (15m) + Encrypted Refresh Token (7d)</text>
+  <text x="32" y="184" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">> [SECURITY POLICY] Token Rotation Enforced -> Reused token revokes family</text>
+  <text x="32" y="208" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">> [AUTHORIZATION] PolicyHandler: 'RequireSecOpsCertification' -> Access GRANTED</text>
+  <text x="32" y="232" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">> [OWASP DEFENSE] Rate Limiting 10 req/min on /api/auth/login to stop Brute Force</text>
+  <rect x="32" y="250" width="536" height="34" rx="4" fill="rgba(0,255,102,0.12)" stroke="rgba(0,255,102,0.3)"/>
+  <text x="44" y="271" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="9.5">[ZERO TRUST ARCHITECTURE: ALL CLAIMS AUDITED // 0 REPLAY ATTACKS]</text>
+</svg>

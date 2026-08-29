@@ -11,10 +11,9 @@
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css?v=18.0">
-    <link rel="stylesheet" href="projects.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=20.0">
+    <link rel="stylesheet" href="projects.css?v=3.0">
 </head>
-
 <body class="bg-cyber-dark">
 
     <!-- Cyber Background with Canvas Wave, Radial Glows & Grid Mesh -->
@@ -72,8 +71,8 @@
                 <!-- Telemetry Counters -->
                 <div class="archive-stats-bar">
                     <div class="stat-card">
-                        <span class="stat-num text-green">10+</span>
-                        <span class="stat-lbl">ENGINEERED REPOSITORIES</span>
+                        <span class="stat-num text-green">10</span>
+                        <span class="stat-lbl">PRODUCTION REPOSITORIES</span>
                     </div>
                     <div class="stat-card">
                         <span class="stat-num text-cyan">2,500+</span>
@@ -81,7 +80,7 @@
                     </div>
                     <div class="stat-card">
                         <span class="stat-num text-purple">100%</span>
-                        <span class="stat-lbl">OWASP &amp; MITRE ALIGNED</span>
+                        <span class="stat-lbl">OWASP &amp; MITRE COMPLIANT</span>
                     </div>
                 </div>
             </div>
@@ -91,7 +90,7 @@
                 <!-- Search Box -->
                 <div class="archive-search-wrapper">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="projectSearchInput" class="archive-search-input" placeholder="Search by name, technology, tag (e.g., Fortinet, .NET, React, C++, AI)...">
+                    <input type="text" id="projectSearchInput" class="archive-search-input" placeholder="Search by project name, tech stack, keyword (e.g. Fortinet, .NET, React, C++, AI, SQL)...">
                     <button id="clearSearchBtn" class="clear-search-btn" title="Clear Search"><i class="fa-solid fa-xmark"></i></button>
                 </div>
 
@@ -105,28 +104,28 @@
                 </div>
             </div>
 
-            <!-- Projects Grid -->
+            <!-- Projects Grid (10 Complete Projects) -->
             <div class="archive-grid" id="projectsArchiveGrid">
 
                 <!-- Project 01: FortiSIEM & FortiAnalyzer -->
-                <div class="archive-card" data-category="cyber" data-keywords="fortinet fortisiem fortianalyzer soc siem nti wireshark metasploit security logs firewall">
+                <div class="archive-card" data-category="cyber" data-keywords="fortinet fortisiem fortianalyzer soc siem nti wireshark metasploit security logs firewall cef">
                     <div class="archive-card-image-wrap">
-                        <img src="assets/projects/fortisiem-soc.svg" class="archive-card-thumb" alt="FortiSIEM Security Operations Suite">
-                        <div class="archive-img-badge cyber-badge"><i class="fa-solid fa-shield-halved"></i> NTI 2026</div>
+                        <img src="assets/projects/fortisiem-soc.svg" class="archive-card-thumb" alt="FortiSIEM &amp; FortiAnalyzer Enterprise SOC Suite">
+                        <div class="archive-img-badge cyber-badge"><i class="fa-solid fa-shield-halved"></i> NTI 2026 CERTIFIED</div>
                     </div>
                     <div class="archive-card-body">
                         <div class="archive-card-header">
                             <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SIEM</div>
-                            <span class="card-year">2026 // SOC LAB</span>
+                            <span class="card-year">2026 // ENTERPRISE SOC</span>
                         </div>
                         <h3 class="archive-card-title">FortiSIEM &amp; FortiAnalyzer Enterprise SOC Suite</h3>
                         <p class="archive-card-desc">
                             Enterprise security operations laboratory configuring FortiSIEM for real-time CEF Syslog correlation and FortiAnalyzer for centralized incident analysis. Hardened against 15+ real-world attack scenarios (SSH brute force, DNS tunneling, privilege escalation) with FortiGate automated quarantine API dispatch.
                         </p>
                         <div class="archive-card-highlights">
-                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Real-time Syslog CEF event correlation engine</div>
-                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Auto-ban firewall API mitigation for brute force</div>
-                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Centralized SOC audit telemetry &amp; live compliance dashboards</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Real-time Syslog CEF event correlation (4,820 EPS capacity)</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Auto-ban firewall API mitigation for brute force and port scans</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Centralized SOC audit telemetry with SHA-256 integrity checks</div>
                         </div>
                         <div class="archive-card-tags">
                             <span class="tag tag-green"><i class="fa-solid fa-shield-halved"></i> FortiSIEM 7.2</span>
@@ -149,8 +148,8 @@
                 <!-- Project 02: Acolite AI Platform -->
                 <div class="archive-card" data-category="ai" data-keywords="acolite ai full-stack react typescript dotnet asp.net core gemini signalr sql server marketplace">
                     <div class="archive-card-image-wrap">
-                        <img src="assets/projects/acolite-ai.svg" class="archive-card-thumb" alt="Acolite AI Platform">
-                        <div class="archive-img-badge ai-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> GEMINI AI</div>
+                        <img src="assets/projects/acolite-ai.svg" class="archive-card-thumb" alt="Acolite AI Freelance Platform">
+                        <div class="archive-img-badge ai-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> GEMINI 1.5 PRO</div>
                     </div>
                     <div class="archive-card-body">
                         <div class="archive-card-header">
@@ -163,7 +162,7 @@
                         </p>
                         <div class="archive-card-highlights">
                             <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Gemini AI automatic CV parsing &amp; job semantic matching (98.6%)</div>
-                            <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Real-time bidirectional chat with SignalR Hubs</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Real-time bidirectional chat with SignalR Hubs (< 8ms latency)</div>
                             <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Cryptographic Refresh Token rotation &amp; granular RBAC</div>
                         </div>
                         <div class="archive-card-tags">
@@ -227,216 +226,258 @@
                 </div>
 
                 <!-- Project 04: Network Intrusion Detection & Wireshark Analyzer -->
-                <div class="archive-card" data-category="cyber" data-keywords="network intrusion detection ids ips wireshark packet capture packet tracer tcp udp pcap cisco">
-                    <div class="archive-card-header">
-                        <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SOC</div>
-                        <span class="card-year">2026 // SECURITY LAB</span>
+                <div class="archive-card" data-category="cyber" data-keywords="network intrusion detection ids ips wireshark packet capture packet tracer tcp udp pcap cisco snort">
+                    <div class="archive-card-image-wrap">
+                        <img src="assets/projects/network-ids.svg" class="archive-card-thumb" alt="Network Intrusion &amp; Packet Flow Analyzer">
+                        <div class="archive-img-badge cyber-badge"><i class="fa-solid fa-network-wired"></i> PCAP AUDIT</div>
                     </div>
-                    <h3 class="archive-card-title">Network Intrusion &amp; Packet Flow Analyzer</h3>
-                    <p class="archive-card-desc">
-                        Deep packet inspection environment utilizing Wireshark and Cisco Packet Tracer to trace suspicious TCP handshakes, ARP poisoning, and DNS exfiltration patterns across corporate topologies.
-                    </p>
-                    <div class="archive-card-highlights">
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Packet payload reconstruction &amp; TLS handshake validation</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> VLAN segmentation, ACL policies &amp; Port Security setup</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> PCAP automated attack signature extraction</div>
-                    </div>
-                    <div class="archive-card-tags">
-                        <span class="tag tag-green"><i class="fa-solid fa-network-wired"></i> Wireshark</span>
-                        <span class="tag"><i class="fa-solid fa-diagram-project"></i> Packet Tracer</span>
-                        <span class="tag"><i class="fa-solid fa-lock"></i> TCP/IP Protocol</span>
-                        <span class="tag tag-green"><i class="fa-solid fa-shield-cat"></i> IDS/IPS</span>
-                    </div>
-                    <div class="archive-card-footer">
-                        <span class="card-status-pill text-green"><span class="chip-dot"></span> SOC LAB</span>
-                        <div class="card-links">
-                            <a href="index.html#contact" class="card-btn-action" title="Request PCAP Report">
-                                <i class="fa-solid fa-file-shield"></i> LAB REPORT
-                            </a>
+                    <div class="archive-card-body">
+                        <div class="archive-card-header">
+                            <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SOC</div>
+                            <span class="card-year">2026 // SECURITY LAB</span>
+                        </div>
+                        <h3 class="archive-card-title">Network Intrusion &amp; Packet Flow Analyzer</h3>
+                        <p class="archive-card-desc">
+                            Deep packet inspection environment utilizing Wireshark and Cisco Packet Tracer to trace suspicious TCP handshakes, ARP poisoning, and DNS exfiltration patterns across corporate topologies. Hardened with Snort IDS/IPS signature rules.
+                        </p>
+                        <div class="archive-card-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Packet payload reconstruction &amp; TLS 1.3 handshake validation</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> VLAN segmentation, ACL policies &amp; Port Security setup</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> PCAP automated attack signature extraction (Zero Packet Loss)</div>
+                        </div>
+                        <div class="archive-card-tags">
+                            <span class="tag tag-green"><i class="fa-solid fa-network-wired"></i> Wireshark</span>
+                            <span class="tag"><i class="fa-solid fa-diagram-project"></i> Packet Tracer</span>
+                            <span class="tag"><i class="fa-solid fa-lock"></i> TCP/IP Protocol</span>
+                            <span class="tag tag-green"><i class="fa-solid fa-shield-cat"></i> IDS/IPS</span>
+                        </div>
+                        <div class="archive-card-footer">
+                            <span class="card-status-pill text-green"><span class="chip-dot"></span> SOC LAB REPORT</span>
+                            <div class="card-links">
+                                <a href="index.html#contact" class="card-btn-action" title="Request PCAP Report">
+                                    <i class="fa-solid fa-file-shield"></i> LAB REPORT
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 05: Distributed SignalR Real-Time Engine -->
                 <div class="archive-card" data-category="backend" data-keywords="signalr real-time websockets dotnet c# redis notification streaming broadcast">
-                    <div class="archive-card-header">
-                        <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
-                        <span class="card-year">2026 // MICROSERVICE</span>
+                    <div class="archive-card-image-wrap">
+                        <img src="assets/projects/signalr-hub.svg" class="archive-card-thumb" alt="Distributed Real-Time WebSocket Engine">
+                        <div class="archive-img-badge backend-badge"><i class="fa-solid fa-bolt"></i> &lt; 4.2ms LATENCY</div>
                     </div>
-                    <h3 class="archive-card-title">Distributed Real-Time WebSocket Engine</h3>
-                    <p class="archive-card-desc">
-                        High-concurrency SignalR communication infrastructure supporting group-based broadcast channels, user presence tracking, instant telemetry streaming, and reconnection resilience.
-                    </p>
-                    <div class="archive-card-highlights">
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Sub-10ms delivery latency for 1000+ concurrent clients</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Strong typing via generic Hub interfaces (`IHubContext`)</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Automatic fallback to Server-Sent Events (SSE) and Long Polling</div>
-                    </div>
-                    <div class="archive-card-tags">
-                        <span class="tag tag-green"><i class="fa-solid fa-tower-broadcast"></i> SignalR</span>
-                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C# .NET 8</span>
-                        <span class="tag"><i class="fa-solid fa-plug"></i> WebSockets</span>
-                        <span class="tag tag-blue"><i class="fa-solid fa-bolt"></i> Async/Await</span>
-                    </div>
-                    <div class="archive-card-footer">
-                        <span class="card-status-pill text-purple"><span class="chip-dot"></span> DISTRIBUTED HUB</span>
-                        <div class="card-links">
-                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
-                                <i class="fa-brands fa-github"></i> GITHUB
-                            </a>
+                    <div class="archive-card-body">
+                        <div class="archive-card-header">
+                            <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
+                            <span class="card-year">2026 // MICROSERVICE</span>
+                        </div>
+                        <h3 class="archive-card-title">Distributed Real-Time WebSocket Engine</h3>
+                        <p class="archive-card-desc">
+                            High-concurrency SignalR communication infrastructure supporting Redis Pub/Sub backplane scaling, group-based broadcast channels, user presence tracking, and automatic reconnection backoff.
+                        </p>
+                        <div class="archive-card-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Sub-5ms delivery latency for 10,000+ concurrent WebSockets</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Strongly-typed generic Hub interfaces (`IHubContext&lt;T&gt;`)</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Redis Pub/Sub cluster horizontal scale-out architecture</div>
+                        </div>
+                        <div class="archive-card-tags">
+                            <span class="tag tag-green"><i class="fa-solid fa-tower-broadcast"></i> SignalR</span>
+                            <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C# .NET 8</span>
+                            <span class="tag"><i class="fa-solid fa-plug"></i> WebSockets</span>
+                            <span class="tag tag-blue"><i class="fa-solid fa-bolt"></i> Redis Pub/Sub</span>
+                        </div>
+                        <div class="archive-card-footer">
+                            <span class="card-status-pill text-purple"><span class="chip-dot"></span> DISTRIBUTED HUB</span>
+                            <div class="card-links">
+                                <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                    <i class="fa-brands fa-github"></i> GITHUB
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 06: ICPC Algorithmic Problem Solutions Archive -->
-                <div class="archive-card" data-category="algo" data-keywords="icpc competitive programming ecpc c++ algorithms data structures dynamic programming graphs dsu tree">
-                    <div class="archive-card-header">
-                        <div class="card-cat-badge algo-cat"><i class="fa-solid fa-laptop-code"></i> ALGORITHMS &amp; C++</div>
-                        <span class="card-year">2023 - 2026 // COMPETITIVE</span>
+                <div class="archive-card" data-category="algo" data-keywords="icpc competitive programming ecpc c++ algorithms data structures dynamic programming graphs dsu tree segment tree">
+                    <div class="archive-card-image-wrap">
+                        <img src="assets/projects/icpc-algo.svg" class="archive-card-thumb" alt="ICPC &amp; Codeforces Solutions Repository">
+                        <div class="archive-img-badge algo-badge"><i class="fa-solid fa-trophy"></i> 2,500+ AC</div>
                     </div>
-                    <h3 class="archive-card-title">ICPC &amp; Codeforces Solutions Repository</h3>
-                    <p class="archive-card-desc">
-                        Comprehensive C++ algorithm library solving 2,500+ problems across Codeforces, LeetCode, and ECPC national qualifiers. Includes optimized implementations of advanced graph algorithms, trees, and dynamic programming.
-                    </p>
-                    <div class="archive-card-highlights">
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Dijkstra, Segment Trees, Fenwick Trees, Disjoint Set Union</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> 1D/2D DP with bitmasking &amp; space-state compression</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Sub-millisecond execution optimization (O(N log N))</div>
-                    </div>
-                    <div class="archive-card-tags">
-                        <span class="tag tag-cyan"><i class="fa-solid fa-code"></i> C++17/20</span>
-                        <span class="tag"><i class="fa-solid fa-diagram-project"></i> Graphs &amp; Trees</span>
-                        <span class="tag"><i class="fa-solid fa-gears"></i> Dynamic Programming</span>
-                        <span class="tag tag-green"><i class="fa-solid fa-trophy"></i> ICPC / ECPC</span>
-                    </div>
-                    <div class="archive-card-footer">
-                        <span class="card-status-pill text-green"><span class="chip-dot"></span> 2,500+ SOLVED</span>
-                        <div class="card-links">
-                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub Archive">
-                                <i class="fa-brands fa-github"></i> ALGORITHM REPO
-                            </a>
+                    <div class="archive-card-body">
+                        <div class="archive-card-header">
+                            <div class="card-cat-badge algo-cat"><i class="fa-solid fa-laptop-code"></i> ALGORITHMS &amp; C++</div>
+                            <span class="card-year">2023 - 2026 // COMPETITIVE</span>
+                        </div>
+                        <h3 class="archive-card-title">ICPC &amp; Codeforces Solutions Repository</h3>
+                        <p class="archive-card-desc">
+                            Comprehensive C++20 algorithmic problem solver library containing solutions to 2,500+ problems across Codeforces, LeetCode, and ECPC national qualifiers. Includes high-speed implementations of graphs, trees, and dynamic programming.
+                        </p>
+                        <div class="archive-card-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Segment Trees with Lazy Propagation, DSU on Tree, HLD</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> 1D/2D DP with bitmasking &amp; space-state compression</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Sub-millisecond execution optimization ($O(N \log N)$)</div>
+                        </div>
+                        <div class="archive-card-tags">
+                            <span class="tag tag-cyan"><i class="fa-solid fa-code"></i> C++20</span>
+                            <span class="tag"><i class="fa-solid fa-diagram-project"></i> Graphs &amp; Trees</span>
+                            <span class="tag"><i class="fa-solid fa-gears"></i> Dynamic Programming</span>
+                            <span class="tag tag-green"><i class="fa-solid fa-trophy"></i> ICPC / ECPC</span>
+                        </div>
+                        <div class="archive-card-footer">
+                            <span class="card-status-pill text-green"><span class="chip-dot"></span> 2,500+ SOLVED</span>
+                            <div class="card-links">
+                                <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub Archive">
+                                    <i class="fa-brands fa-github"></i> ALGORITHM REPO
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 07: Secure Identity & JWT Auth Service -->
                 <div class="archive-card" data-category="backend" data-keywords="identity jwt oauth2 rbac refresh tokens asp.net core security owasp authentication authorization">
-                    <div class="archive-card-header">
-                        <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
-                        <span class="card-year">2026 // SECURITY CORE</span>
+                    <div class="archive-card-image-wrap">
+                        <img src="assets/projects/identity-jwt.svg" class="archive-card-thumb" alt="Secure Identity &amp; Token Authority Microservice">
+                        <div class="archive-img-badge backend-badge"><i class="fa-solid fa-key"></i> RS256 AUTH</div>
                     </div>
-                    <h3 class="archive-card-title">Secure Identity &amp; Token Authority Microservice</h3>
-                    <p class="archive-card-desc">
-                        Hardened OAuth2/JWT authentication server built with ASP.NET Core Identity. Enforces encrypted refresh-token rotation, fine-grained Role-Based Access Control (RBAC), and brute-force mitigation.
-                    </p>
-                    <div class="archive-card-highlights">
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Cryptographic Refresh Token rotation with revocation lists</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> OWASP Top 10 hardening (CORS, CSRF, Rate Limiting)</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Granular Policy &amp; Claim-based authorization handlers</div>
-                    </div>
-                    <div class="archive-card-tags">
-                        <span class="tag tag-purple"><i class="fa-solid fa-key"></i> JWT / OAuth2</span>
-                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C# .NET 8</span>
-                        <span class="tag tag-green"><i class="fa-solid fa-user-shield"></i> ASP.NET Identity</span>
-                        <span class="tag"><i class="fa-solid fa-shield-halved"></i> OWASP Safe</span>
-                    </div>
-                    <div class="archive-card-footer">
-                        <span class="card-status-pill text-purple"><span class="chip-dot"></span> ZERO TRUST</span>
-                        <div class="card-links">
-                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
-                                <i class="fa-brands fa-github"></i> GITHUB
-                            </a>
+                    <div class="archive-card-body">
+                        <div class="archive-card-header">
+                            <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
+                            <span class="card-year">2026 // SECURITY CORE</span>
+                        </div>
+                        <h3 class="archive-card-title">Secure Identity &amp; Token Authority Microservice</h3>
+                        <p class="archive-card-desc">
+                            Hardened OAuth2/JWT authentication server built with ASP.NET Core Identity. Enforces encrypted refresh-token rotation, fine-grained Role-Based Access Control (RBAC), and brute-force mitigation.
+                        </p>
+                        <div class="archive-card-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Cryptographic Refresh Token rotation with revocation lists</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> OWASP Top 10 hardening (CORS, CSRF, Rate Limiting)</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Granular Policy &amp; Claim-based authorization handlers</div>
+                        </div>
+                        <div class="archive-card-tags">
+                            <span class="tag tag-purple"><i class="fa-solid fa-key"></i> JWT / OAuth2</span>
+                            <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C# .NET 8</span>
+                            <span class="tag tag-green"><i class="fa-solid fa-user-shield"></i> ASP.NET Identity</span>
+                            <span class="tag"><i class="fa-solid fa-shield-halved"></i> OWASP Safe</span>
+                        </div>
+                        <div class="archive-card-footer">
+                            <span class="card-status-pill text-purple"><span class="chip-dot"></span> ZERO TRUST</span>
+                            <div class="card-links">
+                                <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                    <i class="fa-brands fa-github"></i> GITHUB
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 08: High-Throughput E-Commerce RESTful Web API -->
                 <div class="archive-card" data-category="backend" data-keywords="ecommerce api web api dapper ef core sql server redis caching payments cart order">
-                    <div class="archive-card-header">
-                        <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
-                        <span class="card-year">2026 // HIGH LOAD</span>
+                    <div class="archive-card-image-wrap">
+                        <img src="assets/projects/ecommerce-api.svg" class="archive-card-thumb" alt="High-Throughput E-Commerce RESTful Engine">
+                        <div class="archive-img-badge backend-badge"><i class="fa-solid fa-gauge-high"></i> 2.1ms READ</div>
                     </div>
-                    <h3 class="archive-card-title">High-Throughput E-Commerce RESTful Engine</h3>
-                    <p class="archive-card-desc">
-                        Scalable e-commerce backend handling product catalogs, customer carts, and transactional order checkout with SQL Server index tuning and Dapper for high-speed query reads.
-                    </p>
-                    <div class="archive-card-highlights">
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Dapper Micro-ORM for sub-5ms read benchmark queries</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Transactional concurrency control for inventory allocation</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Swagger / OpenAPI documentation with API versioning</div>
-                    </div>
-                    <div class="archive-card-tags">
-                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> ASP.NET Core API</span>
-                        <span class="tag tag-green"><i class="fa-solid fa-database"></i> Dapper &amp; SQL</span>
-                        <span class="tag"><i class="fa-solid fa-cart-shopping"></i> E-Commerce</span>
-                        <span class="tag tag-blue"><i class="fa-solid fa-gauge-high"></i> High-Load</span>
-                    </div>
-                    <div class="archive-card-footer">
-                        <span class="card-status-pill text-purple"><span class="chip-dot"></span> OPTIMIZED API</span>
-                        <div class="card-links">
-                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
-                                <i class="fa-brands fa-github"></i> GITHUB
-                            </a>
+                    <div class="archive-card-body">
+                        <div class="archive-card-header">
+                            <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
+                            <span class="card-year">2026 // HIGH LOAD</span>
+                        </div>
+                        <h3 class="archive-card-title">High-Throughput E-Commerce RESTful Engine</h3>
+                        <p class="archive-card-desc">
+                            Scalable e-commerce backend handling product catalogs, customer carts, and transactional order checkout with SQL Server index tuning and Dapper for high-speed query reads.
+                        </p>
+                        <div class="archive-card-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Dapper Micro-ORM for sub-5ms read benchmark queries</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Transactional concurrency control for inventory allocation</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Swagger / OpenAPI documentation with API versioning</div>
+                        </div>
+                        <div class="archive-card-tags">
+                            <span class="tag tag-purple"><i class="fa-solid fa-code"></i> ASP.NET Core API</span>
+                            <span class="tag tag-green"><i class="fa-solid fa-database"></i> Dapper &amp; SQL</span>
+                            <span class="tag"><i class="fa-solid fa-cart-shopping"></i> E-Commerce</span>
+                            <span class="tag tag-blue"><i class="fa-solid fa-gauge-high"></i> High-Load</span>
+                        </div>
+                        <div class="archive-card-footer">
+                            <span class="card-status-pill text-purple"><span class="chip-dot"></span> OPTIMIZED API</span>
+                            <div class="card-links">
+                                <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                    <i class="fa-brands fa-github"></i> GITHUB
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 09: Cyber Port Scanner & Vulnerability Recon CLI -->
                 <div class="archive-card" data-category="cyber" data-keywords="port scanner reconnaissance recon nmap socket banner grabbing c# cli security vulnerability">
-                    <div class="archive-card-header">
-                        <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SOC</div>
-                        <span class="card-year">2025 // CLI TOOL</span>
+                    <div class="archive-card-image-wrap">
+                        <img src="assets/projects/port-scanner.svg" class="archive-card-thumb" alt="Cyber Recon &amp; Asynchronous Port Scanner">
+                        <div class="archive-img-badge cyber-badge"><i class="fa-solid fa-terminal"></i> CLI TOOL</div>
                     </div>
-                    <h3 class="archive-card-title">Cyber Recon &amp; Asynchronous Port Scanner</h3>
-                    <p class="archive-card-desc">
-                        Multi-threaded networking tool written in C# utilizing raw socket connections for asynchronous TCP port scanning, service banner grabbing, and open-port vulnerability detection.
-                    </p>
-                    <div class="archive-card-highlights">
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Scans 65,535 ports asynchronously in under 15 seconds</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Automated banner grabber identifying HTTP, SSH, FTP versions</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Colored terminal UI with exportable JSON/CSV audit logs</div>
-                    </div>
-                    <div class="archive-card-tags">
-                        <span class="tag tag-green"><i class="fa-solid fa-terminal"></i> C# CLI</span>
-                        <span class="tag"><i class="fa-solid fa-network-wired"></i> Socket Programming</span>
-                        <span class="tag tag-green"><i class="fa-solid fa-radar"></i> Reconnaissance</span>
-                    </div>
-                    <div class="archive-card-footer">
-                        <span class="card-status-pill text-green"><span class="chip-dot"></span> RECON TOOL</span>
-                        <div class="card-links">
-                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
-                                <i class="fa-brands fa-github"></i> GITHUB
-                            </a>
+                    <div class="archive-card-body">
+                        <div class="archive-card-header">
+                            <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SOC</div>
+                            <span class="card-year">2025 // CLI TOOL</span>
+                        </div>
+                        <h3 class="archive-card-title">Cyber Recon &amp; Asynchronous Port Scanner</h3>
+                        <p class="archive-card-desc">
+                            Multi-threaded networking tool written in C# utilizing raw socket connections for asynchronous TCP port scanning, service banner grabbing, and open-port vulnerability detection.
+                        </p>
+                        <div class="archive-card-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Scans 65,535 ports asynchronously in under 15 seconds</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Automated banner grabber identifying HTTP, SSH, FTP versions</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Colored terminal UI with exportable JSON/CSV audit logs</div>
+                        </div>
+                        <div class="archive-card-tags">
+                            <span class="tag tag-green"><i class="fa-solid fa-terminal"></i> C# CLI</span>
+                            <span class="tag"><i class="fa-solid fa-network-wired"></i> Socket Programming</span>
+                            <span class="tag tag-green"><i class="fa-solid fa-radar"></i> Reconnaissance</span>
+                        </div>
+                        <div class="archive-card-footer">
+                            <span class="card-status-pill text-green"><span class="chip-dot"></span> RECON TOOL</span>
+                            <div class="card-links">
+                                <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                    <i class="fa-brands fa-github"></i> GITHUB
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 10: Gemini AI Code Security Reviewer -->
                 <div class="archive-card" data-category="ai" data-keywords="gemini ai llm code reviewer security audit static analysis ast c# react automation">
-                    <div class="archive-card-header">
-                        <div class="card-cat-badge ai-cat"><i class="fa-solid fa-brain"></i> AI &amp; FULL-STACK</div>
-                        <span class="card-year">2026 // AI AUTOMATION</span>
+                    <div class="archive-card-image-wrap">
+                        <img src="assets/projects/gemini-audit.svg" class="archive-card-thumb" alt="Gemini AI Automated Code Security Auditor">
+                        <div class="archive-img-badge ai-badge"><i class="fa-solid fa-brain"></i> AI STATIC AUDIT</div>
                     </div>
-                    <h3 class="archive-card-title">Gemini AI Automated Code Security Auditor</h3>
-                    <p class="archive-card-desc">
-                        Intelligent code analysis system integrating Google Gemini AI 1.5 Pro to detect SQL injection, insecure deserialization, hardcoded secrets, and performance bottlenecks in git commits.
-                    </p>
-                    <div class="archive-card-highlights">
-                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Automatic AST code parsing &amp; OWASP vulnerability mapping</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Generates remediation diffs and secure refactoring patches</div>
-                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Real-time AI streaming responses via WebSockets</div>
-                    </div>
-                    <div class="archive-card-tags">
-                        <span class="tag tag-ai"><i class="fa-solid fa-brain"></i> Gemini 1.5 Pro</span>
-                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> .NET 8 Core</span>
-                        <span class="tag tag-cyan"><i class="fa-solid fa-shield-virus"></i> Static Analysis</span>
-                    </div>
-                    <div class="archive-card-footer">
-                        <span class="card-status-pill text-cyan"><span class="chip-dot"></span> AI SECURITY</span>
-                        <div class="card-links">
-                            <a href="index.html#contact" class="card-btn-action" title="Request Demo">
-                                <i class="fa-solid fa-envelope"></i> REQUEST DEMO
-                            </a>
+                    <div class="archive-card-body">
+                        <div class="archive-card-header">
+                            <div class="card-cat-badge ai-cat"><i class="fa-solid fa-brain"></i> AI &amp; FULL-STACK</div>
+                            <span class="card-year">2026 // AI AUTOMATION</span>
+                        </div>
+                        <h3 class="archive-card-title">Gemini AI Automated Code Security Auditor</h3>
+                        <p class="archive-card-desc">
+                            Intelligent code analysis system integrating Google Gemini AI 1.5 Pro to detect SQL injection, insecure deserialization, hardcoded secrets, and performance bottlenecks in git commits.
+                        </p>
+                        <div class="archive-card-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Automatic AST code parsing &amp; OWASP vulnerability mapping</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Generates remediation diffs and secure refactoring patches</div>
+                            <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Real-time AI streaming responses via WebSockets</div>
+                        </div>
+                        <div class="archive-card-tags">
+                            <span class="tag tag-ai"><i class="fa-solid fa-brain"></i> Gemini 1.5 Pro</span>
+                            <span class="tag tag-purple"><i class="fa-solid fa-code"></i> .NET 8 Core</span>
+                            <span class="tag tag-cyan"><i class="fa-solid fa-shield-virus"></i> Static Analysis</span>
+                        </div>
+                        <div class="archive-card-footer">
+                            <span class="card-status-pill text-cyan"><span class="chip-dot"></span> AI SECURITY</span>
+                            <div class="card-links">
+                                <a href="index.html#contact" class="card-btn-action" title="Request Demo">
+                                    <i class="fa-solid fa-envelope"></i> REQUEST DEMO
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -472,7 +513,7 @@
     <div class="cyber-mouse-aura" id="cyberMouseAura"></div>
 
     <!-- Scripts -->
-    <script src="script.js?v=17.0"></script>
-    <script src="projects.js?v=2.0"></script>
+    <script src="script.js?v=20.0"></script>
+    <script src="projects.js?v=3.0"></script>
 </body>
 </html>

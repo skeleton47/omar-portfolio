@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#02140a"/><stop offset="60%" stop-color="#010804"/><stop offset="100%" stop-color="#000201"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="320" fill="url(#bg9)"/>
+  <rect x="0" y="0" width="600" height="32" fill="rgba(0,0,0,0.7)" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <circle cx="18" cy="16" r="4" fill="#ef4444"/><circle cx="32" cy="16" r="4" fill="#fbbf24"/><circle cx="46" cy="16" r="4" fill="#22c55e"/>
+  <text x="68" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">CYBER RECON CLI // ASYNC MULTI-THREADED SOCKET PORT SCANNER</text>
+  <rect x="20" y="48" width="560" height="252" rx="7" fill="rgba(0,0,0,0.85)" stroke="rgba(34,197,94,0.25)"/>
+  <text x="32" y="74" fill="#22c55e" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">$ ./recon-cli scan --target 10.0.0.1 --ports 1-65535 --threads 512</text>
+  <text x="32" y="100" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">[+] Target IP: 10.0.0.1 (Reverse DNS: gw.internal.corp)</text>
+  <text x="32" y="124" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">[+] Initializing asynchronous socket pool (512 worker tasks)...</text>
+  <text x="32" y="148" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="10">[OPEN] Port 22/TCP   -> SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.6</text>
+  <text x="32" y="172" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="10">[OPEN] Port 80/TCP   -> nginx/1.18.0 (HTTP 301 Redirect -> https)</text>
+  <text x="32" y="196" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="10">[OPEN] Port 443/TCP  -> FortiGate HTTPS Gateway (TLS 1.3 Strict)</text>
+  <text x="32" y="220" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="10">[FILTERED] Port 3389/TCP -> RDP (Blocked by Firewall Policy #4)</text>
+  <rect x="32" y="240" width="536" height="38" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)"/>
+  <text x="44" y="264" fill="#22c55e" font-family="'JetBrains Mono', monospace" font-size="9.5">[SCAN COMPLETED: 65,535 PORTS IN 11.4s // EXPORTED TO JSON &amp; CSV AUDIT]</text>
+</svg>

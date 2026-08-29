@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021c1e"/><stop offset="60%" stop-color="#010a0c"/><stop offset="100%" stop-color="#000304"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="320" fill="url(#bg4)"/>
+  <rect x="0" y="0" width="600" height="32" fill="rgba(0,0,0,0.7)" stroke="rgba(20,184,166,0.25)" stroke-width="1"/>
+  <circle cx="18" cy="16" r="4" fill="#ef4444"/><circle cx="32" cy="16" r="4" fill="#fbbf24"/><circle cx="46" cy="16" r="4" fill="#14b8a6"/>
+  <text x="68" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">WIRESHARK &amp; CISCO PCAP // PACKET FLOW &amp; IDS ANALYZER</text>
+  <rect x="20" y="48" width="560" height="252" rx="7" fill="rgba(0,0,0,0.85)" stroke="rgba(20,184,166,0.25)"/>
+  <text x="32" y="74" fill="#2dd4bf" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold">No.   Time       Source          Destination      Protocol Length Info</text>
+  <line x1="30" y1="84" x2="570" y2="84" stroke="rgba(255,255,255,0.1)"/>
+  <text x="32" y="106" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">001   0.000000   192.168.1.10    10.0.0.1         TCP      74     54321 → 443 [SYN] Seq=0</text>
+  <text x="32" y="128" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">002   0.000812   10.0.0.1        192.168.1.10     TCP      74     443 → 54321 [SYN, ACK] Seq=0</text>
+  <text x="32" y="150" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">003   0.000945   192.168.1.10    10.0.0.1         TLSv1.3  512    Client Hello (SNI: api.internal)</text>
+  <text x="32" y="174" fill="#f87171" font-family="'JetBrains Mono', monospace" font-size="10">004   0.012401   198.51.100.24   10.0.0.1         DNS      98     Standard query 0x1a2b [EXFILTRATION]</text>
+  <text x="32" y="198" fill="#f87171" font-family="'JetBrains Mono', monospace" font-size="10">005   0.012405   IDS_SENSOR_01   SOC_GATEWAY      SNORT    128    [ALERT] DNS Tunneling Detected</text>
+  <text x="32" y="222" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="10">006   0.012510   SOC_GATEWAY     198.51.100.24    ICMP     80     Destination Unreachable (Admin Filter)</text>
+  <rect x="32" y="245" width="536" height="38" rx="4" fill="rgba(20,184,166,0.12)" stroke="rgba(20,184,166,0.3)"/>
+  <text x="44" y="268" fill="#2dd4bf" font-family="'JetBrains Mono', monospace" font-size="9.5">[PCAP AUDIT RESULT: ZERO PACKET DROPS // MITRE ATT&amp;CK T1071.004 MITIGATED]</text>
+</svg>

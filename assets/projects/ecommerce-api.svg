@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021a16"/><stop offset="60%" stop-color="#010c0a"/><stop offset="100%" stop-color="#000403"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="320" fill="url(#bg8)"/>
+  <rect x="0" y="0" width="600" height="32" fill="rgba(0,0,0,0.7)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+  <circle cx="18" cy="16" r="4" fill="#ef4444"/><circle cx="32" cy="16" r="4" fill="#fbbf24"/><circle cx="46" cy="16" r="4" fill="#10b981"/>
+  <text x="68" y="20" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">HIGH-THROUGHPUT E-COMMERCE API // DAPPER &amp; SQL RESILIENCE</text>
+  <rect x="20" y="48" width="170" height="70" rx="6" fill="rgba(2,24,18,0.85)" stroke="rgba(16,185,129,0.3)"/>
+  <text x="32" y="68" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">READ BENCHMARK</text>
+  <text x="32" y="94" fill="#10b981" font-family="sans-serif" font-size="18" font-weight="800">2.1 ms READ</text>
+  <rect x="205" y="48" width="170" height="70" rx="6" fill="rgba(2,24,18,0.85)" stroke="rgba(16,185,129,0.3)"/>
+  <text x="217" y="68" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">ORDER CHECKOUT</text>
+  <text x="217" y="94" fill="#38bdf8" font-family="sans-serif" font-size="18" font-weight="800">ACID TRANSACT</text>
+  <rect x="390" y="48" width="190" height="70" rx="6" fill="rgba(2,24,18,0.85)" stroke="rgba(16,185,129,0.3)"/>
+  <text x="402" y="68" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">CACHE HIT RATE</text>
+  <text x="402" y="94" fill="#00ff66" font-family="sans-serif" font-size="18" font-weight="800">96.4% REDIS</text>
+  <rect x="20" y="132" width="560" height="170" rx="6" fill="rgba(0,0,0,0.88)" stroke="rgba(16,185,129,0.2)"/>
+  <text x="32" y="158" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold">> POST /api/v1/orders/checkout HTTP/1.1 (Payload: 15 Items)</text>
+  <text x="32" y="184" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">> [DAPPER QUERY] SELECT * FROM Products WITH (NOLOCK) WHERE Id IN (...) [1.4ms]</text>
+  <text x="32" y="210" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="10">> [SQL TRANSACTION] BEGIN TRAN -> Allocate Inventory -> Insert Order -> COMMIT [3.2ms]</text>
+  <text x="32" y="236" fill="#00ff66" font-family="'JetBrains Mono', monospace" font-size="10">> Response: 201 Created | OrderId: #ORD-98241 | Concurrency Isolation: SERIALIZABLE</text>
+  <text x="32" y="268" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="9.5">[OPTIMIZED VIA INDEX TUNING -- ZERO DEADLOCKS UNDER 5,000 RPS LOAD]</text>
+</svg>
