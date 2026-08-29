@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initInteractiveTerminal();
     initNavEvents();
     initSkillsInspector();
-    initSkillsFilters();
     initResumeModal();
     initCopyActions();
     initMatrixMode();
     initConnectTerminal();
 });
+
 
 /* ==========================================================================
    1. CYBER MATRIX / WAVE CANVAS ANIMATION
@@ -318,112 +318,94 @@ const skillsDatabase = {
 
 function initSkillsInspector() {
     const skillCards = document.querySelectorAll('.skill-card');
-    const inspectorPanel = document.getElementById('skillInspectorPanel');
+    const modalBackdrop = document.getElementById('skillModalBackdrop');
+    const closeBtn = document.getElementById('skillModalCloseBtn');
+    const closeFooterBtn = document.getElementById('skillModalCloseFooterBtn');
     
-    const inspIcon = document.getElementById('inspIcon');
-    const inspCategory = document.getElementById('inspCategory');
-    const inspName = document.getElementById('inspName');
-    const inspLevel = document.getElementById('inspLevel');
-    const inspDesc = document.getElementById('inspDesc');
-    const inspChecklist = document.getElementById('inspChecklist');
-    const inspProjectsList = document.getElementById('inspProjectsList');
-    const inspTags = document.getElementById('inspTags');
+    const modalIcon = document.getElementById('skillModalIcon');
+    const modalCat = document.getElementById('skillModalCat');
+    const modalTitle = document.getElementById('skillModalTitle');
+    const modalBadge = document.getElementById('skillModalBadge');
+    const modalDesc = document.getElementById('skillModalDesc');
+    const modalList = document.getElementById('skillModalList');
+    const modalProjects = document.getElementById('skillModalProjects');
+    const modalTags = document.getElementById('skillModalTags');
 
-    if (!inspectorPanel || skillCards.length === 0) return;
+    if (!modalBackdrop || skillCards.length === 0) return;
 
-    function renderSkillDetails(skillId) {
+    function openSkillModal(skillId) {
         const skill = skillsDatabase[skillId];
         if (!skill) return;
 
-        // Update active card class
-        skillCards.forEach(card => {
-            if (card.getAttribute('data-skill-id') === skillId) {
-                card.classList.add('active');
-            } else {
-                card.classList.remove('active');
-            }
-        });
+        // Populate Modal Fields
+        if (modalIcon) modalIcon.innerHTML = skill.icon;
+        if (modalCat) modalCat.textContent = skill.category;
+        if (modalTitle) modalTitle.textContent = skill.name;
+        if (modalBadge) modalBadge.textContent = skill.level;
+        if (modalDesc) modalDesc.textContent = skill.desc;
 
-        // Populate Inspector
-        inspIcon.innerHTML = skill.icon;
-        inspCategory.textContent = skill.category;
-        inspName.textContent = skill.name;
-        inspLevel.textContent = skill.level;
-        inspDesc.textContent = skill.desc;
+        // Populate Capabilities
+        if (modalList) {
+            modalList.innerHTML = skill.capabilities
+                .map(cap => `<li><i class="fa-solid fa-check text-green"></i> ${cap}</li>`)
+                .join('');
+        }
 
-        // Checklist
-        inspChecklist.innerHTML = skill.capabilities
-            .map(cap => `<li><i class="fa-solid fa-check text-green"></i> ${cap}</li>`)
-            .join('');
+        // Populate Projects
+        if (modalProjects) {
+            modalProjects.innerHTML = skill.projects
+                .map(p => `
+                    <a href="${p.link}" target="${p.link.startsWith('http') ? '_blank' : '_self'}" class="skill-modal-project-link">
+                        <i class="${p.icon}"></i>
+                        <span>${p.name}</span>
+                    </a>
+                `)
+                .join('');
+        }
 
-        // Projects
-        inspProjectsList.innerHTML = skill.projects
-            .map(p => `
-                <a href="${p.link}" target="${p.link.startsWith('http') ? '_blank' : '_self'}" class="insp-project-link">
-                    <i class="${p.icon}"></i>
-                    <span>${p.name}</span>
-                </a>
-            `)
-            .join('');
+        // Populate Tags
+        if (modalTags) {
+            modalTags.innerHTML = skill.tags
+                .map(t => `<span class="tag">${t}</span>`)
+                .join('');
+        }
 
-        // Tags
-        inspTags.innerHTML = skill.tags
-            .map(t => `<span class="tag">${t}</span>`)
-            .join('');
-
-        // Visual feedback flash
-        inspectorPanel.style.borderColor = 'var(--neon-green)';
-        setTimeout(() => {
-            inspectorPanel.style.borderColor = 'rgba(0, 255, 102, 0.35)';
-        }, 500);
+        // Open Modal
+        modalBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 
-    // Attach click listeners to cards
+    function closeSkillModal() {
+        modalBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Attach click listeners to skill cards
     skillCards.forEach(card => {
         card.addEventListener('click', () => {
             const skillId = card.getAttribute('data-skill-id');
-            renderSkillDetails(skillId);
-
-            // If on mobile, scroll slightly into view
-            if (window.innerWidth <= 868) {
-                inspectorPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            if (skillId) {
+                openSkillModal(skillId);
             }
         });
     });
 
-    // Default to fortinet
-    renderSkillDetails('fortinet');
-}
+    if (closeBtn) closeBtn.addEventListener('click', closeSkillModal);
+    if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeSkillModal);
 
-function initSkillsFilters() {
-    const filterButtons = document.querySelectorAll('.skill-filter-btn');
-    const skillCards = document.querySelectorAll('.skill-card');
+    modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) {
+            closeSkillModal();
+        }
+    });
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-            let firstVisibleCard = null;
-
-            skillCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.classList.remove('hidden');
-                    if (!firstVisibleCard) firstVisibleCard = card;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // Automatically select the first visible skill
-            if (firstVisibleCard) {
-                firstVisibleCard.click();
-            }
-        });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
+            closeSkillModal();
+        }
     });
 }
+
 
 /* ==========================================================================
    3. QUICK RESUME PREVIEW MODAL LOGIC
