@@ -11,8 +11,9 @@
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=16.0">
+    <link rel="stylesheet" href="style.css?v=17.0">
 </head>
+
 
 
 
@@ -525,49 +526,53 @@
             </h2>
 
             <div class="projects-grid">
-                <!-- Project 1: FortiSIEM & Threat Analysis Lab -->
+                <!-- Project 1: FortiSIEM & FortiAnalyzer Suite -->
                 <div class="project-card">
                     <div class="project-preview project-preview-soc">
-                        <div class="preview-hud-header">
-                            <span class="hud-status-chip live-chip"><span class="chip-dot"></span> LIVE SIEM LOGS</span>
-                            <span class="hud-mono-meta">PORT: 443 // 10.0.0.1</span>
-                        </div>
-                        <div class="soc-log-feed">
-                            <div class="soc-log-item">
-                                <span class="log-badge alert-badge"><i class="fa-solid fa-triangle-exclamation"></i> ALERT</span>
-                                <span class="log-text">Brute Force Detected [47 req/s]</span>
+                        <!-- Project Image / Screenshot with Fallback -->
+                        <img src="assets/projects/fortisiem-soc.svg" class="project-card-img" alt="FortiSIEM &amp; FortiAnalyzer SOC Suite">
+                        <div class="project-hud-overlay">
+                            <div class="preview-hud-header">
+                                <span class="hud-status-chip live-chip"><span class="chip-dot"></span> LIVE SIEM LOGS</span>
+                                <span class="hud-mono-meta">PORT: 443 // 10.0.0.1</span>
                             </div>
-                            <div class="soc-log-item">
-                                <span class="log-badge ban-badge"><i class="fa-solid fa-ban"></i> AUTO-BAN</span>
-                                <span class="log-text">FortiGate Blocked IP: 198.51.100.24</span>
+                            <div class="soc-log-feed">
+                                <div class="soc-log-item">
+                                    <span class="log-badge alert-badge"><i class="fa-solid fa-triangle-exclamation"></i> ALERT</span>
+                                    <span class="log-text">Brute Force Detected [47 req/s]</span>
+                                </div>
+                                <div class="soc-log-item">
+                                    <span class="log-badge ban-badge"><i class="fa-solid fa-ban"></i> AUTO-BAN</span>
+                                    <span class="log-text">FortiGate Blocked IP: 198.51.100.24</span>
+                                </div>
+                                <div class="soc-log-item">
+                                    <span class="log-badge success-badge"><i class="fa-solid fa-shield-halved"></i> HARDENED</span>
+                                    <span class="log-text">15+ Scenarios Mitigated (NTI 2026)</span>
+                                </div>
                             </div>
-                            <div class="soc-log-item">
-                                <span class="log-badge success-badge"><i class="fa-solid fa-shield-halved"></i> HARDENED</span>
-                                <span class="log-text">15+ Scenarios Mitigated (NTI 2026)</span>
+                            <div class="preview-hud-footer">
+                                <span><i class="fa-solid fa-shield-halved text-green"></i> FABRIC: 100% INTACT</span>
+                                <span>LATENCY: 0.8ms</span>
                             </div>
+                            <div class="cyber-scan-line"></div>
                         </div>
-                        <div class="preview-hud-footer">
-                            <span><i class="fa-solid fa-shield-halved text-green"></i> FABRIC: 100% INTACT</span>
-                            <span>LATENCY: 0.8ms</span>
-                        </div>
-                        <div class="cyber-scan-line"></div>
                     </div>
                     <div class="project-info">
                         <div class="project-badge-top"><i class="fa-solid fa-shield-halved"></i> SIEM &amp; SOC OPERATIONS // NTI 2026</div>
-                        <h3 class="project-title">FortiSIEM &amp; FortiAnalyzer Security Suite</h3>
+                        <h3 class="project-title">FortiSIEM &amp; FortiAnalyzer Enterprise SOC Suite</h3>
                         <p class="project-desc">
-                            Enterprise security operations laboratory configuring FortiSIEM for real-time threat detection and FortiAnalyzer for centralized log management, incident analysis, and network defense.
+                            Enterprise SOC lab configuring FortiSIEM for real-time CEF Syslog correlation and FortiAnalyzer for centralized incident analysis. Hardened against 15+ real-world attack scenarios (SSH brute force, DNS tunneling, privilege escalation) with FortiGate automated quarantine API dispatch.
                         </p>
                         <div class="project-footer">
                             <div class="project-tags">
-                                <span class="tag tag-green"><i class="fa-solid fa-shield-halved"></i> FortiSIEM</span>
+                                <span class="tag tag-green"><i class="fa-solid fa-shield-halved"></i> FortiSIEM 7.2</span>
                                 <span class="tag tag-green"><i class="fa-solid fa-satellite-dish"></i> FortiAnalyzer</span>
                                 <span class="tag"><i class="fa-solid fa-network-wired"></i> Wireshark</span>
                                 <span class="tag"><i class="fa-solid fa-bug"></i> Metasploit</span>
                                 <span class="tag tag-green"><i class="fa-solid fa-award"></i> NTI 2026</span>
                             </div>
                             <div class="project-links-group">
-                                <a href="#contact" class="project-link" title="Contact for Demo">
+                                <a href="#contact" class="project-link" title="Contact for Technical Demo">
                                     <i class="fa-solid fa-shield-halved"></i>
                                 </a>
                             </div>
@@ -578,33 +583,37 @@
                 <!-- Project 2: Acolite AI Freelance Platform -->
                 <div class="project-card">
                     <div class="project-preview project-preview-neural">
-                        <div class="preview-hud-header">
-                            <span class="hud-status-chip ai-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> GEMINI AI RECRUITER</span>
-                            <span class="hud-mono-meta">SEMANTIC MATCH: 98.6%</span>
-                        </div>
-                        <div class="neural-match-preview">
-                            <div class="neural-node-chip left-chip">
-                                <i class="fa-solid fa-code text-purple"></i> .NET 8 API
+                        <!-- Project Image / Screenshot with Fallback -->
+                        <img src="assets/projects/acolite-ai.svg" class="project-card-img" alt="Acolite AI Freelance Platform">
+                        <div class="project-hud-overlay">
+                            <div class="preview-hud-header">
+                                <span class="hud-status-chip ai-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> GEMINI AI RECRUITER</span>
+                                <span class="hud-mono-meta">SEMANTIC MATCH: 98.6%</span>
                             </div>
-                            <div class="neural-core-orb">
-                                <i class="fa-solid fa-brain"></i>
-                                <div class="neural-pulse-ring"></div>
+                            <div class="neural-match-preview">
+                                <div class="neural-node-chip left-chip">
+                                    <i class="fa-solid fa-code text-purple"></i> .NET 8 API
+                                </div>
+                                <div class="neural-core-orb">
+                                    <i class="fa-solid fa-brain"></i>
+                                    <div class="neural-pulse-ring"></div>
+                                </div>
+                                <div class="neural-node-chip right-chip">
+                                    <i class="fa-brands fa-react text-cyan"></i> React + TS
+                                </div>
                             </div>
-                            <div class="neural-node-chip right-chip">
-                                <i class="fa-brands fa-react text-cyan"></i> React + TS
+                            <div class="preview-hud-footer">
+                                <span><i class="fa-solid fa-check text-cyan"></i> VETTED TALENT MATCHED</span>
+                                <span><i class="fa-solid fa-bolt text-green"></i> SIGNALR REAL-TIME</span>
                             </div>
+                            <div class="cyber-scan-line"></div>
                         </div>
-                        <div class="preview-hud-footer">
-                            <span><i class="fa-solid fa-check text-cyan"></i> VETTED TALENT MATCHED</span>
-                            <span><i class="fa-solid fa-bolt text-green"></i> SIGNALR REAL-TIME</span>
-                        </div>
-                        <div class="cyber-scan-line"></div>
                     </div>
                     <div class="project-info">
-                        <div class="project-badge-top"><i class="fa-solid fa-brain"></i> FULL-STACK &amp; AI PLATFORM</div>
+                        <div class="project-badge-top"><i class="fa-solid fa-brain"></i> FULL-STACK &amp; AI RECRUITMENT PLATFORM</div>
                         <h3 class="project-title">Acolite — AI-Powered Freelance Platform</h3>
                         <p class="project-desc">
-                            End-to-end freelance marketplace connecting startups with vetted engineers. Built with ASP.NET Core 8 Web API, React 18, TypeScript, Google Gemini AI recruiter, and SignalR real-time chat with strict JWT security.
+                            High-concurrency freelance recruitment platform integrating Google Gemini 1.5 Pro for automated CV semantic matching and skill gap scoring. Engineered on ASP.NET Core 8 Web API, React 18, TypeScript, and SignalR for sub-10ms real-time chat with JWT RS256 token rotation.
                         </p>
                         <div class="project-footer">
                             <div class="project-tags">
@@ -630,33 +639,37 @@
                 <!-- Project 3: MvcTask -->
                 <div class="project-card">
                     <div class="project-preview project-preview-arch">
-                        <div class="preview-hud-header">
-                            <span class="hud-status-chip arch-chip"><i class="fa-solid fa-layer-group"></i> CLEAN ARCHITECTURE</span>
-                            <span class="hud-mono-meta">.NET 9 // RESILIENT</span>
+                        <!-- Project Image / Screenshot with Fallback -->
+                        <img src="assets/projects/mvctask-arch.svg" class="project-card-img" alt="MvcTask Multi-Tier System">
+                        <div class="project-hud-overlay">
+                            <div class="preview-hud-header">
+                                <span class="hud-status-chip arch-chip"><i class="fa-solid fa-layer-group"></i> CLEAN ARCHITECTURE</span>
+                                <span class="hud-mono-meta">.NET 9 // RESILIENT</span>
+                            </div>
+                            <div class="arch-tiers-preview">
+                                <div class="arch-tier-pill"><i class="fa-solid fa-window-maximize"></i> UI &amp; MVC Controllers</div>
+                                <div class="arch-arrow-flow"><i class="fa-solid fa-arrow-down-long"></i> Service Layer &amp; DTOs <i class="fa-solid fa-arrow-down-long"></i></div>
+                                <div class="arch-tier-pill highlight"><i class="fa-solid fa-database"></i> EF Core Repo &amp; SQL Server</div>
+                            </div>
+                            <div class="preview-hud-footer">
+                                <span><i class="fa-solid fa-check text-green"></i> DI RESOLUTION: 100%</span>
+                                <span>SQL RETRY: ACTIVE</span>
+                            </div>
+                            <div class="cyber-scan-line"></div>
                         </div>
-                        <div class="arch-tiers-preview">
-                            <div class="arch-tier-pill"><i class="fa-solid fa-window-maximize"></i> UI &amp; MVC Controllers</div>
-                            <div class="arch-arrow-flow"><i class="fa-solid fa-arrow-down-long"></i> Service Layer &amp; DTOs <i class="fa-solid fa-arrow-down-long"></i></div>
-                            <div class="arch-tier-pill highlight"><i class="fa-solid fa-database"></i> EF Core Repo &amp; SQL Server</div>
-                        </div>
-                        <div class="preview-hud-footer">
-                            <span><i class="fa-solid fa-check text-green"></i> DI RESOLUTION: 100%</span>
-                            <span>SQL RETRY: ACTIVE</span>
-                        </div>
-                        <div class="cyber-scan-line"></div>
                     </div>
                     <div class="project-info">
-                        <div class="project-badge-top"><i class="fa-solid fa-layer-group"></i> ASP.NET CORE MVC</div>
+                        <div class="project-badge-top"><i class="fa-solid fa-layer-group"></i> CLEAN ARCHITECTURE // ASP.NET CORE 9</div>
                         <h3 class="project-title">MvcTask — Multi-Tier Management System</h3>
                         <p class="project-desc">
-                            Modular multi-tier web application designed to manage academic departments, instructors, and courses with Service Layer pattern, repository abstractions, Dependency Injection, and SQL Server retry resilience.
+                            Multi-tier enterprise management application built on ASP.NET Core 9 MVC following Clean Architecture. Features generic Repository abstractions, Unit of Work transaction boundaries, AutoMapper DTOs, Dependency Injection, and SQL Server transient fault resilience with Polly retries.
                         </p>
                         <div class="project-footer">
                             <div class="project-tags">
                                 <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C#</span>
                                 <span class="tag tag-purple"><i class="fa-solid fa-gear"></i> .NET 9</span>
                                 <span class="tag"><i class="fa-solid fa-window-restore"></i> ASP.NET Core MVC</span>
-                                <span class="tag"><i class="fa-solid fa-cube"></i> EF Core</span>
+                                <span class="tag"><i class="fa-solid fa-cube"></i> EF Core 9</span>
                                 <span class="tag tag-green"><i class="fa-solid fa-database"></i> SQL Server</span>
                             </div>
                             <div class="project-links-group">
@@ -669,26 +682,16 @@
                 </div>
             </div>
 
-            <!-- Interactive CTA to Full Projects Archive Page -->
+            <!-- Compact & Sleek Cyber CTA Button to Full Archive -->
             <div class="projects-cta-container">
-                <a href="projects.html" class="projects-more-btn" title="View Full Projects Archive">
-                    <div class="btn-left-icon-box">
-                        <i class="fa-solid fa-folder-open"></i>
-                    </div>
-                    <div class="btn-content-group">
-                        <div class="btn-tagline">
-                            <span class="btn-sys-tag">SYS://REPOSITORY_INDEX</span>
-                            <span class="btn-badge-counter"><span class="chip-dot"></span> 10+ REPOSITORIES</span>
-                        </div>
-                        <h3 class="btn-main-heading">EXPLORE FULL PROJECTS &amp; SECURITY LABS ARCHIVE</h3>
-                        <p class="btn-sub-highlights">Fortinet SOC Labs • Gemini AI Platforms • .NET Microservices • ICPC 2,500+ Algorithms</p>
-                    </div>
-                    <div class="btn-action-arrow-box">
-                        <span>OPEN ARCHIVE</span>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </div>
+                <a href="projects.html" class="projects-more-btn-compact" title="View Full Projects Archive">
+                    <i class="fa-solid fa-folder-open text-green"></i>
+                    <span>EXPLORE ALL ARCHIVE REPOSITORIES</span>
+                    <span class="compact-counter-badge">10+</span>
+                    <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
                 </a>
             </div>
+
 
 
 
@@ -1025,9 +1028,10 @@
 
 
     <!-- Script File -->
-    <script src="script.js?v=16.0"></script>
+    <script src="script.js?v=17.0"></script>
 </body>
 </html>
+
 
 
 

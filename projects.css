@@ -214,10 +214,8 @@
     background: rgba(7, 13, 15, 0.88);
     border: 1px solid rgba(0, 255, 102, 0.14);
     border-radius: 12px;
-    padding: 1.6rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
@@ -230,11 +228,58 @@
     background: rgba(8, 17, 20, 0.95);
 }
 
+.archive-card-image-wrap {
+    position: relative;
+    height: 160px;
+    width: 100%;
+    overflow: hidden;
+    background: #020708;
+    border-bottom: 1px solid rgba(0, 255, 102, 0.12);
+}
+
+.archive-card-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.82;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.archive-card:hover .archive-card-thumb {
+    transform: scale(1.06);
+    opacity: 0.95;
+}
+
+.archive-img-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-family: var(--font-code);
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.cyber-badge { background: rgba(0, 255, 102, 0.2); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.ai-badge { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; }
+.backend-badge { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid #c084fc; }
+
+.archive-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
 .archive-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.85rem;
 }
 
 .card-cat-badge {
@@ -262,7 +307,7 @@
 
 .archive-card-title {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 0.65rem;

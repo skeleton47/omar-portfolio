@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04130d"/>
+      <stop offset="50%" stop-color="#02080a"/>
+      <stop offset="100%" stop-color="#010405"/>
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00ff66" stop-opacity="0.0"/>
+    </linearGradient>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0, 255, 102, 0.07)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <!-- Background -->
+  <rect width="600" height="320" fill="url(#bgGrad)"/>
+  <rect width="600" height="320" fill="url(#grid)"/>
+  
+  <!-- Window Header -->
+  <rect x="0" y="0" width="600" height="28" fill="rgba(0,0,0,0.6)" stroke="rgba(0,255,102,0.2)" stroke-width="1"/>
+  <circle cx="15" cy="14" r="4" fill="#ef4444"/>
+  <circle cx="28" cy="14" r="4" fill="#fbbf24"/>
+  <circle cx="41" cy="14" r="4" fill="#00ff66"/>
+  <text x="60" y="18" fill="#64748b" font-family="monospace" font-size="11" font-weight="bold">FORTISIEM ENTERPRISE INCIDENT CORRELATION // SOC VIEW</text>
+
+  <!-- Left Telemetry Panel -->
+  <rect x="15" y="40" width="180" height="110" rx="6" fill="rgba(6,20,15,0.7)" stroke="rgba(0,255,102,0.25)" stroke-width="1"/>
+  <text x="25" y="58" fill="#00ff66" font-family="monospace" font-size="10" font-weight="bold">EVENT FLOW: 2,450 EPS</text>
+  <path d="M 25 125 Q 50 80, 75 100 T 125 70 T 180 90 L 180 140 L 25 140 Z" fill="url(#chartGrad)"/>
+  <path d="M 25 125 Q 50 80, 75 100 T 125 70 T 180 90" fill="none" stroke="#00ff66" stroke-width="2"/>
+
+  <!-- Right Incident Table -->
+  <rect x="210" y="40" width="375" height="110" rx="6" fill="rgba(2,10,12,0.8)" stroke="rgba(0,255,102,0.2)" stroke-width="1"/>
+  <text x="225" y="58" fill="#94a3b8" font-family="monospace" font-size="10" font-weight="bold">RECENT SECURITY INCIDENTS (MITRE ATT&amp;CK)</text>
+  
+  <rect x="225" y="68" width="345" height="22" rx="3" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.3)"/>
+  <text x="235" y="83" fill="#f87171" font-family="monospace" font-size="9" font-weight="bold">[HIGH] T1110.001 - HTTPS SSH Brute Force - 198.51.100.24</text>
+
+  <rect x="225" y="95" width="345" height="22" rx="3" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.3)"/>
+  <text x="235" y="110" fill="#fbbf24" font-family="monospace" font-size="9" font-weight="bold">[MED] T1071.004 - DNS Exfiltration Beacon - Quarantined</text>
+
+  <rect x="225" y="122" width="345" height="22" rx="3" fill="rgba(0,255,102,0.12)" stroke="rgba(0,255,102,0.3)"/>
+  <text x="235" y="137" fill="#00ff66" font-family="monospace" font-size="9" font-weight="bold">[INFO] FortiGate Auto-Policy Enforced - Rule #892 Active</text>
+
+  <!-- Bottom Terminal Logs -->
+  <rect x="15" y="165" width="570" height="140" rx="6" fill="rgba(0,0,0,0.85)" stroke="rgba(0,255,102,0.2)" stroke-width="1"/>
+  <text x="25" y="185" fill="#4ade80" font-family="monospace" font-size="10">> [2026-08-29 17:42:01] CEF:0|Fortinet|FortiSIEM|7.2|1002|Auth Failure|8|src=198.51.100.24 dst=10.0.0.1 dpt=443</text>
+  <text x="25" y="205" fill="#4ade80" font-family="monospace" font-size="10">> [2026-08-29 17:42:02] CORRELATION RULE TRIGGERED: "Repeated Auth Failure > 20/min"</text>
+  <text x="25" y="225" fill="#fbbf24" font-family="monospace" font-size="10">> [2026-08-29 17:42:03] DISPATCH ACTION: FortiGate API Rest Call POST /api/v2/cmdb/firewall/address</text>
+  <text x="25" y="245" fill="#00ff66" font-family="monospace" font-size="10">> [2026-08-29 17:42:04] MITIGATION CONFIRMED: Host 198.51.100.24 placed in ISOLATION_VLAN_99</text>
+  <text x="25" y="265" fill="#38bdf8" font-family="monospace" font-size="10">> [2026-08-29 17:42:05] FORTIANALYZER: Consolidated Log Archive Sync OK (SHA-256 Verified)</text>
+  <text x="25" y="288" fill="#64748b" font-family="monospace" font-size="10">[STATUS: ALL FABRIC POLICIES ENFORCED -- 0 ACTIVE VULNERABILITIES]</text>
+</svg>
