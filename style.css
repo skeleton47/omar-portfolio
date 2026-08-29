@@ -1833,15 +1833,15 @@ body {
 }
 
 /* ==========================================================================
-   FLOATING SKILL DETAIL MODAL ("صفحة عايمة عند الضغط على المهارات")
+   FLOATING SKILL DETAIL MODAL ("صفحة عايمة متطورة للمهارات")
    ========================================================================== */
 .skill-modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    z-index: 9999;
+    background: rgba(2, 6, 7, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1858,14 +1858,14 @@ body {
 
 .skill-modal-dialog {
     background: #060b0c;
-    border: 1px solid rgba(0, 255, 102, 0.4);
-    border-radius: 14px;
-    max-width: 680px;
-    width: 100%;
-    max-height: 86vh;
+    border: 1px solid rgba(0, 255, 102, 0.35);
+    border-radius: 16px;
+    max-width: 860px;
+    width: 95%;
+    max-height: 88vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 255, 102, 0.2);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 45px rgba(0, 255, 102, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transform: scale(0.92) translateY(20px);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
@@ -1875,146 +1875,238 @@ body {
     transform: scale(1) translateY(0);
 }
 
+/* Modal Header */
 .skill-modal-header {
-    background: #090f10;
-    padding: 1.2rem 1.5rem;
+    background: linear-gradient(180deg, #0d1517 0%, #070d0e 100%);
+    padding: 1.25rem 1.75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(0, 255, 102, 0.15);
+    border-bottom: 1px solid rgba(0, 255, 102, 0.18);
+    gap: 1rem;
 }
 
 .skill-modal-header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.1rem;
 }
 
 .skill-modal-icon {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     color: var(--neon-green);
     background: rgba(0, 255, 102, 0.1);
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 255, 102, 0.3);
+    border: 1px solid rgba(0, 255, 102, 0.35);
+    flex-shrink: 0;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+}
+
+.skill-modal-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.skill-modal-cat-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-modal-sys-tag {
+    font-family: var(--font-code);
+    font-size: 0.62rem;
+    color: #64748b;
+    letter-spacing: 0.06em;
 }
 
 .skill-modal-cat {
     font-family: var(--font-code);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     color: #4ade80;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    font-weight: 700;
 }
 
 .skill-modal-title {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.35rem;
+    font-weight: 800;
     color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.skill-modal-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-modal-badge {
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #030606;
+    background: var(--neon-green);
+    border: 1px solid var(--neon-green);
+    padding: 0.3rem 0.75rem;
+    border-radius: 5px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.35);
 }
 
 .skill-modal-close {
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #94a3b8;
-    font-size: 1.8rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    line-height: 1;
-    padding: 0.2rem;
+    font-size: 1.1rem;
     transition: var(--transition-smooth);
 }
 
 .skill-modal-close:hover {
     color: #ef4444;
-    transform: scale(1.15);
+    background: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+    transform: rotate(90deg);
 }
 
 /* Fast Skill Switcher Tabs */
+.skill-modal-tabs-wrapper {
+    background: #040708;
+    border-bottom: 1px solid rgba(0, 255, 102, 0.12);
+    padding: 0.65rem 1.75rem;
+}
+
 .skill-modal-tabs {
     display: flex;
     gap: 0.45rem;
-    padding: 0.75rem 1.5rem;
-    background: #040809;
-    border-bottom: 1px solid rgba(0, 255, 102, 0.1);
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: thin;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-bottom: 2px;
+}
+
+.skill-modal-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .skill-tab-btn {
-    background: rgba(255, 255, 255, 0.04);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: #94a3b8;
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
     font-family: var(--font-code);
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-smooth);
     flex-shrink: 0;
 }
 
+.skill-tab-btn i {
+    font-size: 0.78rem;
+}
+
 .skill-tab-btn:hover {
     color: #ffffff;
-    border-color: rgba(0, 255, 102, 0.35);
+    border-color: rgba(0, 255, 102, 0.4);
     background: rgba(0, 255, 102, 0.08);
 }
 
 .skill-tab-btn.active {
-    color: #030606;
-    background: var(--neon-green);
+    color: var(--neon-green);
+    background: rgba(0, 255, 102, 0.12);
     border-color: var(--neon-green);
     font-weight: 700;
-    box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.25);
 }
 
+/* Modal Body */
 .skill-modal-body {
-    padding: 1.5rem;
+    padding: 1.75rem;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 102, 0.3) rgba(0, 0, 0, 0.3);
+}
+
+.skill-modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.skill-modal-body::-webkit-scrollbar-track {
+    background: rgba(4, 8, 9, 0.8);
+}
+
+.skill-modal-body::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 102, 0.25);
+    border-radius: 4px;
+}
+
+.skill-modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green);
+}
+
+/* 2-Column Responsive Grid */
+.skill-modal-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.skill-modal-col {
     display: flex;
     flex-direction: column;
     gap: 1.3rem;
 }
 
-
-.skill-modal-badge {
-    align-self: flex-start;
-    font-family: var(--font-code);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--neon-green);
-    background: rgba(0, 255, 102, 0.1);
-    border: 1px solid rgba(0, 255, 102, 0.35);
-    padding: 0.25rem 0.65rem;
-    border-radius: 4px;
-}
-
 .skill-modal-section {
+    background: rgba(8, 15, 17, 0.7);
+    border: 1px solid rgba(0, 255, 102, 0.12);
+    border-radius: 12px;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.65rem;
 }
 
 .skill-modal-sec-title {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(0, 255, 102, 0.1);
-    padding-bottom: 0.35rem;
 }
 
 .skill-modal-desc {
     font-family: var(--font-heading);
     font-size: 0.88rem;
     color: #cbd5e1;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .skill-modal-list {
@@ -2026,30 +2118,30 @@ body {
 
 .skill-modal-list li {
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     color: #cbd5e1;
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     gap: 0.6rem;
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 .skill-modal-projects {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 
 .skill-modal-project-link {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.65rem 0.9rem;
+    gap: 0.75rem;
+    background: rgba(5, 12, 14, 0.9);
+    border: 1px solid rgba(0, 255, 102, 0.14);
+    padding: 0.75rem 1rem;
     border-radius: 8px;
     font-family: var(--font-code);
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: #cbd5e1;
     text-decoration: none;
     transition: var(--transition-smooth);
@@ -2060,30 +2152,65 @@ body {
     background: rgba(0, 255, 102, 0.08);
     color: var(--neon-green);
     transform: translateX(4px);
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
 }
 
 .skill-modal-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.45rem;
 }
 
 .skill-modal-tags .tag {
     font-family: var(--font-code);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     color: var(--neon-green);
-    background: rgba(0, 255, 102, 0.06);
-    border: 1px solid rgba(0, 255, 102, 0.22);
-    padding: 0.2rem 0.55rem;
-    border-radius: 4px;
+    background: rgba(0, 255, 102, 0.08);
+    border: 1px solid rgba(0, 255, 102, 0.25);
+    padding: 0.25rem 0.65rem;
+    border-radius: 5px;
+    letter-spacing: 0.02em;
 }
 
+/* Modal Footer */
 .skill-modal-footer {
-    background: #080d0e;
-    padding: 1rem 1.5rem;
+    background: #040809;
+    padding: 0.9rem 1.75rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    border-top: 1px solid rgba(0, 255, 102, 0.1);
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 255, 102, 0.12);
 }
+
+.skill-modal-hint {
+    font-family: var(--font-code);
+    font-size: 0.72rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.skill-modal-hint code {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--neon-green);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 255, 102, 0.2);
+}
+
+@media (max-width: 768px) {
+    .skill-modal-grid {
+        grid-template-columns: 1fr;
+    }
+    .skill-modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .skill-modal-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
 
