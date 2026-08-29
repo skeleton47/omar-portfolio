@@ -312,15 +312,6 @@ function initInteractiveTerminal() {
         }
     }
 
-    function escapeHtml(str) {
-        return str
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-    }
-
     function triggerMatrixFlash() {
         const body = document.body;
         body.style.filter = 'hue-rotate(90deg) contrast(1.2)';
@@ -329,6 +320,19 @@ function initInteractiveTerminal() {
         }, 1500);
     }
 }
+
+
+// Global utility helper
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 
 /* ==========================================================================
    3. NAVIGATION, SCROLL SPY & SCROLL EVENTS
