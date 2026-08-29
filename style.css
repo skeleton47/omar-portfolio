@@ -1042,13 +1042,24 @@ body {
 }
 
 .map-radar {
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
     border: 1px solid rgba(0, 255, 102, 0.4);
     border-radius: 50%;
     margin-bottom: 0.5rem;
     position: relative;
-    animation: radarSpin 4s linear infinite;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.08) 0%, transparent 70%);
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.2);
+    overflow: hidden;
+}
+
+.map-radar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg at 50% 50%, rgba(0, 255, 102, 0.4) 0deg, transparent 60deg, transparent 360deg);
+    border-radius: 50%;
+    animation: radarSpin 2.5s linear infinite;
 }
 
 .map-radar::after {
@@ -1056,11 +1067,14 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
-    height: 1px;
+    width: 4px;
+    height: 4px;
     background: var(--neon-green);
-    transform-origin: 0 0;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 6px var(--neon-green);
 }
+
 
 .mon-title {
     font-family: var(--font-code);
@@ -1208,12 +1222,15 @@ body {
     text-align: center;
     transition: var(--transition-smooth);
     cursor: pointer;
+}
+
 .skill-card:hover {
     border-color: var(--neon-green);
     background: rgba(0, 255, 102, 0.08);
     box-shadow: 0 10px 25px rgba(0, 255, 102, 0.2), inset 0 0 15px rgba(0, 255, 102, 0.05);
     transform: translateY(-5px);
 }
+
 
 
 .skill-icon-box {
