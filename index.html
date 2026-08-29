@@ -11,8 +11,9 @@
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=8.0">
+    <link rel="stylesheet" href="style.css?v=9.0">
 </head>
+
 
 
 
@@ -288,23 +289,20 @@
                                 <div class="monitor-grid">
                                     <div class="monitor-item monitor-map">
                                         <div class="radar-telemetry-box">
-                                            <div class="map-radar">
-                                                <div class="radar-crosshairs"></div>
-                                                <div class="radar-grid-rings"></div>
-                                                <div class="radar-sweep"></div>
-                                                <div class="radar-blip blip-1" title="Target #1: 10.0.0.1 (Ingress)"></div>
-                                                <div class="radar-blip blip-2" title="Target #2: 192.168.1.105 (Host)"></div>
-                                                <div class="radar-blip blip-3" title="Target #3: Port 443 (Active)"></div>
-                                                <div class="radar-center-node"></div>
+                                            <div class="radar-canvas-wrapper">
+                                                <canvas id="socRadarCanvas" width="160" height="160"></canvas>
+                                                <div class="radar-crt-glare"></div>
                                             </div>
                                             <div class="radar-hud-data">
-                                                <div class="hud-item"><span class="hud-label">SCAN:</span> <span class="hud-val text-green">360° LIVE</span></div>
-                                                <div class="hud-item"><span class="hud-label">NODES:</span> <span class="hud-val">3 ACTIVE</span></div>
+                                                <div class="hud-item"><span class="hud-label">BEARING:</span> <span class="hud-val text-green" id="radarBearingVal">000° LIVE</span></div>
+                                                <div class="hud-item"><span class="hud-label">TARGETS:</span> <span class="hud-val">3 TRACKED</span></div>
+                                                <div class="hud-item"><span class="hud-label">INGRESS:</span> <span class="hud-val text-green" id="radarTpsVal">1.2 k/s</span></div>
                                                 <div class="hud-item"><span class="hud-label">STATUS:</span> <span class="hud-val text-green">SECURE</span></div>
                                             </div>
                                         </div>
-                                        <span class="mon-title"><i class="fa-solid fa-satellite-dish"></i> FORTIANALYZER TELEMETRY</span>
+                                        <span class="mon-title"><i class="fa-solid fa-satellite-dish"></i> FORTIANALYZER REAL-TIME TELEMETRY</span>
                                     </div>
+
 
                                     <div class="monitor-item monitor-code">
                                         <pre class="code-stream"><code>[+] FortiSIEM Event Parser: PARSING SYSLOG
@@ -947,9 +945,10 @@
     </footer>
 
     <!-- Script File -->
-    <script src="script.js?v=8.0"></script>
+    <script src="script.js?v=9.0"></script>
 </body>
 </html>
+
 
 
 

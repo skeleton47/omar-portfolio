@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initConnectTerminal();
     initDownloadCV();
     initSkillModal();
+    initSocRadar();
 });
+
 
 
 /* ==========================================================================
@@ -674,6 +676,209 @@ function initSkillModal() {
         }
     });
 }
+
+/* ==========================================================================
+   7. REALISTIC TACTICAL SOC RADAR (Canvas 60 FPS Engine)
+   ========================================================================== */
+function initSocRadar() {
+    const canvas = document.getElementById('socRadarCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    const cx = width / 2;
+    const cy = height / 2;
+    const radius = width / 2 - 5;
+
+    let sweepAngle = 0;
+    const bearingEl = document.getElementById('radarBearingVal');
+    const tpsEl = document.getElementById('radarTpsVal');
+
+    // Targets on the tactical radar scope (polar coordinates: r is radius fraction, theta is angle)
+    const targets = [
+        { r: 0.68, theta: 0.85, label: '10.0.0.1', intensity: 0, ripples: [] },
+        { r: 0.42, theta: 3.40, label: '192.168.1.105', intensity: 0, ripples: [] },
+        { r: 0.78, theta: 5.15, label: 'PORT 443', intensity: 0, ripples: [] }
+    ];
+
+    let lastTime = performance.now();
+
+    function renderRadar(currentTime) {
+        const delta = Math.min((currentTime - lastTime) / 1000, 0.1);
+        lastTime = currentTime;
+
+        // Advance sweep angle (~2.2s per 360° rotation)
+        sweepAngle = (sweepAngle + delta * 2.8) % (Math.PI * 2);
+
+        // Clear canvas
+        ctx.clearRect(0, 0, width, height);
+
+        // 1. Dark CRT Oscilloscope Background
+        const bgGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+        bgGrad.addColorStop(0, 'rgba(0, 32, 16, 0.96)');
+        bgGrad.addColorStop(0.75, 'rgba(1, 16, 12, 0.98)');
+        bgGrad.addColorStop(1, 'rgba(0, 6, 6, 1)');
+        ctx.fillStyle = bgGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 2. Tactical Concentric Range Rings
+        ctx.lineWidth = 1;
+        const ringFractions = [0.33, 0.66, 1.0];
+        ringFractions.forEach((f, idx) => {
+            ctx.beginPath();
+            ctx.strokeStyle = idx === 2 ? 'rgba(0, 255, 102, 0.55)' : (idx === 1 ? 'rgba(0, 255, 102, 0.28)' : 'rgba(0, 255, 102, 0.18)');
+            if (idx === 1) {
+                ctx.setLineDash([3, 3]);
+            } else {
+                ctx.setLineDash([]);
+            }
+            ctx.arc(cx, cy, radius * f, 0, Math.PI * 2);
+            ctx.stroke();
+        });
+        ctx.setLineDash([]);
+
+        // 3. Crosshair Axes & Degree Cardinal Ticks
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(0, 255, 102, 0.22)';
+        ctx.lineWidth = 0.8;
+        // Horizontal
+        ctx.moveTo(cx - radius, cy);
+        ctx.lineTo(cx + radius, cy);
+        // Vertical
+        ctx.moveTo(cx, cy - radius);
+        ctx.lineTo(cx, cy + radius);
+        // Diagonal 45 deg lines
+        ctx.moveTo(cx - radius * 0.7, cy - radius * 0.7);
+        ctx.lineTo(cx + radius * 0.7, cy + radius * 0.7);
+        ctx.moveTo(cx - radius * 0.7, cy + radius * 0.7);
+        ctx.lineTo(cx + radius * 0.7, cy - radius * 0.7);
+        ctx.stroke();
+
+        // Degree ticks on outer rim
+        ctx.strokeStyle = 'rgba(0, 255, 102, 0.45)';
+        for (let i = 0; i < 12; i++) {
+            const tickAngle = (i * Math.PI) / 6;
+            const innerR = radius - 3.5;
+            ctx.beginPath();
+            ctx.moveTo(cx + Math.cos(tickAngle) * innerR, cy + Math.sin(tickAngle) * innerR);
+            ctx.lineTo(cx + Math.cos(tickAngle) * radius, cy + Math.sin(tickAngle) * radius);
+            ctx.stroke();
+        }
+
+        // 4. Phosphor Sweep Sector (Realistic Smooth Exponential Decay)
+        const sweepSpan = Math.PI * 0.4; // ~72 degree phosphor tail
+        const steps = 28;
+        for (let s = 0; s < steps; s++) {
+            const frac = s / steps;
+            const startA = sweepAngle - sweepSpan * (1 - frac);
+            const endA = sweepAngle - sweepSpan * (1 - (s + 1) / steps);
+            const alpha = Math.pow(frac, 2.8) * 0.42;
+
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, radius, startA, endA);
+            ctx.closePath();
+            ctx.fillStyle = `rgba(0, 255, 102, ${alpha})`;
+            ctx.fill();
+        }
+
+        // 5. Bright Leading Sweep Beam Laser Line
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        const sweepX = cx + Math.cos(sweepAngle) * radius;
+        const sweepY = cy + Math.sin(sweepAngle) * radius;
+        ctx.lineTo(sweepX, sweepY);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+        ctx.lineWidth = 1.5;
+        ctx.shadowColor = '#00ff66';
+        ctx.shadowBlur = 8;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // 6. Interactive Target Blips (Trigger on sweep pass + Sonar Waves)
+        targets.forEach((tgt) => {
+            const tx = cx + Math.cos(tgt.theta) * (radius * tgt.r);
+            const ty = cy + Math.sin(tgt.theta) * (radius * tgt.r);
+
+            // Compute angular distance from sweep beam
+            let diff = sweepAngle - tgt.theta;
+            while (diff < -Math.PI) diff += Math.PI * 2;
+            while (diff > Math.PI) diff -= Math.PI * 2;
+
+            // Trigger when sweep line passes over target
+            if (diff >= 0 && diff < 0.14 && tgt.intensity < 0.3) {
+                tgt.intensity = 1.0;
+                tgt.ripples.push({ r: 2, alpha: 0.9 });
+            }
+
+            // Decay intensity over time
+            tgt.intensity = Math.max(0.12, tgt.intensity - delta * 0.75);
+
+            // Render Expanding Sonar Ping Ripples
+            for (let i = tgt.ripples.length - 1; i >= 0; i--) {
+                const rip = tgt.ripples[i];
+                rip.r += delta * 20;
+                rip.alpha -= delta * 1.3;
+
+                if (rip.alpha <= 0 || rip.r > 15) {
+                    tgt.ripples.splice(i, 1);
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(tx, ty, rip.r, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(0, 255, 102, ${rip.alpha})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+
+            // Render Target Dot
+            ctx.beginPath();
+            ctx.arc(tx, ty, tgt.intensity > 0.5 ? 2.6 : 1.8, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 255, 102, ${Math.min(1, tgt.intensity + 0.25)})`;
+            ctx.shadowColor = '#00ff66';
+            ctx.shadowBlur = tgt.intensity > 0.5 ? 8 : 2;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // If active, render small target brackets
+            if (tgt.intensity > 0.5) {
+                ctx.strokeStyle = `rgba(0, 255, 102, ${tgt.intensity * 0.8})`;
+                ctx.lineWidth = 0.8;
+                ctx.beginPath();
+                ctx.moveTo(tx - 3.5, ty); ctx.lineTo(tx + 3.5, ty);
+                ctx.moveTo(tx, ty - 3.5); ctx.lineTo(tx, ty + 3.5);
+                ctx.stroke();
+            }
+        });
+
+        // 7. Center SOC Node Blip
+        ctx.beginPath();
+        ctx.arc(cx, cy, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = '#00ff66';
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // 8. Update HUD Metrics smoothly
+        if (bearingEl) {
+            const degrees = Math.floor((sweepAngle * 180 / Math.PI)) % 360;
+            bearingEl.textContent = `${degrees.toString().padStart(3, '0')}° LIVE`;
+        }
+        if (tpsEl && Math.random() < 0.05) {
+            const tps = (1.2 + Math.sin(currentTime * 0.002) * 0.15).toFixed(1);
+            tpsEl.textContent = `${tps} k/s`;
+        }
+
+        requestAnimationFrame(renderRadar);
+    }
+
+    requestAnimationFrame(renderRadar);
+}
+
 
 
 
