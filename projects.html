@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects &amp; Repositories // Omar Hisham Elshayal</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css?v=14.0">
+    <link rel="stylesheet" href="projects.css?v=1.0">
+</head>
+<body class="bg-cyber-dark">
+
+    <!-- Cyber Background with Canvas Wave, Radial Glows & Grid Mesh -->
+    <div class="cyber-background-container">
+        <div class="ambient-glow glow-top-left"></div>
+        <div class="ambient-glow glow-top-right"></div>
+        <div class="ambient-glow glow-center"></div>
+        <div class="cyber-grid-overlay"></div>
+        <canvas id="cyberWaveCanvas"></canvas>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar-container">
+        <div class="navbar-wrapper">
+            <!-- Back to Home Link -->
+            <a href="index.html" class="logo-link" title="Return to Main Portfolio">
+                <span class="prompt-symbol">&lt;</span>
+                <span class="logo-text">BACK TO PORTFOLIO</span>
+                <span class="sec-badge-nav">HOME</span>
+            </a>
+
+            <!-- Social Links -->
+            <div class="archive-nav-socials">
+                <a href="https://github.com/skeleton47" target="_blank" class="social-icon" title="GitHub Profile">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/omar-elshayal-6060132b9/" target="_blank" class="social-icon" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="index.html#contact" class="archive-contact-btn">
+                    <i class="fa-solid fa-terminal"></i> CONTACT TERMINAL
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN ARCHIVE CONTENT -->
+    <main class="projects-archive-main">
+        <div class="archive-container">
+
+            <!-- Hero Section for Projects -->
+            <div class="archive-hero">
+                <div class="section-header-badge">
+                    <span class="sec-number"><i class="fa-solid fa-folder-open"></i></span>
+                    <span class="sec-tag">// REPOSITORIES &amp; SECURITY LAB ARCHIVE</span>
+                </div>
+                <h1 class="archive-main-title">
+                    Complete Engineering &amp;<br>
+                    <span class="text-neon-glow">Cyber Defense Portfolio</span>
+                </h1>
+                <p class="archive-sub-desc">
+                    Comprehensive showcase of cybersecurity operations, SIEM correlation labs, enterprise .NET 8/9 backend architectures, AI platforms, and algorithmic problem-solving projects.
+                </p>
+
+                <!-- Telemetry Counters -->
+                <div class="archive-stats-bar">
+                    <div class="stat-card">
+                        <span class="stat-num text-green">10+</span>
+                        <span class="stat-lbl">ENGINEERED REPOSITORIES</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num text-cyan">2,500+</span>
+                        <span class="stat-lbl">ICPC ALGORITHMIC PROBLEMS</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num text-purple">100%</span>
+                        <span class="stat-lbl">CLEAN CODE &amp; OWASP COMPLIANT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls: Search & Category Filters -->
+            <div class="archive-controls-box">
+                <!-- Search Box -->
+                <div class="archive-search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="projectSearchInput" class="archive-search-input" placeholder="Search by name, technology, tag (e.g., Fortinet, .NET, React, C++, AI)...">
+                    <button id="clearSearchBtn" class="clear-search-btn" title="Clear Search"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Filter Category Tabs -->
+                <div class="archive-filter-tabs">
+                    <button class="filter-tab active" data-filter="all"><i class="fa-solid fa-border-all"></i> ALL (<span id="countAll">10</span>)</button>
+                    <button class="filter-tab" data-filter="cyber"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SIEM (<span id="countCyber">3</span>)</button>
+                    <button class="filter-tab" data-filter="backend"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND (<span id="countBackend">4</span>)</button>
+                    <button class="filter-tab" data-filter="ai"><i class="fa-solid fa-brain"></i> AI &amp; FULL-STACK (<span id="countAi">2</span>)</button>
+                    <button class="filter-tab" data-filter="algo"><i class="fa-solid fa-laptop-code"></i> ALGORITHMS &amp; C++ (<span id="countAlgo">1</span>)</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="archive-grid" id="projectsArchiveGrid">
+
+                <!-- Project 01: FortiSIEM & FortiAnalyzer -->
+                <div class="archive-card" data-category="cyber" data-keywords="fortinet fortisiem fortianalyzer soc siem nti wireshark metasploit security logs firewall">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SIEM</div>
+                        <span class="card-year">2026 // NTI CERTIFIED</span>
+                    </div>
+                    <h3 class="archive-card-title">FortiSIEM &amp; FortiAnalyzer Security Suite</h3>
+                    <p class="archive-card-desc">
+                        Enterprise security operations laboratory configuring FortiSIEM for real-time threat detection and FortiAnalyzer for centralized log management, incident analysis, and network defense. Hardened against 15+ real-world attack vectors.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Real-time Syslog parsing &amp; event correlation rules</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Auto-ban firewall mitigation for brute-force attacks</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Centralized SOC audit telemetry &amp; dashboards</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-green"><i class="fa-solid fa-shield-halved"></i> FortiSIEM</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-satellite-dish"></i> FortiAnalyzer</span>
+                        <span class="tag"><i class="fa-solid fa-network-wired"></i> Wireshark</span>
+                        <span class="tag"><i class="fa-solid fa-bug"></i> Metasploit</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-award"></i> NTI 2026</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-green"><span class="chip-dot"></span> PRODUCTION READY</span>
+                        <div class="card-links">
+                            <a href="index.html#contact" class="card-btn-action" title="Request Technical Walkthrough">
+                                <i class="fa-solid fa-envelope"></i> DEMO / AUDIT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 02: Acolite AI Platform -->
+                <div class="archive-card" data-category="ai" data-keywords="acolite ai full-stack react typescript dotnet asp.net core gemini signalr sql server marketplace">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge ai-cat"><i class="fa-solid fa-brain"></i> AI &amp; FULL-STACK</div>
+                        <span class="card-year">2026 // LIVE PRODUCTION</span>
+                    </div>
+                    <h3 class="archive-card-title">Acolite — AI-Powered Freelance Platform</h3>
+                    <p class="archive-card-desc">
+                        End-to-end freelance marketplace connecting startups with vetted engineers. Powered by Google Gemini AI for semantic recruiter matching, ASP.NET Core 8 Web API, React 18, TypeScript, and SignalR real-time messaging.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Gemini AI automatic CV parsing &amp; job semantic matching</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Real-time bidirectional chat with SignalR Hubs</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> JWT authentication, Refresh Tokens &amp; Role-based access</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C# .NET 8</span>
+                        <span class="tag tag-cyan"><i class="fa-brands fa-react"></i> React 18</span>
+                        <span class="tag tag-blue"><i class="fa-brands fa-js"></i> TypeScript</span>
+                        <span class="tag tag-ai"><i class="fa-solid fa-brain"></i> Gemini AI</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-tower-broadcast"></i> SignalR</span>
+                        <span class="tag"><i class="fa-solid fa-database"></i> SQL Server</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-cyan"><span class="chip-dot"></span> LIVE AT ACOLITE.XYZ</span>
+                        <div class="card-links">
+                            <a href="https://github.com/skeleton47/acolite.xyz_iti_.net" target="_blank" class="card-btn-icon" title="GitHub Repository">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://acolite.xyz" target="_blank" class="card-btn-action" title="Live Website">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> LIVE DEMO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 03: MvcTask -->
+                <div class="archive-card" data-category="backend" data-keywords="mvctask asp.net core mvc c# dotnet clean architecture ef core repository pattern sql server">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
+                        <span class="card-year">2026 // OPEN SOURCE</span>
+                    </div>
+                    <h3 class="archive-card-title">MvcTask — Multi-Tier Management System</h3>
+                    <p class="archive-card-desc">
+                        Modular multi-tier web application designed to manage academic departments, instructors, and courses with Service Layer pattern, repository abstractions, Dependency Injection, and SQL Server retry resilience.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Clean 3-Tier Separation: UI -> Service -> Data Access</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Entity Framework Core with Fluent API configurations</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Custom action filters for validation and global error handling</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C#</span>
+                        <span class="tag tag-purple"><i class="fa-solid fa-gear"></i> .NET 9</span>
+                        <span class="tag"><i class="fa-solid fa-window-restore"></i> ASP.NET Core MVC</span>
+                        <span class="tag"><i class="fa-solid fa-cube"></i> EF Core</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-database"></i> SQL Server</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-purple"><span class="chip-dot"></span> CLEAN ARCHITECTURE</span>
+                        <div class="card-links">
+                            <a href="https://github.com/skeleton47/MvcTask" target="_blank" class="card-btn-action" title="GitHub Repository">
+                                <i class="fa-brands fa-github"></i> GITHUB REPO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 04: Network Intrusion Detection & Wireshark Analyzer -->
+                <div class="archive-card" data-category="cyber" data-keywords="network intrusion detection ids ips wireshark packet capture packet tracer tcp udp pcap cisco">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SOC</div>
+                        <span class="card-year">2026 // SECURITY LAB</span>
+                    </div>
+                    <h3 class="archive-card-title">Network Intrusion &amp; Packet Flow Analyzer</h3>
+                    <p class="archive-card-desc">
+                        Deep packet inspection environment utilizing Wireshark and Cisco Packet Tracer to trace suspicious TCP handshakes, ARP poisoning, and DNS exfiltration patterns across simulated corporate topologies.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Packet payload reconstruction &amp; TLS handshake validation</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> VLAN segmentation, ACL policies &amp; Port Security setup</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> PCAP automated attack signature extraction</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-green"><i class="fa-solid fa-network-wired"></i> Wireshark</span>
+                        <span class="tag"><i class="fa-solid fa-diagram-project"></i> Packet Tracer</span>
+                        <span class="tag"><i class="fa-solid fa-lock"></i> TCP/IP Protocol</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-shield-cat"></i> IDS/IPS</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-green"><span class="chip-dot"></span> SOC LAB</span>
+                        <div class="card-links">
+                            <a href="index.html#contact" class="card-btn-action" title="Request PCAP Report">
+                                <i class="fa-solid fa-file-shield"></i> LAB REPORT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 05: Distributed SignalR Real-Time Engine -->
+                <div class="archive-card" data-category="backend" data-keywords="signalr real-time websockets dotnet c# redis notification streaming broadcast">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
+                        <span class="card-year">2026 // MICROSERVICE</span>
+                    </div>
+                    <h3 class="archive-card-title">Distributed Real-Time WebSocket Engine</h3>
+                    <p class="archive-card-desc">
+                        High-concurrency SignalR communication infrastructure supporting group-based broadcast channels, user presence tracking, instant telemetry streaming, and reconnection resilience.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Sub-10ms delivery latency for 1000+ concurrent clients</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Strong typing via generic Hub interfaces (`IHubContext`)</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Automatic fallback to Server-Sent Events (SSE) and Long Polling</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-green"><i class="fa-solid fa-tower-broadcast"></i> SignalR</span>
+                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C# .NET 8</span>
+                        <span class="tag"><i class="fa-solid fa-plug"></i> WebSockets</span>
+                        <span class="tag tag-blue"><i class="fa-solid fa-bolt"></i> Async/Await</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-purple"><span class="chip-dot"></span> DISTRIBUTED HUB</span>
+                        <div class="card-links">
+                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                <i class="fa-brands fa-github"></i> GITHUB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 06: ICPC Algorithmic Problem Solutions Archive -->
+                <div class="archive-card" data-category="algo" data-keywords="icpc competitive programming ecpc c++ algorithms data structures dynamic programming graphs dsu tree">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge algo-cat"><i class="fa-solid fa-laptop-code"></i> ALGORITHMS &amp; C++</div>
+                        <span class="card-year">2023 - 2026 // COMPETITIVE</span>
+                    </div>
+                    <h3 class="archive-card-title">ICPC &amp; Codeforces Solutions Repository</h3>
+                    <p class="archive-card-desc">
+                        Comprehensive C++ algorithm library solving 2,500+ problems across Codeforces, LeetCode, and ECPC national qualifiers. Includes optimized implementations of advanced graph algorithms, trees, and dynamic programming.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Dijkstra, Segment Trees, Fenwick Trees, Disjoint Set Union</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> 1D/2D DP with bitmasking &amp; space-state compression</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Sub-millisecond execution optimization (O(N log N))</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-cyan"><i class="fa-solid fa-code"></i> C++17/20</span>
+                        <span class="tag"><i class="fa-solid fa-diagram-project"></i> Graphs &amp; Trees</span>
+                        <span class="tag"><i class="fa-solid fa-gears"></i> Dynamic Programming</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-trophy"></i> ICPC / ECPC</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-green"><span class="chip-dot"></span> 2,500+ SOLVED</span>
+                        <div class="card-links">
+                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub Archive">
+                                <i class="fa-brands fa-github"></i> ALGORITHM REPO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 07: Secure Identity & JWT Auth Service -->
+                <div class="archive-card" data-category="backend" data-keywords="identity jwt oauth2 rbac refresh tokens asp.net core security owasp authentication authorization">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
+                        <span class="card-year">2026 // SECURITY CORE</span>
+                    </div>
+                    <h3 class="archive-card-title">Secure Identity &amp; Token Authority Microservice</h3>
+                    <p class="archive-card-desc">
+                        Hardened OAuth2/JWT authentication server built with ASP.NET Core Identity. Enforces encrypted refresh-token rotation, fine-grained Role-Based Access Control (RBAC), and brute-force mitigation.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Cryptographic Refresh Token rotation with revocation lists</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> OWASP Top 10 hardening (CORS, CSRF, Rate Limiting)</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Granular Policy &amp; Claim-based authorization handlers</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-purple"><i class="fa-solid fa-key"></i> JWT / OAuth2</span>
+                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> C# .NET 8</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-user-shield"></i> ASP.NET Identity</span>
+                        <span class="tag"><i class="fa-solid fa-shield-halved"></i> OWASP Safe</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-purple"><span class="chip-dot"></span> ZERO TRUST</span>
+                        <div class="card-links">
+                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                <i class="fa-brands fa-github"></i> GITHUB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 08: High-Throughput E-Commerce RESTful Web API -->
+                <div class="archive-card" data-category="backend" data-keywords="ecommerce api web api dapper ef core sql server redis caching payments cart order">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge backend-cat"><i class="fa-solid fa-server"></i> .NET &amp; BACKEND</div>
+                        <span class="card-year">2026 // HIGH LOAD</span>
+                    </div>
+                    <h3 class="archive-card-title">High-Throughput E-Commerce RESTful Engine</h3>
+                    <p class="archive-card-desc">
+                        Scalable e-commerce backend handling product catalogs, customer carts, and transactional order checkout with SQL Server index tuning and Dapper for high-speed query reads.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Dapper Micro-ORM for sub-5ms read benchmark queries</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Transactional concurrency control for inventory allocation</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-purple"></i> Swagger / OpenAPI documentation with API versioning</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> ASP.NET Core API</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-database"></i> Dapper &amp; SQL</span>
+                        <span class="tag"><i class="fa-solid fa-cart-shopping"></i> E-Commerce</span>
+                        <span class="tag tag-blue"><i class="fa-solid fa-gauge-high"></i> High-Load</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-purple"><span class="chip-dot"></span> OPTIMIZED API</span>
+                        <div class="card-links">
+                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                <i class="fa-brands fa-github"></i> GITHUB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 09: Cyber Port Scanner & Vulnerability Recon CLI -->
+                <div class="archive-card" data-category="cyber" data-keywords="port scanner reconnaissance recon nmap socket banner grabbing c# cli security vulnerability">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge cyber-cat"><i class="fa-solid fa-shield-halved"></i> CYBERSECURITY &amp; SOC</div>
+                        <span class="card-year">2025 // CLI TOOL</span>
+                    </div>
+                    <h3 class="archive-card-title">Cyber Recon &amp; Asynchronous Port Scanner</h3>
+                    <p class="archive-card-desc">
+                        Multi-threaded networking tool written in C# utilizing raw socket connections for asynchronous TCP port scanning, service banner grabbing, and open-port vulnerability detection.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Scans 65,535 ports asynchronously in under 15 seconds</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Automated banner grabber identifying HTTP, SSH, FTP versions</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-green"></i> Colored terminal UI with exportable JSON/CSV audit logs</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-green"><i class="fa-solid fa-terminal"></i> C# CLI</span>
+                        <span class="tag"><i class="fa-solid fa-network-wired"></i> Socket Programming</span>
+                        <span class="tag tag-green"><i class="fa-solid fa-radar"></i> Reconnaissance</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-green"><span class="chip-dot"></span> RECON TOOL</span>
+                        <div class="card-links">
+                            <a href="https://github.com/skeleton47" target="_blank" class="card-btn-action" title="GitHub">
+                                <i class="fa-brands fa-github"></i> GITHUB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10: Gemini AI Code Security Reviewer -->
+                <div class="archive-card" data-category="ai" data-keywords="gemini ai llm code reviewer security audit static analysis ast c# react automation">
+                    <div class="archive-card-header">
+                        <div class="card-cat-badge ai-cat"><i class="fa-solid fa-brain"></i> AI &amp; FULL-STACK</div>
+                        <span class="card-year">2026 // AI AUTOMATION</span>
+                    </div>
+                    <h3 class="archive-card-title">Gemini AI Automated Code Security Auditor</h3>
+                    <p class="archive-card-desc">
+                        Intelligent code analysis system integrating Google Gemini AI 1.5 Pro to detect SQL injection, insecure deserialization, hardcoded secrets, and performance bottlenecks in git commits.
+                    </p>
+                    <div class="archive-card-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Automatic AST code parsing &amp; OWASP vulnerability mapping</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Generates remediation diffs and secure refactoring patches</div>
+                        <div class="highlight-item"><i class="fa-solid fa-check text-cyan"></i> Real-time AI streaming responses via WebSockets</div>
+                    </div>
+                    <div class="archive-card-tags">
+                        <span class="tag tag-ai"><i class="fa-solid fa-brain"></i> Gemini 1.5 Pro</span>
+                        <span class="tag tag-purple"><i class="fa-solid fa-code"></i> .NET 8 Core</span>
+                        <span class="tag tag-cyan"><i class="fa-solid fa-shield-virus"></i> Static Analysis</span>
+                    </div>
+                    <div class="archive-card-footer">
+                        <span class="card-status-pill text-cyan"><span class="chip-dot"></span> AI SECURITY</span>
+                        <div class="card-links">
+                            <a href="index.html#contact" class="card-btn-action" title="Request Demo">
+                                <i class="fa-solid fa-envelope"></i> REQUEST DEMO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty State for Search -->
+            <div class="archive-empty-state" id="archiveEmptyState" style="display: none;">
+                <i class="fa-solid fa-folder-magnifying-glass empty-icon"></i>
+                <h3>No Matching Repositories Found</h3>
+                <p>Try searching for different keywords like <code>Fortinet</code>, <code>.NET</code>, <code>React</code>, <code>C++</code>, or <code>SQL</code>.</p>
+                <button class="reset-search-btn" onclick="resetFilters()"><i class="fa-solid fa-rotate-left"></i> Reset All Filters</button>
+            </div>
+
+            <!-- Back to Home CTA Footer -->
+            <div class="archive-bottom-cta">
+                <a href="index.html" class="back-home-large-btn">
+                    <i class="fa-solid fa-arrow-left-long"></i> BACK TO MAIN PORTFOLIO
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p class="footer-copyright">© 2026 Omar Hisham Mohamed Elshayal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Cyber Mouse Trail Aura -->
+    <div class="cyber-mouse-aura" id="cyberMouseAura"></div>
+
+    <!-- Scripts -->
+    <script src="script.js?v=14.0"></script>
+    <script src="projects.js?v=1.0"></script>
+</body>
+</html>
