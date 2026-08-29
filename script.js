@@ -617,11 +617,14 @@ function openSkillModal(skillId) {
             .join('');
     }
 
-    // Update active tab buttons inside modal
+    // Update active tab buttons inside modal and center in view
     const tabButtons = document.querySelectorAll('.skill-tab-btn');
     tabButtons.forEach(btn => {
         if (btn.getAttribute('data-tab') === skillId) {
             btn.classList.add('active');
+            try {
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } catch (err) {}
         } else {
             btn.classList.remove('active');
         }
@@ -648,6 +651,9 @@ function initSkillModal() {
     const closeBtn = document.getElementById('skillModalCloseBtn');
     const closeFooterBtn = document.getElementById('skillModalCloseFooterBtn');
     const skillCards = document.querySelectorAll('.skill-card');
+    const prevBtn = document.getElementById('skillTabsPrevBtn');
+    const nextBtn = document.getElementById('skillTabsNextBtn');
+    const tabsContainer = document.getElementById('skillModalTabs');
 
     if (!modalBackdrop) return;
 
@@ -660,6 +666,55 @@ function initSkillModal() {
             }
         });
     });
+
+    // Arrow buttons navigation (< and >)
+    if (prevBtn && tabsContainer) {
+        prevBtn.addEventListener('click', () => {
+            tabsContainer.scrollBy({ left: -180, behavior: 'smooth' });
+        });
+    }
+
+    if (nextBtn && tabsContainer) {
+        nextBtn.addEventListener('click', () => {
+            tabsContainer.scrollBy({ left: 180, behavior: 'smooth' });
+        });
+    }
+
+    // Convert mouse wheel to horizontal scroll
+    if (tabsContainer) {
+        tabsContainer.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                tabsContainer.scrollLeft += e.deltaY * 1.5;
+            }
+        }, { passive: false });
+
+        // Mouse Drag-To-Scroll (Click & Drag left/right)
+        let isDown = false;
+        let startX, scrollLeft;
+
+        tabsContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            tabsContainer.classList.add('grabbing');
+            startX = e.pageX - tabsContainer.offsetLeft;
+            scrollLeft = tabsContainer.scrollLeft;
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDown) {
+                isDown = false;
+                tabsContainer.classList.remove('grabbing');
+            }
+        });
+
+        tabsContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - tabsContainer.offsetLeft;
+            const walk = (x - startX) * 1.6;
+            tabsContainer.scrollLeft = scrollLeft - walk;
+        });
+    }
 
     if (closeBtn) closeBtn.addEventListener('click', closeSkillModal);
     if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeSkillModal);
@@ -678,6 +733,7 @@ function initSkillModal() {
         }
     });
 }
+
 
 /* ==========================================================================
    7. REALISTIC TACTICAL SOC RADAR (Canvas 60 FPS Engine)

@@ -11,8 +11,9 @@
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=10.0">
+    <link rel="stylesheet" href="style.css?v=11.0">
 </head>
+
 
 
 
@@ -863,8 +864,11 @@
                 </div>
             </div>
 
-            <!-- Fast Skill Tabs Switcher inside Modal -->
+            <!-- Fast Skill Tabs Switcher inside Modal with Navigation Arrows -->
             <div class="skill-modal-tabs-wrapper">
+                <button class="skill-tabs-nav-btn nav-prev" id="skillTabsPrevBtn" title="Scroll left" aria-label="Scroll left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
                 <div class="skill-modal-tabs" id="skillModalTabs">
                     <button class="skill-tab-btn active" data-tab="fortinet" onclick="openSkillModal('fortinet')"><i class="fa-solid fa-shield-halved"></i> FortiSIEM</button>
                     <button class="skill-tab-btn" data-tab="network-sec" onclick="openSkillModal('network-sec')"><i class="fa-solid fa-network-wired"></i> Network Sec</button>
@@ -875,7 +879,11 @@
                     <button class="skill-tab-btn" data-tab="gemini-ai" onclick="openSkillModal('gemini-ai')"><i class="fa-solid fa-brain"></i> Gemini AI</button>
                     <button class="skill-tab-btn" data-tab="signalr" onclick="openSkillModal('signalr')"><i class="fa-solid fa-tower-broadcast"></i> SignalR</button>
                 </div>
+                <button class="skill-tabs-nav-btn nav-next" id="skillTabsNextBtn" title="Scroll right" aria-label="Scroll right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
+
 
             <!-- Modal Content (2-Column Grid on Desktop) -->
             <div class="skill-modal-body">
@@ -955,9 +963,10 @@
     </div>
 
     <!-- Script File -->
-    <script src="script.js?v=10.0"></script>
+    <script src="script.js?v=11.0"></script>
 </body>
 </html>
+
 
 
 
