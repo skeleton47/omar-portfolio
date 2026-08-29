@@ -196,32 +196,42 @@ function initInteractiveTerminal() {
     const commands = {
         'help': () => ({
             type: 'success',
-            text: `Available commands:\n  • about       - Display bio & information\n  • skills      - List core .NET, React & Security skills\n  • projects    - View featured engineering projects (Acolite, MvcTask)\n  • exp         - View career history & ICPC coaching\n  • certs       - View certifications & education\n  • contact     - Show direct email, phone & LinkedIn\n  • clear       - Clear terminal history\n  • whoami      - Print current user identity\n  • matrix      - Trigger cyber matrix mode`
+            text: `Available commands:\n  • icpc        - What is ICPC & my competitive programming syllabus\n  • fortinet    - FortiSIEM & FortiAnalyzer certification details (NTI 2026)\n  • skills      - List Cybersecurity, .NET, React & Algorithm skills\n  • projects    - View security suites & engineering platforms\n  • exp         - View career history & ICPC coaching\n  • certs       - View Fortinet, NTI, ITI & CS50 credentials\n  • contact     - Show direct email, phone & LinkedIn\n  • clear       - Clear terminal history\n  • whoami      - Print current user identity\n  • matrix      - Trigger cyber matrix mode`
         }),
+        'icpc': () => ({
+            type: 'success',
+            text: `[🏆] What is ICPC? (International Collegiate Programming Contest)\n     The premier global competitive programming competition testing algorithmic problem-solving & math.\n\n[📚] What I Instruct & Coach (50+ Students):\n     • Advanced Data Structures : Segment Trees, Lazy Propagation, Fenwick Trees, DSU, Trie\n     • Graph Theory & Traversal  : Dijkstra, Bellman-Ford, Floyd-Warshall, MST, BFS/DFS, TopoSort\n     • Dynamic Programming      : 1D/2D DP, DP with Bitmask, State Optimization\n     • Complexity & Optimization: O(N log N) / O(1) runtime optimization, space reduction\n     • Mentorship               : Training university teams for national qualifiers (ECPC / ICPC)`
+        }),
+        'fortinet': () => ({
+            type: 'success',
+            text: `[🛡️] Fortinet FortiSIEM & FortiAnalyzer Specialist — NTI & Fortinet (2026)\n     • FortiSIEM    : Real-time security event correlation, multi-tenant SOC management, SIEM parsing rules.\n     • FortiAnalyzer: Centralized syslog aggregation, compliance reporting, threat hunting & forensics.\n     • SOC Labs     : 15+ real-world attack scenarios mitigated & hardened across virtual environments.`
+        }),
+        'siem': () => commands['fortinet'](),
+        'soc': () => commands['fortinet'](),
         'about': () => ({
             type: 'default',
-            text: `Omar Hisham Mohamed Elshayal\nFull-Stack .NET Developer | Intelligent Cybersecurity Undergrad @ Horus University (GPA 3.02)\nICPC Instructor mentoring 50+ students in C++ & algorithms.`
+            text: `Omar Hisham Mohamed Elshayal\nIntelligent Cybersecurity Specialist | Fortinet Certified (FortiSIEM & FortiAnalyzer 2026)\nFull-Stack .NET Developer | ICPC Instructor mentoring 50+ students in C++ & algorithms.`
         }),
         'cat about_me.txt': () => ({
             type: 'default',
-            text: `Name       : Omar Hisham Mohamed Elshayal\nRole       : Full-Stack .NET Developer | ICPC Instructor\nEducation  : B.Sc. Intelligent Cybersecurity @ Horus University (GPA 3.02)\nFocus      : C#, .NET 8/9, ASP.NET Core, React, AI Integration, Network Security\nLocation   : New Damietta, Damietta, Egypt\nLeadership : Trained 50+ students for national ICPC qualifiers\nMission    : Secure today, architect for scale tomorrow.`
+            text: `Name       : Omar Hisham Mohamed Elshayal\nRole       : Intelligent Cybersecurity Specialist | Full-Stack .NET Developer | ICPC Instructor\nSecurity   : FortiSIEM & FortiAnalyzer Specialist (Fortinet & NTI 2026)\nEducation  : B.Sc. Intelligent Cybersecurity @ Horus University (GPA 3.02)\nICPC Coach : Trained 50+ students in C++ algorithms & data structures for national qualifiers\nFull-Stack : C#, .NET 8/9, ASP.NET Core, React 18, TypeScript, SQL Server, SignalR\nLocation   : New Damietta, Damietta, Egypt\nMission    : Bulletproof security today, scalable architecture tomorrow.`
         }),
         'skills': () => ({
             type: 'success',
-            text: `[+] Backend & .NET : C#, .NET 8/9, ASP.NET Core (Web API & MVC), EF Core, LINQ, SignalR, JWT, DI\n[+] Frontend       : React.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Bootstrap\n[+] Languages      : C#, C++, Python, JavaScript, TypeScript, SQL, Java, C\n[+] Databases/Cloud: SQL Server, EF Migrations, Docker, Railway, Vercel, Postman, Git\n[+] Security       : Network Security, Wireshark, Metasploit, Cisco Packet Tracer, Linux Hardening`
+            text: `[+] Cybersecurity : FortiSIEM, FortiAnalyzer, Wireshark, Metasploit, Cisco Packet Tracer, Linux Hardening\n[+] Algorithms    : ICPC Coaching, Segment Trees, Graphs, Dynamic Programming, Complexity Analysis\n[+] Backend & .NET: C#, .NET 8/9, ASP.NET Core (Web API & MVC), EF Core, LINQ, SignalR, JWT\n[+] Frontend      : React.js, TypeScript, JavaScript (ES6+), Tailwind CSS, Bootstrap, HTML5/CSS3\n[+] Databases/AI  : SQL Server, EF Migrations, Google Gemini AI Integration, Docker, Railway, Vercel`
         }),
         'projects': () => ({
             type: 'success',
-            text: `1. Acolite  - Full-Stack AI Freelance Platform (C#, .NET 8, React, TypeScript, Gemini AI, SignalR)\n              Live: https://acolite.xyz | Repo: github.com/skeleton47/acolite.xyz_iti_.net\n2. MvcTask  - Multi-tier ASP.NET Core MVC Management System (C#, .NET 9, EF Core, SQL Server)\n              Repo: github.com/skeleton47/MvcTask\n3. CyberLab - Network Hardening & Packet Inspection Suite (Wireshark, Metasploit, NTI Cyber Heroes)`
+            text: `1. FortiSIEM & Analyzer Suite - Enterprise SIEM event correlation, log analytics & SOC defense (NTI 2026)\n2. Acolite Platform           - Full-Stack AI Freelance Hub (C# .NET 8, React, Gemini AI, SignalR) [acolite.xyz]\n3. MvcTask Management         - Multi-tier ASP.NET Core MVC enterprise system (C#, .NET 9, EF Core, SQL Server)`
         }),
         'experience': () => ({
             type: 'default',
-            text: `• ICPC Instructor — Horus University (Sep 2025 – Present): Trained 50+ students in C++ algorithms.\n• Cybersecurity Trainee — NTI / MCIT (Aug 2025): Egypt Cyber Heroes network & penetration testing.\n• Full-Stack .NET Track — ITI (2026): Clean Architecture & enterprise web apps.\n• AI Workshop — Arab Media Creativity Summit (Aug 2025): Machine learning workflows.`
+            text: `• FortiSIEM & FortiAnalyzer Trainee — NTI & Fortinet (2026): Enterprise SIEM correlation & SOC defense.\n• ICPC Instructor — Horus University (Sep 2025 – Present): Trained 50+ students in C++ algorithms.\n• Cybersecurity Trainee — NTI / MCIT (Aug 2025): Egypt Cyber Heroes network & penetration testing.\n• Full-Stack .NET Track — ITI (2026): Clean Architecture & enterprise web apps.`
         }),
         'exp': () => commands['experience'](),
         'certs': () => ({
             type: 'success',
-            text: `[✓] Egypt Cyber Heroes Program — NTI / MCIT (2025)\n[✓] Full-Stack .NET Track Certificate — Information Technology Institute (ITI) (2026)\n[✓] Entrepreneurship & Innovation Certificate — Horus University (2025)\n[✓] CS50: Introduction to Computer Science — Harvard University`
+            text: `[✓] FortiSIEM & FortiAnalyzer Specialist — National Telecommunication Institute (NTI) & Fortinet (2026)\n[✓] Egypt Cyber Heroes Program — NTI / MCIT (2025)\n[✓] Full-Stack .NET Track Certificate — Information Technology Institute (ITI) (2026)\n[✓] B.Sc. in Intelligent Cybersecurity (GPA 3.02) — Horus University (Faculty of AI)\n[✓] CS50: Introduction to Computer Science — Harvard University\n[✓] Entrepreneurship & Innovation Certificate — Horus University (2025)`
         }),
         'contact': () => ({
             type: 'default',
@@ -229,7 +239,7 @@ function initInteractiveTerminal() {
         }),
         'whoami': () => ({
             type: 'success',
-            text: `omar@portfolio:~$ (Omar Hisham Elshayal - Full-Stack .NET Developer & Cybersecurity Engineer)`
+            text: `omar@soc-core:~$ (Omar Hisham Elshayal - Cybersecurity Specialist, Full-Stack .NET Engineer & ICPC Coach)`
         }),
         'sudo': () => ({
             type: 'warn',
