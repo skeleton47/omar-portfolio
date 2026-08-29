@@ -1211,7 +1211,14 @@ body {
     backdrop-filter: blur(8px);
 }
 
+.skill-card-featured {
+    border-color: rgba(0, 255, 102, 0.4);
+    background: rgba(0, 255, 102, 0.05);
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+}
+
 .skill-card:hover {
+
 
     border-color: var(--neon-green);
     background: rgba(0, 255, 102, 0.08);
