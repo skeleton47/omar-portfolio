@@ -1,18 +1,14 @@
 /**
- * OMAR.SEC - Interactive Cyber Features, Skills Inspector & Resume Modal
+ * OMAR.SEC - Interactive Cyber Features & Dynamic Animations
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initCyberWave();
     initInteractiveTerminal();
     initNavEvents();
-    initSkillsInspector();
-    initResumeModal();
-    initCopyActions();
-    initMatrixMode();
     initConnectTerminal();
+    initDownloadCV();
 });
-
 
 /* ==========================================================================
    1. CYBER MATRIX / WAVE CANVAS ANIMATION
@@ -77,6 +73,7 @@ function initCyberWave() {
             for (let c = 0; c < cols; c++) {
                 const pt = points[r][c];
                 
+                // Multi-layered cyber wave formula
                 const distToMouse = Math.hypot(pt.baseX - mouse.x, pt.baseY - mouse.y);
                 const mouseInfluence = mouse.active && distToMouse < 220 ? (1 - distToMouse / 220) * 35 : 0;
 
@@ -151,410 +148,7 @@ function initCyberWave() {
 }
 
 /* ==========================================================================
-   2. SKILLS DATABASE & INTERACTIVE CLICK-TO-INSPECT LOGIC
-   ========================================================================== */
-const skillsDatabase = {
-    'fortinet': {
-        name: 'FortiSIEM & FortiAnalyzer',
-        icon: '<i class="fa-solid fa-shield-halved"></i>',
-        category: 'Cybersecurity & SIEM',
-        level: 'Certified / Advanced (NTI 2026)',
-        desc: 'Specialized in enterprise security operations, real-time threat telemetry correlation, centralized log intelligence, and automated incident triage across complex multi-tenant infrastructures.',
-        capabilities: [
-            'Configured real-time SIEM event correlation rules, anomaly alerts, and custom syslog parsers.',
-            'Centralized syslog management, compliance reporting, and audit log telemetry pipelines.',
-            'Investigated and mitigated 15+ real-world enterprise cyber threat vectors in virtualized environments.',
-            'Mastered incident response workflows, alert prioritization, and SOC telemetry diagnostics.'
-        ],
-        projects: [
-            { name: 'FortiSIEM & FortiAnalyzer Security Suite', link: '#projects', icon: 'fa-solid fa-shield-halved' },
-            { name: 'Enterprise Threat Simulation Lab', link: '#experience', icon: 'fa-solid fa-server' }
-        ],
-        tags: ['FortiSIEM', 'FortiAnalyzer', 'Event Correlation', 'Syslog', 'SOC Ops', 'Threat Hunting', 'NTI 2026']
-    },
-    'network-sec': {
-        name: 'Network Security & Pen Testing',
-        icon: '<i class="fa-solid fa-network-wired"></i>',
-        category: 'Cybersecurity & Defense',
-        level: 'Advanced Specialist',
-        desc: 'Deep understanding of TCP/IP OSI model, firewall configuration, VPN architecture, traffic inspection, packet payload analysis, and defensive vulnerability scanning.',
-        capabilities: [
-            'Deep packet inspection, handshake analysis, and protocol dissection with Wireshark.',
-            'Network topology design, ACL access controls, and VLAN segmentation in Cisco Packet Tracer.',
-            'Vulnerability assessment, exploit payload analysis, and hardening with Metasploit & Linux.',
-            'Hardened OS environments, firewall rule tuning, and perimeter intrusion prevention.'
-        ],
-        projects: [
-            { name: 'Cyber Threat Lab & Packet Inspector', link: '#projects', icon: 'fa-solid fa-network-wired' },
-            { name: 'Egypt Cyber Heroes Hardening Lab', link: '#experience', icon: 'fa-solid fa-shield-virus' }
-        ],
-        tags: ['Wireshark', 'Metasploit', 'Packet Tracer', 'Firewalls', 'VPN', 'Linux Hardening', 'TCP/IP']
-    },
-    'dotnet': {
-        name: 'C# & .NET 8 / 9',
-        icon: '<i class="fa-solid fa-code"></i>',
-        category: '.NET & Backend Engineering',
-        level: 'Expert Engineer',
-        desc: 'Architecting high-performance, maintainable enterprise backends with ASP.NET Core Web API, MVC, Dependency Injection, and strict Clean Architecture.',
-        capabilities: [
-            'Built enterprise RESTful Web APIs with ASP.NET Core 8/9, JWT Authentication, and rate-limiting.',
-            'Implemented Clean Architecture, Repository Pattern, Unit of Work, and Service abstractions.',
-            'Robust LINQ querying, database retry policies, and structured exception handling pipelines.',
-            'Strong adherence to SOLID design principles, clean code practices, and unit testability.'
-        ],
-        projects: [
-            { name: 'Acolite — AI Freelance Marketplace (API)', link: 'https://github.com/skeleton47/acolite.xyz_iti_.net', icon: 'fa-solid fa-brain' },
-            { name: 'MvcTask — Multi-Tier Management System', link: 'https://github.com/skeleton47/MvcTask', icon: 'fa-solid fa-cubes' }
-        ],
-        tags: ['C#', '.NET 8', '.NET 9', 'ASP.NET Core', 'Clean Architecture', 'JWT', 'SOLID', 'Web API']
-    },
-    'icpc': {
-        name: 'C++ & ICPC Algorithmic Coaching',
-        icon: '<i class="fa-solid fa-laptop-code"></i>',
-        category: 'Algorithms & Problem Solving',
-        level: 'Master Coach',
-        desc: 'Advanced problem solver and competitive programming instructor. Trained 50+ students in C++ algorithmic thinking, space-time complexity optimization, and contest problem modeling.',
-        capabilities: [
-            'Advanced Data Structures: Segment Trees with Lazy Propagation, Fenwick Trees, DSU, Trie.',
-            'Graph Theory: Dijkstra, Bellman-Ford, Floyd-Warshall, Kruskal/Prim MST, BFS/DFS, TopoSort.',
-            'Dynamic Programming: 1D/2D DP, DP with Bitmasking, State Compression, and Recurrence optimization.',
-            'Authored mock contests, problem sets, and led competitive programming training for ECPC/ICPC qualifiers.'
-        ],
-        projects: [
-            { name: 'ICPC Horus University Coaching Syllabus', link: '#icpc-section', icon: 'fa-solid fa-tree' },
-            { name: 'Algorithmic Problem-Solving Repository', link: 'https://github.com/skeleton47', icon: 'fa-brands fa-github' }
-        ],
-        tags: ['C++', 'Segment Trees', 'Graph Theory', 'Dynamic Programming', 'DSU', 'ECPC', 'ICPC Coach']
-    },
-    'react': {
-        name: 'React 18 & TypeScript',
-        icon: '<i class="fa-brands fa-react"></i>',
-        category: 'Frontend Engineering',
-        level: 'Advanced Developer',
-        desc: 'Crafting responsive, responsive, high-performance web applications with modern React hooks, TypeScript type-safety, Tailwind CSS, and state management.',
-        capabilities: [
-            'Built responsive, reactive component trees with modern React 18 hooks & functional components.',
-            'Enforced complete type-safety across props, API responses, and custom state using TypeScript.',
-            'Sleek modern UI design utilizing Tailwind CSS, glassmorphism, glowing cyber effects, and CSS Grid.',
-            'Integrated real-time SignalR WebSocket clients and asynchronous RESTful API consumption.'
-        ],
-        projects: [
-            { name: 'Acolite Frontend Platform (React + TS)', link: 'https://acolite.xyz', icon: 'fa-solid fa-arrow-up-right-from-square' },
-            { name: 'Interactive Cyber Portfolio SPA', link: '#home', icon: 'fa-solid fa-bolt' }
-        ],
-        tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'State Management', 'WebSockets', 'SPA']
-    },
-    'sql': {
-        name: 'SQL Server & EF Core',
-        icon: '<i class="fa-solid fa-database"></i>',
-        category: 'Database & ORM',
-        level: 'Advanced Specialist',
-        desc: 'Relational database schema modeling, query optimization, indexing, and seamless entity mapping with Entity Framework Core migrations.',
-        capabilities: [
-            'Designed normalized relational schemas, foreign keys, cascading rules, and composite indexes.',
-            'Entity Framework Core Code-First migrations, fluent API configurations, and relationship mappings.',
-            'Optimized LINQ expressions to eliminate N+1 queries and enhance throughput.',
-            'Implemented connection resilience, retry strategies, and transaction safety in SQL Server.'
-        ],
-        projects: [
-            { name: 'Acolite Relational Data Layer', link: 'https://github.com/skeleton47/acolite.xyz_iti_.net', icon: 'fa-solid fa-database' },
-            { name: 'MvcTask Academic Schema & Migrations', link: 'https://github.com/skeleton47/MvcTask', icon: 'fa-solid fa-cubes' }
-        ],
-        tags: ['SQL Server', 'EF Core', 'LINQ', 'Migrations', 'Query Optimization', 'Indexes']
-    },
-    'signalr': {
-        name: 'SignalR & Real-Time WebSockets',
-        icon: '<i class="fa-solid fa-tower-broadcast"></i>',
-        category: 'Real-Time Communication',
-        level: 'Advanced Developer',
-        desc: 'Full duplex bi-directional communication hubs enabling real-time user chats, instant notifications, status alerts, and live event broadcasting.',
-        capabilities: [
-            'Built ASP.NET Core SignalR Hubs with group management, user mappings, and token authentication.',
-            'Engineered resilient client-side reconnect strategies with React and TypeScript.',
-            'Instant bi-directional messaging, typing indicators, and real-time security alerts.',
-            'Optimized WebSocket protocol fallback for high-concurrency connections.'
-        ],
-        projects: [
-            { name: 'Acolite Real-Time Freelancer Chat Hub', link: 'https://acolite.xyz', icon: 'fa-solid fa-comments' }
-        ],
-        tags: ['SignalR', 'WebSockets', 'Real-Time', 'Hubs', 'Instant Messaging', 'Live Alerts']
-    },
-    'gemini-ai': {
-        name: 'Google Gemini AI Integration',
-        icon: '<i class="fa-solid fa-brain"></i>',
-        category: 'AI & Automation',
-        level: 'Proficient Integrator',
-        desc: 'Integrating Google Gemini LLM capabilities into enterprise applications for automated resume parsing, intelligent matching, semantic search, and smart workflows.',
-        capabilities: [
-            'Integrated Google Gemini REST API into C# .NET backend with secure API key management.',
-            'Engineered prompt templates for structured JSON output, recruiter matching, and text analysis.',
-            'Automated proposal screening and semantic candidate ranking in marketplace software.',
-            'Designed fallback mechanisms and token usage optimizations.'
-        ],
-        projects: [
-            { name: 'Acolite AI Recruiter & Semantic Matcher', link: 'https://acolite.xyz', icon: 'fa-solid fa-brain' }
-        ],
-        tags: ['Google Gemini', 'LLM', 'AI Automation', 'Semantic Search', 'Prompt Engineering']
-    },
-    'docker-cloud': {
-        name: 'Docker & Cloud DevOps',
-        icon: '<i class="fa-brands fa-docker"></i>',
-        category: 'DevOps & Deployment',
-        level: 'Proficient Engineer',
-        desc: 'Containerizing full-stack applications with Docker, managing multi-container setups, and continuous deployment to cloud environments (Railway, Vercel, GitHub Pages).',
-        capabilities: [
-            'Authored optimized multi-stage Dockerfiles for .NET Web APIs and React applications.',
-            'Configured GitHub Actions CI/CD workflows for automated build, test, and deployment.',
-            'Deployed production microservices to Railway and frontend applications to Vercel.',
-            'Managed GitHub Pages automated static hosting pipelines.'
-        ],
-        projects: [
-            { name: 'GitHub Pages Automated Portfolio Pipeline', link: 'https://github.com/skeleton47/omar-portfolio', icon: 'fa-brands fa-github' },
-            { name: 'Acolite Cloud Deployment Environment', link: 'https://acolite.xyz', icon: 'fa-solid fa-cloud' }
-        ],
-        tags: ['Docker', 'GitHub Actions', 'CI/CD', 'Railway', 'Vercel', 'GitHub Pages']
-    }
-};
-
-function initSkillsInspector() {
-    const skillCards = document.querySelectorAll('.skill-card');
-    const modalBackdrop = document.getElementById('skillModalBackdrop');
-    const closeBtn = document.getElementById('skillModalCloseBtn');
-    const closeFooterBtn = document.getElementById('skillModalCloseFooterBtn');
-    
-    const modalIcon = document.getElementById('skillModalIcon');
-    const modalCat = document.getElementById('skillModalCat');
-    const modalTitle = document.getElementById('skillModalTitle');
-    const modalBadge = document.getElementById('skillModalBadge');
-    const modalDesc = document.getElementById('skillModalDesc');
-    const modalList = document.getElementById('skillModalList');
-    const modalProjects = document.getElementById('skillModalProjects');
-    const modalTags = document.getElementById('skillModalTags');
-
-    if (!modalBackdrop || skillCards.length === 0) return;
-
-    function openSkillModal(skillId) {
-        const skill = skillsDatabase[skillId];
-        if (!skill) return;
-
-        // Populate Modal Fields
-        if (modalIcon) modalIcon.innerHTML = skill.icon;
-        if (modalCat) modalCat.textContent = skill.category;
-        if (modalTitle) modalTitle.textContent = skill.name;
-        if (modalBadge) modalBadge.textContent = skill.level;
-        if (modalDesc) modalDesc.textContent = skill.desc;
-
-        // Populate Capabilities
-        if (modalList) {
-            modalList.innerHTML = skill.capabilities
-                .map(cap => `<li><i class="fa-solid fa-check text-green"></i> ${cap}</li>`)
-                .join('');
-        }
-
-        // Populate Projects
-        if (modalProjects) {
-            modalProjects.innerHTML = skill.projects
-                .map(p => `
-                    <a href="${p.link}" target="${p.link.startsWith('http') ? '_blank' : '_self'}" class="skill-modal-project-link">
-                        <i class="${p.icon}"></i>
-                        <span>${p.name}</span>
-                    </a>
-                `)
-                .join('');
-        }
-
-        // Populate Tags
-        if (modalTags) {
-            modalTags.innerHTML = skill.tags
-                .map(t => `<span class="tag">${t}</span>`)
-                .join('');
-        }
-
-        // Open Modal
-        modalBackdrop.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeSkillModal() {
-        modalBackdrop.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Attach click listeners to skill cards
-    skillCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const skillId = card.getAttribute('data-skill-id');
-            if (skillId) {
-                openSkillModal(skillId);
-            }
-        });
-    });
-
-    if (closeBtn) closeBtn.addEventListener('click', closeSkillModal);
-    if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeSkillModal);
-
-    modalBackdrop.addEventListener('click', (e) => {
-        if (e.target === modalBackdrop) {
-            closeSkillModal();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
-            closeSkillModal();
-        }
-    });
-}
-
-
-/* ==========================================================================
-   3. QUICK RESUME PREVIEW MODAL LOGIC
-   ========================================================================== */
-function initResumeModal() {
-    const modalBackdrop = document.getElementById('resumeModalBackdrop');
-    const navBtn = document.getElementById('quickResumeNavBtn');
-    const heroBtn = document.getElementById('heroResumeModalBtn');
-    const aboutBtn = document.getElementById('aboutResumeModalBtn');
-    const closeBtn = document.getElementById('resumeModalCloseBtn');
-    const closeFooterBtn = document.getElementById('resumeModalCloseFooterBtn');
-
-    if (!modalBackdrop) return;
-
-    function openModal() {
-        modalBackdrop.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        modalBackdrop.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    if (navBtn) navBtn.addEventListener('click', openModal);
-    if (heroBtn) heroBtn.addEventListener('click', openModal);
-    if (aboutBtn) aboutBtn.addEventListener('click', openModal);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeModal);
-
-    modalBackdrop.addEventListener('click', (e) => {
-        if (e.target === modalBackdrop) {
-            closeModal();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
-            closeModal();
-        }
-    });
-}
-
-/* ==========================================================================
-   4. COPY ACTIONS & CYBER TOAST
-   ========================================================================== */
-function showToast(message) {
-    const toast = document.getElementById('cyberToast');
-    const toastMsg = document.getElementById('toastMsg');
-    if (!toast) return;
-
-    toastMsg.textContent = message;
-    toast.classList.add('show');
-
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3000);
-}
-
-function initCopyActions() {
-    const copyItems = document.querySelectorAll('.contact-item-copy');
-    copyItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const textToCopy = item.getAttribute('data-copy');
-            if (textToCopy) {
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    showToast(`Copied ${textToCopy} to clipboard!`);
-                }).catch(() => {
-                    showToast(`Selected: ${textToCopy}`);
-                });
-            }
-        });
-    });
-}
-
-/* ==========================================================================
-   5. MATRIX MODE ANIMATION TOGGLE
-   ========================================================================== */
-function initMatrixMode() {
-    const matrixBtn = document.getElementById('matrixModeToggleBtn');
-    let matrixCanvas = document.getElementById('matrixCanvas');
-    let matrixActive = false;
-    let matrixInterval = null;
-
-    if (!matrixBtn) return;
-
-    if (!matrixCanvas) {
-        matrixCanvas = document.createElement('canvas');
-        matrixCanvas.id = 'matrixCanvas';
-        document.body.appendChild(matrixCanvas);
-    }
-
-    const ctx = matrixCanvas.getContext('2d');
-    const chars = '0123456789ABCDEF<>/{};:*~+=-_OMAR.SEC';
-    let fontSize = 14;
-    let columns = 0;
-    let drops = [];
-
-    function setupMatrix() {
-        matrixCanvas.width = window.innerWidth;
-        matrixCanvas.height = window.innerHeight;
-        columns = Math.floor(matrixCanvas.width / fontSize);
-        drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.floor(Math.random() * -50);
-        }
-    }
-
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(5, 8, 8, 0.08)';
-        ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-
-        ctx.fillStyle = '#00ff66';
-        ctx.font = `${fontSize}px monospace`;
-
-        for (let i = 0; i < drops.length; i++) {
-            const text = chars.charAt(Math.floor(Math.random() * chars.length));
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
-    }
-
-    function toggleMatrix() {
-        matrixActive = !matrixActive;
-        if (matrixActive) {
-            setupMatrix();
-            matrixCanvas.classList.add('active');
-            matrixInterval = setInterval(drawMatrix, 40);
-            showToast('Matrix Rain Mode: ACTIVATED [Click bolt to turn off]');
-        } else {
-            matrixCanvas.classList.remove('active');
-            clearInterval(matrixInterval);
-            ctx.clearRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-            showToast('Matrix Rain Mode: DEACTIVATED');
-        }
-    }
-
-    matrixBtn.addEventListener('click', toggleMatrix);
-    window.addEventListener('resize', () => {
-        if (matrixActive) setupMatrix();
-    });
-}
-
-/* ==========================================================================
-   6. INTERACTIVE CYBER TERMINAL
+   2. INTERACTIVE CYBER TERMINAL
    ========================================================================== */
 function initInteractiveTerminal() {
     const termInput = document.getElementById('termInput');
@@ -565,6 +159,7 @@ function initInteractiveTerminal() {
 
     if (!termInput) return;
 
+    // Synchronize visual cursor with input length & font metrics
     function updateCursorPosition() {
         const textLen = termInput.value.length;
         const charWidth = 8.8;
@@ -574,6 +169,7 @@ function initInteractiveTerminal() {
     termInput.addEventListener('input', updateCursorPosition);
     termInput.addEventListener('click', () => termInput.focus());
 
+    // Keep focus when clicking anywhere inside the terminal body
     terminalBody.addEventListener('click', () => {
         termInput.focus();
     });
@@ -600,20 +196,8 @@ function initInteractiveTerminal() {
     const commands = {
         'help': () => ({
             type: 'success',
-            text: `Available commands:\n  • resume      - Open the on-screen interactive CV preview modal\n  • skills      - List Cybersecurity, .NET, React & Algorithm skills\n  • icpc        - What is ICPC & my competitive programming syllabus\n  • fortinet    - FortiSIEM & FortiAnalyzer certification details (NTI 2026)\n  • projects    - View security suites & engineering platforms\n  • exp         - View career history & ICPC coaching\n  • certs       - View Fortinet, NTI, ITI & CS50 credentials\n  • contact     - Show direct email, phone & LinkedIn\n  • clear       - Clear terminal history\n  • whoami      - Print current user identity\n  • matrix      - Toggle cyber matrix rain mode`
+            text: `Available commands:\n  • icpc        - What is ICPC & my competitive programming syllabus\n  • fortinet    - FortiSIEM & FortiAnalyzer certification details (NTI 2026)\n  • skills      - List Cybersecurity, .NET, React & Algorithm skills\n  • projects    - View security suites & engineering platforms\n  • exp         - View career history & ICPC coaching\n  • certs       - View Fortinet, NTI, ITI & CS50 credentials\n  • contact     - Show direct email, phone & LinkedIn\n  • clear       - Clear terminal history\n  • whoami      - Print current user identity\n  • matrix      - Trigger cyber matrix mode`
         }),
-        'resume': () => {
-            const modalBackdrop = document.getElementById('resumeModalBackdrop');
-            if (modalBackdrop) {
-                modalBackdrop.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-            return {
-                type: 'success',
-                text: `[✓] Opening Interactive Resume Preview Modal...`
-            };
-        },
-        'cv': () => commands['resume'](),
         'icpc': () => ({
             type: 'success',
             text: `[🏆] What is ICPC? (International Collegiate Programming Contest)\n     The premier global competitive programming competition testing algorithmic problem-solving & math.\n\n[📚] What I Instruct & Coach (50+ Students):\n     • Advanced Data Structures : Segment Trees, Lazy Propagation, Fenwick Trees, DSU, Trie\n     • Graph Theory & Traversal  : Dijkstra, Bellman-Ford, Floyd-Warshall, MST, BFS/DFS, TopoSort\n     • Dynamic Programming      : 1D/2D DP, DP with Bitmask, State Optimization\n     • Complexity & Optimization: O(N log N) / O(1) runtime optimization, space reduction\n     • Mentorship               : Training university teams for national qualifiers (ECPC / ICPC)`
@@ -657,12 +241,19 @@ function initInteractiveTerminal() {
             type: 'success',
             text: `omar@soc-core:~$ (Omar Hisham Elshayal - Cybersecurity Specialist, Full-Stack .NET Engineer & ICPC Coach)`
         }),
+        'sudo': () => ({
+            type: 'warn',
+            text: `[!] Permission denied: Guest user does not have root privileges.`
+        }),
+        'date': () => ({
+            type: 'default',
+            text: new Date().toUTCString()
+        }),
         'matrix': () => {
-            const matrixBtn = document.getElementById('matrixModeToggleBtn');
-            if (matrixBtn) matrixBtn.click();
+            triggerMatrixFlash();
             return {
                 type: 'success',
-                text: `[✓] Toggling Matrix Mode animation...`
+                text: `[✓] System matrix mode initialized successfully.`
             };
         },
         'clear': () => {
@@ -671,6 +262,8 @@ function initInteractiveTerminal() {
         }
     };
 
+
+    // Process Command Enter
     termInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             const rawCmd = termInput.value.trim();
@@ -725,16 +318,25 @@ function initInteractiveTerminal() {
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#039;');
     }
+
+    function triggerMatrixFlash() {
+        const body = document.body;
+        body.style.filter = 'hue-rotate(90deg) contrast(1.2)';
+        setTimeout(() => {
+            body.style.filter = '';
+        }, 1500);
+    }
 }
 
 /* ==========================================================================
-   7. NAVIGATION & SCROLL SPY
+   3. NAVIGATION, SCROLL SPY & SCROLL EVENTS
    ========================================================================== */
 function initNavEvents() {
     const navLinks = document.querySelectorAll('.nav-link');
     const scrollIndicator = document.getElementById('scrollTrigger');
     const sections = document.querySelectorAll('main, section');
 
+    // Scroll spy using IntersectionObserver
     const observerOptions = {
         root: null,
         rootMargin: '-20% 0px -60% 0px',
@@ -761,6 +363,7 @@ function initNavEvents() {
 
     sections.forEach(section => observer.observe(section));
 
+    // Scroll indicator click -> scroll to About section
     if (scrollIndicator) {
         scrollIndicator.addEventListener('click', () => {
             const aboutSection = document.getElementById('about');
@@ -772,7 +375,7 @@ function initNavEvents() {
 }
 
 /* ==========================================================================
-   8. MINI CONNECT TERMINAL
+   4. MINI CONNECT TERMINAL
    ========================================================================== */
 function initConnectTerminal() {
     const connectBox = document.querySelector('.connect-terminal-box');
@@ -788,6 +391,23 @@ function initConnectTerminal() {
                 msg.innerText = 'Ready to collaborate 🚀';
             }, 3000);
         }
+    });
+}
+
+/* ==========================================================================
+   5. DOWNLOAD CV INTERACTION
+   ========================================================================== */
+function initDownloadCV() {
+    const cvBtn = document.getElementById('downloadCvBtn');
+    if (!cvBtn) return;
+
+    cvBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        alert("CV Download: You can download the latest CV from Omar's GitHub repository or contact directly at omar.sec@example.com");
     });
 }
 

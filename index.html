@@ -183,7 +183,7 @@
 
                     <!-- Terminal Footer -->
                     <div class="terminal-footer">
-                        <span class="footer-tip"><i class="fa-solid fa-terminal"></i> Try: <code class="code-badge">skills</code>, <code class="code-badge">icpc</code>, <code class="code-badge">fortinet</code>, <code class="code-badge">projects</code>, <code class="code-badge">certs</code>, <code class="code-badge">help</code></span>
+                        <span class="footer-tip"><i class="fa-solid fa-terminal"></i> Try: <code class="code-badge">icpc</code>, <code class="code-badge">fortinet</code>, <code class="code-badge">skills</code>, <code class="code-badge">projects</code>, <code class="code-badge">certs</code>, <code class="code-badge">help</code></span>
                     </div>
                 </div>
             </div>
@@ -384,7 +384,7 @@
         </div>
     </section>
 
-    <!-- SECTION 02: TECHNICAL SKILLS (Original Grid Layout + Click-to-Modal) -->
+    <!-- SECTION 02: SKILLS -->
     <section id="skills" class="content-section">
         <div class="section-container">
             <div class="section-top-bar">
@@ -401,8 +401,8 @@
             </h2>
 
             <div class="skills-grid">
-                <!-- 1. FortiSIEM & FortiAnalyzer (Highlighted) -->
-                <div class="skill-card skill-card-featured" data-skill-id="fortinet" title="Click to view deep details">
+                <!-- FortiSIEM & FortiAnalyzer (Highlighted) -->
+                <div class="skill-card skill-card-featured">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -410,8 +410,8 @@
                     <span class="skill-sub">Fortinet &amp; NTI Certified (2026)</span>
                 </div>
 
-                <!-- 2. Network Security & Penetration Testing -->
-                <div class="skill-card" data-skill-id="network-sec" title="Click to view deep details">
+                <!-- Network Security & Penetration Testing -->
+                <div class="skill-card">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
@@ -419,8 +419,8 @@
                     <span class="skill-sub">Wireshark, Metasploit, Packet Tracer</span>
                 </div>
 
-                <!-- 3. C# & .NET 8/9 -->
-                <div class="skill-card" data-skill-id="dotnet" title="Click to view deep details">
+                <!-- C# & .NET Core -->
+                <div class="skill-card">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-code"></i>
                     </div>
@@ -428,8 +428,8 @@
                     <span class="skill-sub">ASP.NET Core Web API &amp; MVC</span>
                 </div>
 
-                <!-- 4. C++ & Algorithms (ICPC) -->
-                <div class="skill-card" data-skill-id="icpc" title="Click to view deep details">
+                <!-- C++ & Algorithms (ICPC) -->
+                <div class="skill-card">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
@@ -437,8 +437,8 @@
                     <span class="skill-sub">Graphs, Dynamic Programming, DSU</span>
                 </div>
 
-                <!-- 5. React & TypeScript -->
-                <div class="skill-card" data-skill-id="react" title="Click to view deep details">
+                <!-- React & TypeScript -->
+                <div class="skill-card">
                     <div class="skill-icon-box">
                         <i class="fa-brands fa-react"></i>
                     </div>
@@ -446,8 +446,8 @@
                     <span class="skill-sub">Tailwind CSS &amp; State Management</span>
                 </div>
 
-                <!-- 6. SQL Server & EF Core -->
-                <div class="skill-card" data-skill-id="sql" title="Click to view deep details">
+                <!-- SQL Server & EF Core -->
+                <div class="skill-card">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-database"></i>
                     </div>
@@ -455,8 +455,8 @@
                     <span class="skill-sub">Migrations, LINQ, Resilience</span>
                 </div>
 
-                <!-- 7. Google Gemini AI -->
-                <div class="skill-card" data-skill-id="gemini-ai" title="Click to view deep details">
+                <!-- AI & LLM Integration -->
+                <div class="skill-card">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-brain"></i>
                     </div>
@@ -464,22 +464,13 @@
                     <span class="skill-sub">Semantic Analysis &amp; Automation</span>
                 </div>
 
-                <!-- 8. SignalR & WebSockets -->
-                <div class="skill-card" data-skill-id="signalr" title="Click to view deep details">
+                <!-- SignalR & WebSockets -->
+                <div class="skill-card">
                     <div class="skill-icon-box">
                         <i class="fa-solid fa-tower-broadcast"></i>
                     </div>
                     <span class="skill-name">SignalR &amp; Real-Time</span>
                     <span class="skill-sub">Hubs, Notifications &amp; WebSockets</span>
-                </div>
-
-                <!-- 9. Docker & DevOps -->
-                <div class="skill-card" data-skill-id="docker-cloud" title="Click to view deep details">
-                    <div class="skill-icon-box">
-                        <i class="fa-brands fa-docker"></i>
-                    </div>
-                    <span class="skill-name">Docker &amp; Cloud DevOps</span>
-                    <span class="skill-sub">Railway, Vercel &amp; GitHub Actions</span>
                 </div>
             </div>
         </div>
@@ -818,60 +809,6 @@
             </div>
         </div>
     </section>
-
-    <!-- FLOATING SKILL DETAIL MODAL ("صفحة عايمة عند الضغط على أي مهارة") -->
-    <div class="skill-modal-backdrop" id="skillModalBackdrop">
-        <div class="skill-modal-dialog">
-            <div class="skill-modal-header">
-                <div class="skill-modal-header-left">
-                    <div class="skill-modal-icon" id="skillModalIcon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <div>
-                        <div class="skill-modal-cat" id="skillModalCat">Cybersecurity &amp; SIEM</div>
-                        <h3 class="skill-modal-title" id="skillModalTitle">FortiSIEM &amp; FortiAnalyzer</h3>
-                    </div>
-                </div>
-                <button class="skill-modal-close" id="skillModalCloseBtn" title="Close details">&times;</button>
-            </div>
-
-            <div class="skill-modal-body">
-                <div class="skill-modal-badge" id="skillModalBadge">NTI 2026 CERTIFIED</div>
-                
-                <div class="skill-modal-section">
-                    <h4 class="skill-modal-sec-title">Overview &amp; Practical Experience</h4>
-                    <p class="skill-modal-desc" id="skillModalDesc">
-                        Specialized in enterprise security operations, real-time threat telemetry correlation, centralized log intelligence, and automated incident triage.
-                    </p>
-                </div>
-
-                <div class="skill-modal-section">
-                    <h4 class="skill-modal-sec-title">Core Practical Capabilities</h4>
-                    <ul class="skill-modal-list" id="skillModalList">
-                        <!-- Dynamic list items -->
-                    </ul>
-                </div>
-
-                <div class="skill-modal-section">
-                    <h4 class="skill-modal-sec-title">Applied in Real Projects</h4>
-                    <div class="skill-modal-projects" id="skillModalProjects">
-                        <!-- Dynamic project cards -->
-                    </div>
-                </div>
-
-                <div class="skill-modal-section">
-                    <h4 class="skill-modal-sec-title">Technologies &amp; Tools</h4>
-                    <div class="skill-modal-tags" id="skillModalTags">
-                        <!-- Dynamic tags -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-modal-footer">
-                <button class="cta-button" id="skillModalCloseFooterBtn">CLOSE</button>
-            </div>
-        </div>
-    </div>
 
     <!-- FOOTER -->
     <footer class="site-footer">
